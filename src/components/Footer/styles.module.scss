@@ -1,16 +1,10 @@
 .footer {
   height: 60px;
-  background-color: black;
+  background-color: white;
   position: fixed;
   bottom: 0;
   width: 100%;
- 
-
-  @media only screen and (max-width: 780px) {
-    display: block;
-    // transition: all .35s ease;
-    // animation: slideUp 3s;
-  }
+  display: none;
 
   .content {
     padding: 16px;
@@ -25,31 +19,25 @@
         align-items: center;
         justify-content: center;
         list-style: none;
-        font-size: 22px;
         position: relative;
 
         svg {
           z-index: 1;
-          color: white;
+          color: black;
+          font-size: 25px;
         }
 
         &.active {
-          svg {
-            font-size: 25px;
-            transform: translateY(-10px);
-          }
-
           .indicator {
-            background-color: black;
+            background-color: white;
             position: absolute;
             transform: translateY(-15px);
             border-radius: 999px;
             width: 60px;
             height: 60px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            color: white;
 
             &::before {
               content: "";
@@ -60,7 +48,7 @@
               background-color: transparent;
               width: 80px;
               height: 60px;
-              box-shadow: 28px 48px black;
+              box-shadow: 28px 48px white;
             }
 
             &::after {
@@ -72,30 +60,42 @@
               background-color: transparent;
               width: 80px;
               height: 60px;
-              box-shadow: -28px 48px black;
+              box-shadow: -28px 48px white;
             }
-
-            
           }
         }
       }
+    }
+  }
+
+  @media only screen and (max-width: 780px) {
+    display: block;
+
+    &.show {
+      animation: slideUp 0.75s ease forwards;
+    }
+
+    &.disable {
+      animation: slideDown 0.75s ease forwards;
     }
   }
 }
 
 @keyframes slideUp {
   0% {
-    transform: translateY(-100px);
+    transform: translateY(150px);
   }
   100% {
-    transform: translateY(60px);
+    transform: translateY(0px);
   }
 }
 @keyframes slideDown {
   0% {
-    transform: translateY(0);
+    transform: translateY(0px);
+    opacity: 1;
   }
   100% {
-    transform: translateY(100px);
+    transform: translateY(150px);
+    opacity: 0;
   }
 }
