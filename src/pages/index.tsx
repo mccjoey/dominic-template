@@ -8,6 +8,9 @@ const Home: NextPage = () => {
     <main className={styles.main}>
       <div className={styles.content}>
         <PageBanner />
+        <PageBanner />
+        <PageBanner />
+        <PageBanner />
         <div>
           <SectionTitle />
         </div>

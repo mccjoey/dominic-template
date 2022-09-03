@@ -1,9 +1,16 @@
 .footer {
   height: 60px;
-  background-color: white;
+  background-color: black;
   position: fixed;
   bottom: 0;
   width: 100%;
+ 
+
+  @media only screen and (max-width: 780px) {
+    display: block;
+    // transition: all .35s ease;
+    // animation: slideUp 3s;
+  }
 
   .content {
     padding: 16px;
@@ -23,6 +30,7 @@
 
         svg {
           z-index: 1;
+          color: white;
         }
 
         &.active {
@@ -32,42 +40,62 @@
           }
 
           .indicator {
-            background-color: white;
+            background-color: black;
             position: absolute;
-            transform: translateY(-30px);
-            border-radius: 100px;
-            width: 50px;
-            height: 50px;
+            transform: translateY(-15px);
+            border-radius: 999px;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
 
             &::before {
               content: "";
               position: absolute;
-              left: -28px;
-              top: -2px;
+              left: -60px;
+              top: -42px;
               border-radius: 50%;
               background-color: transparent;
-              width: 30px;
-              height: 30px;
-              box-shadow: 15px 18px white;
+              width: 80px;
+              height: 60px;
+              box-shadow: 28px 48px black;
             }
 
             &::after {
               content: "";
               position: absolute;
-              right: -28px;
-              top: -2px;
+              right: -60px;
+              top: -42px;
               border-radius: 50%;
               background-color: transparent;
-              width: 30px;
-              height: 30px;
-              box-shadow: -15px 18px white;
+              width: 80px;
+              height: 60px;
+              box-shadow: -28px 48px black;
             }
+
+            
           }
         }
       }
     }
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(60px);
+  }
+}
+@keyframes slideDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100px);
   }
 }
