@@ -1,14 +1,8 @@
 import type { NextPage } from "next";
-import styles from "./styles.module.scss";
+import DevelopingPage from "../../../../components/DevelopingPage";
 
 const HomeDesktop: NextPage = () => {
-  return (
-    <main className={styles.main}>
-      <div className={styles.content} style={{backgroundImage : 'url(/images/placeholder_background.jpeg)'}}>
-        <h1> {`{  Em desenvolvimento...  }`} </h1>
-      </div>
-    </main>
-  );
+  return <DevelopingPage />;
 };
 
 export default HomeDesktop;
