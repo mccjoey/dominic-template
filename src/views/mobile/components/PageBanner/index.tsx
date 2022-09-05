@@ -6,7 +6,7 @@ export const PageBanner: React.FC = () => {
     <Image
       className={styles.pageBanner}
       src="/images/_09A2340.jpg"
-      loading="lazy"
+      priority
       width={1800}
       height={2700}
       alt="banner"

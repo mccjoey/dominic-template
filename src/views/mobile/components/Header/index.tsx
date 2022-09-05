@@ -3,7 +3,7 @@ import { IoIosMenu } from "react-icons/io";
 import { BsSearch } from "react-icons/bs";
 import { MdOutlineShoppingBasket } from "react-icons/md";
 
-export const Header: React.FC = () => {
+export const HeaderMobile: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.content}>

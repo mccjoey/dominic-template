@@ -1,26 +1,16 @@
 import type { NextPage } from "next";
-import { PageBanner } from "../components/PageBanner";
-import { SectionTitle } from "../components/SectionTitle";
-import styles from "./styles.module.scss";
+import useView from "../hooks/useView";
+import HomeDesktop from "../views/desktop/pages/Home";
+import HomeMobile from "../views/mobile/pages/Home";
 
 const Home: NextPage = () => {
-  return (
-    <main className={styles.main}>
-      <div className={styles.content}>
-        <PageBanner />
-        <PageBanner />
-        <PageBanner />
-        <PageBanner />
-        <div>
-          <SectionTitle />
-        </div>
-        <div>Novidades</div>
-        <div>Novidades2</div>
-        <div>BestSellerCarousel</div>
-        <div>Lives</div>
-      </div>
-    </main>
-  );
+  const { innerWidth = 0 } = useView();
+
+  if (innerWidth <= 780) {
+    return <HomeMobile />;
+  }
+
+  return <HomeDesktop />;
 };
 
 export default Home;

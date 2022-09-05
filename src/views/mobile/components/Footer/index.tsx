@@ -4,7 +4,7 @@ import { MdLiveTv } from "react-icons/md";
 import { BsPerson, BsBag, BsDot } from "react-icons/bs";
 import { useCallback, useEffect, useState } from "react";
 
-export const Footer: React.FC = () => {
+export const FooterMobile: React.FC = () => {
   const [viewPosition, setViewPosition] = useState<string>("show");
   const getViewPosition = useCallback(() => {
     if (window.scrollY >= 450) {
