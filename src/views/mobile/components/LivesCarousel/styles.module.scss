@@ -1,0 +1,44 @@
+.livesCarousel {
+  padding: 0 16px 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.liveItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0.5);
+  border-radius: 30px;
+  height: 210px;
+  margin-right: 10px;
+ 
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+
+    .liveDate {
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    .liveHour {
+      font-weight: 700;
+      font-size: 48px;
+      margin-bottom: 40px;
+    }
+
+    svg {
+      font-size: 45px;
+      background-color: rgba(255,255,255,.3);
+      padding: 10px;
+      border-radius: 100%;
+
+    }
+  }
+}

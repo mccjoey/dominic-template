@@ -1,19 +1,17 @@
 import styles from "./styles.module.scss";
-import { IoIosMenu } from "react-icons/io";
-import { BsSearch } from "react-icons/bs";
-import { MdOutlineShoppingBasket } from "react-icons/md";
+import Image from "next/future/image";
 
 export const HeaderMobile: React.FC = () => {
   return (
     <header className={styles.header}>
       <div className={styles.content}>
         <div className={styles.headerMenu}>
-          <IoIosMenu />
+          <Image width={32} height={32} src="/icons/menu.svg" priority />
         </div>
         <h1 className={styles.headerTitle}>Título</h1>
         <div className={styles.headerNav}>
-          <BsSearch />
-          <MdOutlineShoppingBasket />
+          <Image width={32} height={32} src="/icons/search.svg" priority />
+          <Image width={32} height={32} src="/icons/cart.svg" priority />
         </div>
       </div>
     </header>

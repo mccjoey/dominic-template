@@ -1,0 +1,39 @@
+.newestProducts {
+  padding: 0 16px 60px;
+  display: flex;
+  flex-direction: column;
+
+  .productsList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 10px;
+    row-gap: 30px;
+  }
+}
+
+.productItem {
+  display: flex;
+  flex-direction: column;
+  
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .productName {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .productPrice {
+    font-weight: 700;
+    font-size: 12px;
+    margin: 10px 0 5px;
+  }
+
+  .productInterest {
+    font-weight: 400;
+    font-size: 12px;
+  }
+}

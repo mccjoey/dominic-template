@@ -2,22 +2,11 @@ import styles from "./styles.module.scss";
 import { BiHomeSmile } from "react-icons/bi";
 import { MdLiveTv } from "react-icons/md";
 import { BsPerson, BsBag, BsDot } from "react-icons/bs";
-import { useCallback, useEffect, useState } from "react";
+import useViewPosition from "../../../../hooks/useViewPosition";
+import Image from "next/future/image";
 
 export const FooterMobile: React.FC = () => {
-  const [viewPosition, setViewPosition] = useState<string>("show");
-  const getViewPosition = useCallback(() => {
-    if (window.scrollY >= 450) {
-      setViewPosition("disable");
-    } else {
-      setViewPosition("show");
-    }
-  }, [viewPosition]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", getViewPosition, false);
-    return () => window.removeEventListener("scroll", getViewPosition, false);
-  }, []);
+  const viewPosition = useViewPosition();
 
   return (
     <footer className={`${styles.footer} ${styles[viewPosition]}`}>
@@ -25,21 +14,26 @@ export const FooterMobile: React.FC = () => {
         <nav>
           <li className={`${styles.footerMenuItem} ${styles.active}`}>
             <div className={styles.indicator}>
-              <BsDot />
+              <small> &#9679;</small>
             </div>
-            <BiHomeSmile />
+            <Image width={32} height={32} src="/icons/home.svg" priority />
           </li>
           <li className={styles.footerMenuItem}>
             <div className={styles.indicator} />
-            <BsBag />
+            <Image
+              width={32}
+              height={32}
+              src="/icons/shopping_bag.svg"
+              priority
+            />
           </li>
           <li className={styles.footerMenuItem}>
             <div className={styles.indicator} />
-            <MdLiveTv />
+            <Image width={32} height={32} src="/icons/live.svg" priority />
           </li>
           <li className={styles.footerMenuItem}>
             <div className={styles.indicator} />
-            <BsPerson />
+            <Image width={32} height={32} src="/icons/user.svg" priority />
           </li>
         </nav>
       </div>

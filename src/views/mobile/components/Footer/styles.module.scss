@@ -4,7 +4,6 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  display: none;
 
   .content {
     padding: 16px;
@@ -21,10 +20,8 @@
         list-style: none;
         position: relative;
 
-        svg {
+        img {
           z-index: 1;
-          color: black;
-          font-size: 25px;
         }
 
         &.active {
@@ -32,12 +29,16 @@
             background-color: white;
             position: absolute;
             transform: translateY(-15px);
-            border-radius: 999px;
             width: 60px;
             height: 60px;
             display: flex;
             align-items: flex-start;
             justify-content: center;
+            border-radius: 100%;
+
+            small {
+              background-color: transparent;
+            }
 
             &::before {
               content: "";
@@ -68,16 +69,12 @@
     }
   }
 
-  @media only screen and (max-width: 780px) {
-    display: block;
+  &.show {
+    animation: slideUp 0.75s ease forwards;
+  }
 
-    &.show {
-      animation: slideUp 0.75s ease forwards;
-    }
-
-    &.disable {
-      animation: slideDown 0.75s ease forwards;
-    }
+  &.disable {
+    animation: slideDown 0.75s ease forwards;
   }
 }
 
@@ -89,6 +86,7 @@
     transform: translateY(0px);
   }
 }
+
 @keyframes slideDown {
   0% {
     transform: translateY(0px);

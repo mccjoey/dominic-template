@@ -4,6 +4,8 @@ import useView from "../hooks/useView";
 
 import "../styles/global.scss";
 
+
+
 //DESKTOP
 
 //MOBILE
