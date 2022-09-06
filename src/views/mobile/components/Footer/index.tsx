@@ -14,7 +14,7 @@ export const FooterMobile: React.FC = () => {
         <nav>
           <li className={`${styles.footerMenuItem} ${styles.active}`}>
             <div className={styles.indicator}>
-              <small> &#9679;</small>
+              <small>&#9679;</small>
             </div>
             <Image width={32} height={32} src="/icons/home.svg" priority />
           </li>
