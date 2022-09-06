@@ -48,11 +48,11 @@
             &::before {
               content: "";
               position: absolute;
-              left: -70px;
+              left: -60px;
               top: -42px;
               border-radius: 50%;
               background-color: transparent;
-              width: 90px;
+              width: 80px;
               height: 60px;
               box-shadow: 28px 48px white;
             }
@@ -60,11 +60,11 @@
             &::after {
               content: "";
               position: absolute;
-              right: -70px;
+              right: -60px;
               top: -42px;
               border-radius: 50%;
               background-color: transparent;
-              width: 90px;
+              width: 80px;
               height: 60px;
               box-shadow: -28px 48px white;
             }
