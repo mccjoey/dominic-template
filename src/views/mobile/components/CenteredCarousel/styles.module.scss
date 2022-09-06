@@ -1,11 +1,12 @@
 .centeredCarousel {
-  padding: 0 15px 60px;
+  padding: 0px 0px 60px;
   display: flex;
   flex-direction: column;
   background-color: #DBDBDB;
 
   > div:first-of-type  {
     color: white;
+    padding: 60px 15px 30px;
   }
 
 }

@@ -1,9 +1,12 @@
 import styles from "./styles.module.scss";
 import Image from "next/future/image";
+import useViewPosition from "../../../../hooks/useViewPosition";
 
 export const HeaderMobile: React.FC = () => {
+  const viewPosition = useViewPosition(); 
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header } ${styles[viewPosition]}`}>
       <div className={styles.content}>
         <div className={styles.headerMenu}>
           <Image

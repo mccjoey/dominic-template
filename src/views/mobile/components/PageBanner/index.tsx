@@ -5,7 +5,7 @@ export const PageBanner: React.FC = () => {
   return (
     <section className={styles.pageBanner}>
       <Image
-        src="/images/homeBanner.jpg"
+        src="/images/homeBanner2.jpg"
         priority
         width={1800}
         height={2700}

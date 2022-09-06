@@ -5,11 +5,12 @@ import { LiveItem } from "./LiveItem";
 
 export const LivesCarousel = () => {
   const carouselSettings = {
-    dots: false,
+    arrows: false,
+    centerMode: false,
     infinite: false,
-    speed: 500,
+    centerPadding: "50px",
     slidesToShow: 2.5,
-    slidesToScroll: 1,
+    speed: 500,
   };
 
   return (
