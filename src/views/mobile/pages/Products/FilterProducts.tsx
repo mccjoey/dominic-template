@@ -23,7 +23,9 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           }}
           scroll={false}
         >
-          <small>PP</small>
+          <small className={`${query.tamanho === "PP" && styles.active}`}>
+            PP
+          </small>
         </Link>
         <Link
           href={{
@@ -32,7 +34,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           }}
           scroll={false}
         >
-          <small>P</small>
+          <small className={`${query.tamanho === "P" && styles.active}`}>P</small>
         </Link>
         <Link
           href={{
@@ -41,7 +43,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           }}
           scroll={false}
         >
-          <small>M</small>
+          <small className={`${query.tamanho === "M" && styles.active}`}>M</small>
         </Link>
         <Link
           href={{
@@ -50,7 +52,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           }}
           scroll={false}
         >
-          <small>G</small>
+          <small className={`${query.tamanho === "G" && styles.active}`}>G</small>
         </Link>
         <Link
           href={{
@@ -59,7 +61,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           }}
           scroll={false}
         >
-          <small>GG</small>
+          <small className={`${query.tamanho === "GG" && styles.active}`}>GG</small>
         </Link>
       </div>
       <div className={styles.filterMenu}>
