@@ -9,7 +9,7 @@ export const ProductItem = () => {
         loading="lazy"
         width={1800}
         height={2700}
-        alt="banner"
+        alt="Produto"
       />
       <p className={styles.productName}>Blusa Poá Gola Torcida - Preto</p>
       <small className={styles.productPrice}>R$139,00</small>

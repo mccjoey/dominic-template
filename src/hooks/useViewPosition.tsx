@@ -9,11 +9,13 @@ const useViewPosition = () => {
     } else {
       setViewPosition("show");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [viewPosition]);
 
   useEffect(() => {
     window.addEventListener("scroll", getViewPosition, false);
     return () => window.removeEventListener("scroll", getViewPosition, false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return viewPosition;

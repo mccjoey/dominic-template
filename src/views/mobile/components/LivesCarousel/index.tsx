@@ -8,8 +8,8 @@ export const LivesCarousel = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 2.5,   
-    slidesToScroll: 1
+    slidesToShow: 2.5,
+    slidesToScroll: 1,
   };
 
   return (
