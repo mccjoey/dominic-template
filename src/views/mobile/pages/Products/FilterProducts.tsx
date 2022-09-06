@@ -21,6 +21,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
             pathname: pathname,
             query: { ...query, tamanho: "PP" },
           }}
+          scroll={false}
         >
           <small>PP</small>
         </Link>
@@ -29,6 +30,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
             pathname: pathname,
             query: { ...query, tamanho: "P" },
           }}
+          scroll={false}
         >
           <small>P</small>
         </Link>
@@ -37,6 +39,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
             pathname: pathname,
             query: { ...query, tamanho: "M" },
           }}
+          scroll={false}
         >
           <small>M</small>
         </Link>
@@ -45,6 +48,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
             pathname: pathname,
             query: { ...query, tamanho: "G" },
           }}
+          scroll={false}
         >
           <small>G</small>
         </Link>
@@ -53,6 +57,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
             pathname: pathname,
             query: { ...query, tamanho: "GG" },
           }}
+          scroll={false}
         >
           <small>GG</small>
         </Link>
