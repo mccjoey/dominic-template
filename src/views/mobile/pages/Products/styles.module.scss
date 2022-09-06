@@ -1,8 +1,89 @@
 .main {
   background-color: rgba(244, 244, 244, 0.592);
   height: 100%;
-  
+  padding-bottom: 100px;
+
   .content {
     height: 100%;
+  }
+}
+
+.filterProducts {
+  padding: 50px 15px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid #e1e1e1;
+
+  h1 {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+
+  .sizeList {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+
+    small {
+      font-weight: 400;
+      font-size: 12px;
+      padding: 10px 15px;
+      border: 1px solid #000;
+    }
+  }
+
+  .filterMenu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .filter {
+      display: flex;
+      align-items: center;
+
+      small {
+        font-weight: 400;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.productsList {
+  padding: 60px 15px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 10px;
+  row-gap: 30px;
+}
+
+.productItem {
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .productName {
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .productPrice {
+    font-weight: 700;
+    font-size: 12px;
+    margin: 10px 0 5px;
+  }
+
+  .productInterest {
+    font-weight: 400;
+    font-size: 12px;
   }
 }

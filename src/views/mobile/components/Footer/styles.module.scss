@@ -6,7 +6,7 @@
   width: 100%;
 
   .content {
-    padding: 16px;
+    padding: 15px;
 
     nav {
       display: flex;
@@ -55,6 +55,7 @@
               width: 80px;
               height: 60px;
               box-shadow: 28px 48px white;
+              pointer-events: none;
             }
 
             &::after {
@@ -67,6 +68,7 @@
               width: 80px;
               height: 60px;
               box-shadow: -28px 48px white;
+              pointer-events: none;
             }
           }
         }

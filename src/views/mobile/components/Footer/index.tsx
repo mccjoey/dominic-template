@@ -1,7 +1,4 @@
 import styles from "./styles.module.scss";
-import { BiHomeSmile } from "react-icons/bi";
-import { MdLiveTv } from "react-icons/md";
-import { BsPerson, BsBag, BsDot } from "react-icons/bs";
 import useViewPosition from "../../../../hooks/useViewPosition";
 import Image from "next/future/image";
 import Link from "next/link";
@@ -9,9 +6,7 @@ import { useRouter } from "next/router";
 
 export const FooterMobile: React.FC = () => {
   const viewPosition = useViewPosition();
-  const { asPath } = useRouter();
-
-  console.log(asPath);
+  const { pathname } = useRouter();
 
   return (
     <footer className={`${styles.footer} ${styles[viewPosition]}`}>
@@ -19,7 +14,7 @@ export const FooterMobile: React.FC = () => {
         <nav>
           <li
             className={`${styles.footerMenuItem} ${
-              asPath == "/" && styles.active
+              pathname == "/" && styles.active
             }`}
           >
             <div className={styles.indicator}>
@@ -37,7 +32,7 @@ export const FooterMobile: React.FC = () => {
           </li>
           <li
             className={`${styles.footerMenuItem} ${
-              asPath == "/produtos" && styles.active
+              pathname == "/produtos" && styles.active
             }`}
           >
             <div className={styles.indicator}>
@@ -55,7 +50,7 @@ export const FooterMobile: React.FC = () => {
           </li>
           <li
             className={`${styles.footerMenuItem} ${
-              asPath == "/feed" && styles.active
+              pathname == "/feed" && styles.active
             }`}
           >
             <div className={styles.indicator}>
@@ -73,7 +68,7 @@ export const FooterMobile: React.FC = () => {
           </li>
           <li
             className={`${styles.footerMenuItem} ${
-              asPath == "/perfil" && styles.active
+              pathname == "/perfil" && styles.active
             }`}
           >
             <div className={styles.indicator}>
