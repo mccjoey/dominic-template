@@ -9,7 +9,7 @@ export const FooterMobile: React.FC = () => {
   const { pathname } = useRouter();
 
   return (
-    <footer className={`${styles.footer} ${styles[viewPosition]}`}>
+    <footer className={`${styles.footer} ${pathname === "/" && styles[viewPosition]}`}>
       <div className={styles.content}>
         <nav>
           <li

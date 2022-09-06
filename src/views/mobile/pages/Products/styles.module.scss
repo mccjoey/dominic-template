@@ -1,7 +1,7 @@
 .main {
   background-color: rgba(244, 244, 244, 0.592);
   height: 100%;
-  padding-bottom: 100px;
+  padding-bottom: 60px;
 
   .content {
     height: 100%;
@@ -65,10 +65,28 @@
   display: flex;
   flex-direction: column;
 
-  img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
+  .productSlider {
+    display: grid;
+
+    :global(.slick-dots) {
+      bottom: 0px;
+
+      & li button::before {
+        font-size: 10px;
+      }
+
+      & li {
+        width: 5px;
+      }
+    }
+
+    .productImage {
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+      }
+    }
   }
 
   .productName {
@@ -85,5 +103,16 @@
   .productInterest {
     font-weight: 400;
     font-size: 12px;
+  }
+
+  button {
+    margin-top: 30px;
+    border: 0;
+    font-size: 14px;
+    color: white;
+    background-color: black;
+    padding: 12px 0;
+    font-weight: 400;
+    font-family: inherit;
   }
 }

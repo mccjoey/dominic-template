@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 import { SectionTitle } from "../SectionTitle";
-import Slider from "react-slick";
 import { ProductItem } from "./ProductItem";
+import Slider from "react-slick";
 
 export const ProductsCarousel = () => {
   const carouselSettings = {

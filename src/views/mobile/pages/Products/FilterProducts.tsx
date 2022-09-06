@@ -2,7 +2,14 @@ import Image from "next/future/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./styles.module.scss";
-export const FilterProducts = () => {
+
+interface FilterProductsProps {
+  setGridView: (state: number) => void;
+}
+
+export const FilterProducts: React.FC<FilterProductsProps> = ({
+  setGridView,
+}) => {
   const { pathname, query } = useRouter();
 
   return (
@@ -51,7 +58,7 @@ export const FilterProducts = () => {
         </Link>
       </div>
       <div className={styles.filterMenu}>
-        <div className={styles.filter}>       
+        <div className={styles.filter}>
           <Image
             width={32}
             height={32}
@@ -61,13 +68,14 @@ export const FilterProducts = () => {
           />
           <small>Filtro</small>
         </div>
-        <div className={styles.filterView}>       
+        <div className={styles.filterView}>
           <Image
             width={32}
             height={32}
             src="/icons/grid_view.svg"
             priority
             alt="Home"
+            onClick={() => setGridView(2)}
           />
           <Image
             width={32}
@@ -75,6 +83,7 @@ export const FilterProducts = () => {
             src="/icons/single_view.svg"
             priority
             alt="Home"
+            onClick={() => setGridView(1)}
           />
         </div>
       </div>
