@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-bottom: 25px;
 
   header {
@@ -19,14 +19,11 @@
     }
   }
 
-  
-
   .productsList {
-    flex: 1;
+    
     display: flex;
     flex-direction: column;
     gap: 15px;
-    overflow-y: auto;
     padding: 25px;
   }
 

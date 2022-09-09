@@ -2,6 +2,7 @@ import styles from "./styles.module.scss";
 import Image from "next/future/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import {BsDot} from "react-icons/bs";
 import useShowFooter from "../../../../hooks/useShowFooter";
 
 export const FooterMobile: React.FC = () => {
@@ -22,7 +23,7 @@ export const FooterMobile: React.FC = () => {
             }`}
           >
             <div className={styles.indicator}>
-              <small>&#9679;</small>
+            <BsDot />
             </div>
             <Link href="/">
               <Image

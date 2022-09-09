@@ -22,7 +22,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           </p>
         </header>
         <div className={styles.productsList}>
-          {Array.from({ length: 15 }).map((product, index) => (
+          {Array.from({ length: 3 }).map((product, index) => (
             <ProductItem key={`CartProductItem${index}`} />
           ))}
         </div>
