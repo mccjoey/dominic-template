@@ -40,8 +40,8 @@
     }
   }
 
-  &.disable {
-    position: sticky;
+  &.sticky {
+    position: fixed;
     background-color: white;
     animation: slideDown 0.75s ease forwards;
   }

@@ -43,6 +43,7 @@
             small {
               font-size: 10px;
               background-color: transparent;
+              z-index: 2;
             }
 
             &::before {
@@ -80,7 +81,7 @@
     animation: slideUp 0.75s ease forwards;
   }
 
-  &.disable {
+  &.hidden {
     animation: slideDown 0.75s ease forwards;
   }
 }

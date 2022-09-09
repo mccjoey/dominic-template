@@ -1,15 +1,19 @@
 import styles from "./styles.module.scss";
-import useViewPosition from "../../../../hooks/useViewPosition";
 import Image from "next/future/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import useShowFooter from "../../../../hooks/useShowFooter";
 
 export const FooterMobile: React.FC = () => {
-  const viewPosition = useViewPosition();
+  const showFooter = useShowFooter();
   const { pathname } = useRouter();
 
   return (
-    <footer className={`${styles.footer} ${pathname === "/" && styles[viewPosition]}`}>
+    <footer
+      className={`${styles.footer} ${
+        pathname === "/" && styles[showFooter ? "show" : "hidden"]
+      }`}
+    >
       <div className={styles.content}>
         <nav>
           <li
