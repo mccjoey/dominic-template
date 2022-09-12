@@ -3,6 +3,7 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { ProductItem } from "./ProductItem";
 import { GrClose } from "react-icons/gr";
+import { FavoritedProductItem } from "./FavoritedProductItem";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -28,6 +29,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           {Array.from({ length: 3 }).map((product, index) => (
             <ProductItem key={`CartProductItem${index}`} />
           ))}
+          <FavoritedProductItem />
         </div>
         <footer>
           <div className={styles.subtotal}>

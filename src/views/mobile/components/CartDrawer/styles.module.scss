@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding-bottom: 25px;
+  padding-bottom: 100px;
   overflow-y: auto;
   position: relative;
 
@@ -138,6 +138,12 @@
     .productPrice {
       font-weight: 700;
       margin-top: 10px;
+    }
+
+    .removeFavorite {
+      font-size: 12px;
+      margin-top: 5px;
+      border-bottom: 1px solid black;
     }
   }
 }
