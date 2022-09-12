@@ -5,22 +5,38 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-bottom: 25px;
+  overflow-y: auto;
+  position: relative;
+
+  .closeModal {
+    font-size: 15px;
+    right: 25px;
+    top: 15px;
+    position: absolute;
+  }
 
   header {
+    margin-top: 45px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 25px ;
-    padding: 40px 0 20px;    
+    padding: 0 25px;
+    border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
 
     p {
+      flex: 1;
+      text-align: center;
       font-size: 14px;
+      padding: 15px 0;
+
+      &.active {
+        border-bottom: 2px solid black;
+      }
     }
   }
 
   .productsList {
-    
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -28,22 +44,27 @@
   }
 
   footer {
-    padding: 0px 25px;
     .subtotal {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 20px 0;
-      border-top: 1px solid #e1e1e1;
-      border-bottom: 1px solid #e1e1e1;
+      justify-content: center;
+      padding: 25px 0;
+      background-color: #f6f6f6;
       margin-bottom: 15px;
 
       p {
         font-size: 12px;
+        display: flex;
+        gap: 10px;
+
+        span {
+          font-weight: 700;
+        }
       }
     }
 
     .buttons {
+      padding: 0 25px;
       display: flex;
       flex-direction: column;
       gap: 15px;
@@ -65,13 +86,14 @@
 }
 
 .productItem {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
   gap: 15px;
   position: relative;
 
   img {
-    width: 60px;
+    width: 100%;
     height: auto;
   }
 
@@ -90,25 +112,32 @@
     font-size: 14px;
     gap: 10px;
 
+    .productName,
+    .productColor,
+    .productSize {
+    }
+
     .productQuantity {
       width: 100%;
       flex: 1;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-start;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-      .value {
-        font-size: 14px;
+      span {
         display: flex;
         align-items: center;
-        gap: 10px;
-
-        span {
-          display: flex;
-          align-items: center;
-          gap: 5px;
-        }
+        gap: 5px;
       }
+    }
+
+    .productPrice {
+      font-weight: 700;
+      margin-top: 10px;
     }
   }
 }
