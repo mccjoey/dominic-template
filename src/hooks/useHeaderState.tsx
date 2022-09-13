@@ -4,7 +4,7 @@ const useHeaderState = () => {
   const [show, setShow] = useState(false);
 
   const getViewPosition = useCallback(() => {
-    if (window.scrollY >= 500) {
+    if (window.scrollY >= 300) {
       setShow(true);
     } else {
       setShow(false);

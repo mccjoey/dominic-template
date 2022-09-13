@@ -4,6 +4,9 @@ import "react-modern-drawer/dist/index.css";
 import { ProductItem } from "./ProductItem";
 import { GrClose } from "react-icons/gr";
 import { FavoritedProductItem } from "./FavoritedProductItem";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { CartTabContent } from "./CartTabContent";
+import { FavoriteTabContent } from "./FavoriteTabContent";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -21,27 +24,21 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           className={styles.closeModal}
           onClick={() => setIsOpen(!isOpen)}
         />
-        <header>
-          <p className={styles.title}>Lista de desejos (1)</p>
-          <p className={`${styles.title} ${styles.active}`}>Carrinho (1)</p>
-        </header>
-        <div className={styles.productsList}>
-          {Array.from({ length: 3 }).map((product, index) => (
-            <ProductItem key={`CartProductItem${index}`} />
-          ))}
-          <FavoritedProductItem />
-        </div>
-        <footer>
-          <div className={styles.subtotal}>
-            <p>
-              Subtotal:<span>R$299,00</span>
-            </p>
-          </div>
-          <div className={styles.buttons}>
-            <button>Ver carrinho</button>
-            <button>Finalizar compra</button>
-          </div>
-        </footer>
+        <Tabs defaultIndex={1}>
+          <TabList className={styles.header}>
+            <Tab className={styles.title}>Lista de desejos (2)</Tab>
+            <Tab className={styles.title} >
+              Carrinho (3)
+            </Tab>
+          </TabList>
+
+          <TabPanel>
+            <FavoriteTabContent />
+          </TabPanel>
+          <TabPanel>
+            <CartTabContent />
+          </TabPanel>
+        </Tabs>
       </section>
     </Drawer>
   );
