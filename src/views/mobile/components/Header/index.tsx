@@ -118,12 +118,12 @@ export const HeaderMobile: React.FC = () => {
               <small>Promoção</small>
               <BsChevronRight />
             </li>
-            <hr />
+            <div className={styles.divider} />
             <li>
               <small>Blog</small>
             </li>
            
-            <hr />
+            <div className={styles.divider} />
             <li>
               <small>Sobre Nós</small>
             </li>

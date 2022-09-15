@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; 
+  flex-direction: column;
   position: absolute;
   width: 100%;
   top: 0;
@@ -146,17 +146,16 @@
         > small {
           font-weight: 400;
         }
-     
+
         > ul {
           display: flex;
         }
       }
     }
 
-    hr {
+    .divider {
       margin-bottom: 20px;
-      border-color: #e7e6e2;
-      border-width: 1px;
+      border-bottom: 1px solid #e7e6e2;
     }
   }
 
