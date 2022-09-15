@@ -34,6 +34,7 @@ export const HeaderMobile: React.FC = () => {
     if (isCartOpen) {
       handleMenuCart();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCartOpen]);
 
   return (
