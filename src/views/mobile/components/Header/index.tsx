@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import Image from "next/future/image";
 import useHeaderState from "../../../../hooks/useHeaderState";
 import { CartDrawer } from "../CartDrawer";
-import { BaseSyntheticEvent, useEffect, useState } from "react";
+import { BaseSyntheticEvent, useCallback, useEffect, useState } from "react";
 import useShowFooter from "../../../../hooks/useShowFooter";
 import { BsChevronRight } from "react-icons/bs";
 
@@ -18,6 +18,10 @@ export const HeaderMobile: React.FC = () => {
     }
   };
 
+  const handleMenuCart = useCallback(() => {
+    setIsHeaderMenuOpen(false);
+  }, []);
+
   useEffect(() => {
     if (isHeaderMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -25,6 +29,12 @@ export const HeaderMobile: React.FC = () => {
       document.body.style.overflow = "auto";
     }
   }, [isHeaderMenuOpen]);
+
+  useEffect(() => {
+    if (isCartOpen) {
+      handleMenuCart();
+    }
+  }, [isCartOpen]);
 
   return (
     <>
@@ -64,7 +74,7 @@ export const HeaderMobile: React.FC = () => {
         {isHeaderMenuOpen && (
           <ul className={styles.menuContent}>
             <li data-hasubmenu="true">
-              <small onClick={handleOpenSubmenu}>NEW</small>
+              <small onClick={handleOpenSubmenu}>Novidades</small>
               <BsChevronRight />
               <ul className={styles.subMenu}>
                 <li data-hasubmenu="true">
@@ -96,39 +106,34 @@ export const HeaderMobile: React.FC = () => {
               </ul>
             </li>
             <li>
-              <small>Women</small>
+              <small>Coleção | Accordion</small>
               <BsChevronRight />
             </li>
             <li>
-              <small>Men</small>
+              <small>Roupas</small>
+              <BsChevronRight />
+            </li>
+            <li>
+              <small>Promoção</small>
               <BsChevronRight />
             </li>
             <hr />
             <li>
-              <small>About Us</small>
+              <small>Blog</small>
             </li>
-            <li>
-              <small>Corporate</small>
-            </li>
-
-            <li>
-              <small>Delivery</small>
-            </li>
-            <li>
-              <small>Returns</small>
-            </li>
-            <li>
-              <small>Sizes</small>
-            </li>
+           
             <hr />
             <li>
-              <small>Delivery</small>
+              <small>Sobre Nós</small>
             </li>
             <li>
-              <small>Returns</small>
+              <small>Rastrear Pedidos</small>
             </li>
             <li>
-              <small>Sizes</small>
+              <small>Trocas e Devolução</small>
+            </li>
+            <li>
+              <small>Dúvidas</small>
             </li>
           </ul>
         )}
