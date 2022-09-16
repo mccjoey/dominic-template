@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { Fragment } from "react";
+import { Footer } from "../components/Footer";
 import useView from "../hooks/useView";
 
 import "../styles/global.scss";
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Fragment>
         <HeaderMobile />
         <Component {...pageProps} />
+        <Footer />
         <FooterMobile />
       </Fragment>
     );
