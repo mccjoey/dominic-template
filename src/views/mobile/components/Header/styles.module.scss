@@ -220,90 +220,6 @@
     }
   }
 
-  .searchContent {
-    width: 100%;
-    border-top: 1px solid #e7e6e2;
-    flex: 1;
-    padding: 25px;
-    overflow-y: auto;
-
-    .searchInput {
-      display: flex;
-      align-items: center;
-      position: relative;
-
-      input {
-        width: 100%;
-        border: 0;
-        border-bottom: 1px solid black;
-        padding-bottom: 6px;
-        font-size: 14px;
-        font-weight: 300;
-        font-family: inherit;
-        height: 32px;
-        outline: none;
-      }
-
-      img {
-        right: 0;
-        border-bottom: 1px solid black;
-      }
-    }
-
-    .productsList {
-      padding: 30px 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      column-gap: 10px;
-      row-gap: 30px;
-    }
-
-    .productItem {
-      display: flex;
-      flex-direction: column;
-
-      .productSlider {
-        display: grid;
-
-        :global(.slick-dots) {
-          bottom: 0px;
-
-          & li button::before {
-            font-size: 10px;
-          }
-
-          & li {
-            width: 5px;
-          }
-        }
-
-        .productImage {
-          img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-          }
-        }
-      }
-
-      .productName {
-        font-weight: 400;
-        font-size: 14px;
-      }
-
-      .productPrice {
-        font-weight: 700;
-        font-size: 12px;
-        margin: 10px 0 5px;
-      }
-
-      .productInterest {
-        font-weight: 400;
-        font-size: 12px;
-      }
-    }
-  }
-
   &.sticky {
     position: fixed;
     background-color: white;
@@ -409,6 +325,136 @@
     text-align: justify;
   }
 }
+
+.searchDrawer {
+  width: 100%;
+  padding: 15px 25px;
+  overflow-y: auto;
+
+  .searchContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow-y: auto;
+
+    > svg {
+      align-self: flex-end;
+    }
+
+    h1 {
+      font-weight: 400;
+      font-size: 20px;
+      margin: 15px 0;
+    }
+
+    .searchInput {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid black;
+        padding-bottom: 6px;
+        font-size: 14px;
+        font-weight: 300;
+        font-family: inherit;
+        height: 32px;
+        outline: none;
+      }
+
+      svg {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+        right: 0;
+        padding: 5px;
+        border-bottom: 1px solid black;
+      }
+    }
+
+    .searchTerms {
+      margin: 20px 0;
+
+      h1 {
+        font-weight: 400;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 15px;
+        flex-wrap: wrap;
+
+        li {
+          font-weight: 300;
+          list-style: none;
+          color: #cacaca;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    .productsList {
+      padding: 15px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 10px;
+      row-gap: 30px;
+    }
+
+    .productItem {
+      display: flex;
+      flex-direction: column;
+
+      .productSlider {
+        display: grid;
+
+        :global(.slick-dots) {
+          bottom: 0px;
+
+          & li button::before {
+            font-size: 10px;
+          }
+
+          & li {
+            width: 5px;
+          }
+        }
+
+        .productImage {
+          img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+          }
+        }
+      }
+
+      .productName {
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      .productPrice {
+        font-weight: 700;
+        font-size: 12px;
+        margin: 10px 0 5px;
+      }
+
+      .productInterest {
+        font-weight: 400;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
 @keyframes slideDown {
   0% {
     transform: translateY(-150px);

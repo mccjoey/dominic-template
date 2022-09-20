@@ -94,8 +94,8 @@ export const HeaderMobile: React.FC = () => {
         {isHeaderMenuOpen && (
           <Menu setIsFaqOpen={setIsFaqOpen} setIsHeaderMenuOpen={toggleMenu} />
         )}
-        {isHeaderSearchOpen && <Search />}
       </header>
+      <Search isOpen={isHeaderSearchOpen} setIsOpen={setIsHeaderSearchOpen} />
       <CartDrawer isOpen={isCartOpen} setIsOpen={toggleCart} />
       <Faq isFaqOpen={isFaqOpen} setIsFaqOpen={setIsFaqOpen} />
     </>

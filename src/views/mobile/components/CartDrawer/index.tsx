@@ -1,9 +1,7 @@
 import styles from "./styles.module.scss";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
-import { ProductItem } from "./ProductItem";
 import { GrClose } from "react-icons/gr";
-import { FavoritedProductItem } from "./FavoritedProductItem";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CartTabContent } from "./CartTabContent";
 import { FavoriteTabContent } from "./FavoriteTabContent";
@@ -27,9 +25,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         <Tabs defaultIndex={1}>
           <TabList className={styles.header}>
             <Tab className={styles.title}>Lista de desejos (2)</Tab>
-            <Tab className={styles.title} >
-              Carrinho (3)
-            </Tab>
+            <Tab className={styles.title}>Carrinho (3)</Tab>
           </TabList>
 
           <TabPanel>
