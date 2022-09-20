@@ -2,54 +2,64 @@ import styles from "./styles.module.scss";
 import Image from "next/future/image";
 import useHeaderState from "../../../../hooks/useHeaderState";
 import { CartDrawer } from "../CartDrawer";
-import { BaseSyntheticEvent, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useShowFooter from "../../../../hooks/useShowFooter";
-import { BsChevronRight } from "react-icons/bs";
-import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { Faq } from "./FAQ";
+import { Menu } from "./Menu";
+import { Search } from "./Search";
+import { GrClose } from "react-icons/gr";
 
 export const HeaderMobile: React.FC = () => {
   const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState<boolean>(false);
+  const [isHeaderSearchOpen, setIsHeaderSearchOpen] = useState<boolean>(false);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isFaqOpen, setIsFaqOpen] = useState<boolean>(false);
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
 
-  const handleOpenSubmenu = (e: BaseSyntheticEvent) => {
-    if (e.target.parentElement.dataset.hasubmenu) {
-      e.target.parentElement.classList.toggle("open");
+  const toggleCart = useCallback(() => {
+    if (isHeaderMenuOpen || isHeaderSearchOpen) {
+      setIsCartOpen(!isCartOpen);
+      setIsHeaderMenuOpen(false);
+      return setIsHeaderSearchOpen(false);
     }
-  };
+    return setIsCartOpen(!isCartOpen);
+  }, [isCartOpen, isHeaderMenuOpen, isHeaderSearchOpen]);
 
-  const handleMenuCart = useCallback(() => {
-    setIsHeaderMenuOpen(false);
-  }, []);
+  const toggleSearch = useCallback(() => {
+    if (isHeaderMenuOpen) {
+      setIsHeaderMenuOpen(false);
+      return setIsHeaderSearchOpen(!isHeaderSearchOpen);
+    }
+    return setIsHeaderSearchOpen(!isHeaderSearchOpen);
+  }, [isHeaderMenuOpen, isHeaderSearchOpen]);
+
+  const toggleMenu = useCallback(() => {
+    if (isHeaderSearchOpen) {
+      setIsHeaderSearchOpen(false);
+      return setIsHeaderMenuOpen(!isHeaderMenuOpen);
+    }
+    return setIsHeaderMenuOpen(!isHeaderMenuOpen);
+  }, [isHeaderMenuOpen, isHeaderSearchOpen]);
 
   useEffect(() => {
-    if (isHeaderMenuOpen) {
+    if (isHeaderMenuOpen || isHeaderSearchOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [isHeaderMenuOpen]);
-
-  useEffect(() => {
-    if (isCartOpen) {
-      handleMenuCart();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isCartOpen]);
+  }, [isHeaderMenuOpen, isHeaderSearchOpen]);
 
   return (
     <>
       <header
         className={`${styles.header} ${
           styles[showFooter && headerState ? "sticky" : "transparent"]
-        } ${isHeaderMenuOpen && styles.open}`}
+        } ${(isHeaderMenuOpen || isHeaderSearchOpen) && styles.open}`}
       >
         <div className={styles.content}>
           <div
-            onClick={() => setIsHeaderMenuOpen(!isHeaderMenuOpen)}
+            onClick={toggleMenu}
             className={`${styles.headerMenu} ${
               isHeaderMenuOpen && styles.open
             }`}
@@ -58,115 +68,35 @@ export const HeaderMobile: React.FC = () => {
           </div>
           <h1 className={styles.headerTitle}>Título</h1>
           <div className={styles.headerNav}>
-            <Image
-              width={32}
-              height={32}
-              src="/icons/search.svg"
-              priority
-              alt="Pesquisar"
-            />
+            {isHeaderSearchOpen ? (
+              <GrClose onClick={toggleSearch} />
+            ) : (
+              <Image
+                width={32}
+                height={32}
+                src="/icons/search.svg"
+                priority
+                alt="Pesquisar"
+                onClick={toggleSearch}
+              />
+            )}
+
             <Image
               width={32}
               height={32}
               src="/icons/cart.svg"
               priority
               alt="Carrinho"
-              onClick={() => setIsCartOpen(true)}
+              onClick={toggleCart}
             />
           </div>
         </div>
         {isHeaderMenuOpen && (
-          <ul className={styles.menuContent}>
-            <li data-hasubmenu="true">
-              <small onClick={handleOpenSubmenu}>Novidades</small>
-              <BsChevronRight />
-              <ul className={styles.subMenu}>
-                <li data-hasubmenu="true">
-                  <small onClick={handleOpenSubmenu}>All new</small>
-                  <BsChevronRight />
-                  <ul className={styles.subMenu}>
-                    <li>
-                      <small>All new</small>
-                      <BsChevronRight />
-                    </li>
-                    <li>
-                      <small>All new</small>
-                      <BsChevronRight />
-                    </li>
-                    <li>
-                      <small>All new</small>
-                      <BsChevronRight />
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <small>Women</small>
-                  <BsChevronRight />
-                </li>
-                <li>
-                  <small>Man</small>
-                  <BsChevronRight />
-                </li>
-              </ul>
-            </li>
-            <Accordion className={styles.accordion}>
-              <AccordionSummary expandIcon={<BsChevronRight />}>
-                Coleção
-              </AccordionSummary>
-              <AccordionDetails>
-                <section>
-                  <Image
-                    src="/images/placeholder_product.webp"
-                    loading="lazy"
-                    width={1800}
-                    height={2700}
-                    alt="Produto"
-                  />
-                  <Image
-                    src="/images/placeholder_product.webp"
-                    loading="lazy"
-                    width={1800}
-                    height={2700}
-                    alt="Produto"
-                  />
-                </section>
-              </AccordionDetails>
-            </Accordion>
-            <li>
-              <small>Roupas</small>
-              <BsChevronRight />
-            </li>
-            <li>
-              <small>Promoção</small>
-              <BsChevronRight />
-            </li>
-            <div className={styles.divider} />
-            <li>
-              <small>Blog</small>
-            </li>
-
-            <div className={styles.divider} />
-            <li>
-              <small>Sobre Nós</small>
-            </li>
-            <li>
-              <small>Rastrear Pedidos</small>
-            </li>
-            <li>
-              <small>Trocas e Devolução</small>
-            </li>
-            <li
-              onClick={() => {
-                setIsFaqOpen(true);
-                setIsHeaderMenuOpen(false);
-              }}
-            >
-              <small>Dúvidas</small>
-            </li>
-          </ul>
+          <Menu setIsFaqOpen={setIsFaqOpen} setIsHeaderMenuOpen={toggleMenu} />
         )}
+        {isHeaderSearchOpen && <Search />}
       </header>
-      <CartDrawer isOpen={isCartOpen} setIsOpen={setIsCartOpen} />
+      <CartDrawer isOpen={isCartOpen} setIsOpen={toggleCart} />
       <Faq isFaqOpen={isFaqOpen} setIsFaqOpen={setIsFaqOpen} />
     </>
   );

@@ -1,7 +1,7 @@
 import Image from "next/future/image";
 import styles from "./styles.module.scss";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
-import { GrClose } from "react-icons/gr";
+import { AiOutlineDelete } from "react-icons/ai";
 import { useCallback, useState } from "react";
 
 export const ProductItem = () => {
@@ -25,7 +25,7 @@ export const ProductItem = () => {
         height={2700}
         alt="banner"
       />
-      <GrClose className={styles.removeProduct} />
+      <AiOutlineDelete className={styles.removeProduct} />
       <div className={styles.productInfo}>
         <p className={styles.productName}>Blazer Linho Alongado</p>
         <p className={styles.productColor}>Cor: Uva</p>

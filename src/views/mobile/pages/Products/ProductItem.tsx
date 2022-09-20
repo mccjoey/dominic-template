@@ -1,12 +1,29 @@
 import Image from "next/future/image";
 import styles from "./styles.module.scss";
 import Slider from "react-slick";
+import { Fragment, useState } from "react";
+import { Drawer } from "@mui/material";
 
 interface ProductItemProps {
   gridView: number;
 }
 
 export const ProductItem: React.FC<ProductItemProps> = ({ gridView }) => {
+  const [sizesDrawer, setSizesDrawer] = useState<boolean>(false);
+
+  const toggleSizesDrawer =
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event &&
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+
+      setSizesDrawer(open);
+    };
   const sliderSettings = {
     arrows: false,
     dots: true,
@@ -17,25 +34,46 @@ export const ProductItem: React.FC<ProductItemProps> = ({ gridView }) => {
   };
 
   return (
-    <div className={styles.productItem}>
-      <Slider className={styles.productSlider} {...sliderSettings}>
-        {Array.from({ length: 4 }).map((product, index) => (
-          <div className={styles.productImage} key={`ProductSlide${index}`}>
-            <Image
-              src="/images/placeholder_product.webp"
-              loading="lazy"
-              width={1800}
-              height={2700}
-              alt="Produto"
-            />
-          </div>
-        ))}
-      </Slider>
+    <Fragment>
+      <div className={styles.productItem}>
+        <Slider className={styles.productSlider} {...sliderSettings}>
+          {Array.from({ length: 4 }).map((product, index) => (
+            <div className={styles.productImage} key={`ProductSlide${index}`}>
+              <Image
+                src="/images/placeholder_product.webp"
+                loading="lazy"
+                width={1800}
+                height={2700}
+                alt="Produto"
+              />
+            </div>
+          ))}
+        </Slider>
 
-      <p className={styles.productName}>Blusa Poá Gola Torcida - Preto</p>
-      <small className={styles.productPrice}>R$139,00</small>
-      <small className={styles.productInterest}>3x de R$46,33</small>
-      {gridView === 1 && <button>Selecionar Tamanho</button>}
-    </div>
+        <p className={styles.productName}>Blusa Poá Gola Torcida - Preto</p>
+        <small className={styles.productPrice}>R$139,00</small>
+        <small className={styles.productInterest}>3x de R$46,33</small>
+        {gridView === 1 && (
+          <button onClick={toggleSizesDrawer(true)}>Selecionar Tamanho</button>
+        )}
+      </div>
+      <Drawer
+        anchor="bottom"
+        open={sizesDrawer}
+        onClose={toggleSizesDrawer(false)}
+        className={styles.sizesDrawer}
+      >
+        <section>
+          <h1>Selecione seu tamanho</h1>
+          <ul>
+            <li>PP</li>
+            <li>P</li>
+            <li>M</li>
+            <li>G</li>
+            <li>GG</li>
+          </ul>
+        </section>
+      </Drawer>
+    </Fragment>
   );
 };
