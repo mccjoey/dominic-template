@@ -1,5 +1,4 @@
 import Drawer from "react-modern-drawer";
-import Image from "next/future/image";
 import { FiSearch } from "react-icons/fi";
 import { GrClose } from "react-icons/gr";
 import { ProductsList } from "./ProductsList";
@@ -18,6 +17,7 @@ export const Search: React.FC<SearchProps> = ({ isOpen, setIsOpen }) => {
       onClose={setIsOpen}
       size="100%"
       direction="right"
+      duration={0}
       className={styles.searchDrawer}
     >
       <section className={styles.searchContent}>
