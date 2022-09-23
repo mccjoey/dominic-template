@@ -55,7 +55,6 @@ export const HomeDrawer: React.FC<HomeDrawerProps> = ({
                 <Image
                   src={`/images/home_${index + 1}.jpeg`}
                   priority
-                  loading="lazy"
                   width={1800}
                   height={2700}
                   alt="Produto"
