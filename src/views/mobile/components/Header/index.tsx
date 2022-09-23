@@ -2,12 +2,13 @@ import styles from "./styles.module.scss";
 import Image from "next/future/image";
 import useHeaderState from "../../../../hooks/useHeaderState";
 import { CartDrawer } from "../CartDrawer";
-import { useCallback, useEffect, useState } from "react";
+import { Fragment, useCallback, useEffect, useState } from "react";
 import useShowFooter from "../../../../hooks/useShowFooter";
 import { Faq } from "./FAQ";
 import { Menu } from "./Menu";
 import { Search } from "./Search";
 import { GrClose } from "react-icons/gr";
+import { Header } from "../../../../components/Header";
 
 export const HeaderMobile: React.FC = () => {
   const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState<boolean>(false);
@@ -51,9 +52,9 @@ export const HeaderMobile: React.FC = () => {
   }, [isHeaderMenuOpen, isHeaderSearchOpen]);
 
   return (
-    <>
-      <header
-        className={`${styles.header} ${
+    <Fragment>
+      <Header
+        className={`${styles.mainHeader} ${
           styles[showFooter && headerState ? "sticky" : "transparent"]
         } ${(isHeaderMenuOpen || isHeaderSearchOpen) && styles.open}`}
       >
@@ -92,12 +93,21 @@ export const HeaderMobile: React.FC = () => {
           </div>
         </div>
         {isHeaderMenuOpen && (
-          <Menu setIsFaqOpen={setIsFaqOpen} setIsHeaderMenuOpen={toggleMenu} />
+          <Fragment>
+            <Menu
+              setIsFaqOpen={setIsFaqOpen}
+              setIsHeaderMenuOpen={toggleMenu}
+            />
+            <section className={styles.bottom}>
+              <button>Início</button>
+              <button>Minha Conta</button>
+            </section>
+          </Fragment>
         )}
-      </header>
+      </Header>
       <Search isOpen={isHeaderSearchOpen} setIsOpen={setIsHeaderSearchOpen} />
       <CartDrawer isOpen={isCartOpen} setIsOpen={toggleCart} />
       <Faq isFaqOpen={isFaqOpen} setIsFaqOpen={setIsFaqOpen} />
-    </>
+    </Fragment>
   );
 };

@@ -8,19 +8,24 @@
   overflow-y: auto;
   position: relative;
 
-  .closeModal {
-    font-size: 20px;
-    right: 25px;
-    top: 15px;
-    position: absolute;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 55px;
+    padding: 10px 15px;
+
+    .closeModal {
+      width: 20px;
+      height: 20px;
+    }
   }
 
   .header {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 25px;
+    padding: 0 15px;
     border-top: 1px solid #e1e1e1;
     border-bottom: 1px solid #e1e1e1;
 
@@ -42,17 +47,20 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    padding: 25px;
+    padding: 15px;
   }
 
   footer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
     .subtotal {
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 25px 0;
       background-color: #f6f6f6;
-      margin-bottom: 15px;
 
       p {
         font-size: 12px;
@@ -66,7 +74,7 @@
     }
 
     .buttons {
-      padding: 0 25px;
+      padding: 0 15px;
       display: flex;
       flex-direction: column;
       gap: 15px;

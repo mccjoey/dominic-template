@@ -4,6 +4,7 @@ import { GrClose } from "react-icons/gr";
 import { ProductsList } from "./ProductsList";
 import "react-modern-drawer/dist/index.css";
 import styles from "./styles.module.scss";
+import { Header } from "../../../../components/Header";
 
 interface SearchProps {
   isOpen: boolean;
@@ -21,7 +22,9 @@ export const Search: React.FC<SearchProps> = ({ isOpen, setIsOpen }) => {
       className={styles.searchDrawer}
     >
       <section className={styles.searchContent}>
-        <GrClose onClick={() => setIsOpen(false)} />
+        <Header>
+          <GrClose onClick={() => setIsOpen(false)} />
+        </Header>
         <h1>Search</h1>
         <div className={styles.searchInput}>
           <input type="search" placeholder="Digite aqui para procurar" />

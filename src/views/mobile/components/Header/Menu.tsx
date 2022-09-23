@@ -13,7 +13,6 @@ export const Menu: React.FC<MenuProps> = ({
   setIsFaqOpen,
   setIsHeaderMenuOpen,
 }) => {
-  
   const handleOpenSubmenu = (e: BaseSyntheticEvent) => {
     if (e.target.parentElement.dataset.hasubmenu) {
       e.target.parentElement.classList.toggle("open");

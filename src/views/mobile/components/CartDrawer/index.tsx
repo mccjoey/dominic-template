@@ -5,6 +5,7 @@ import { GrClose } from "react-icons/gr";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CartTabContent } from "./CartTabContent";
 import { FavoriteTabContent } from "./FavoriteTabContent";
+import { Header } from "../../../../components/Header";
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -18,10 +19,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
   return (
     <Drawer open={isOpen} onClose={setIsOpen} direction="right" size="95%">
       <section className={styles.cartContent}>
-        <GrClose
-          className={styles.closeModal}
-          onClick={() => setIsOpen(!isOpen)}
-        />
+        <Header>
+          <GrClose
+            className={styles.closeModal}
+            onClick={() => setIsOpen(!isOpen)}
+          />
+        </Header>
         <Tabs defaultIndex={1}>
           <TabList className={styles.header}>
             <Tab className={styles.title}>Lista de desejos (2)</Tab>
