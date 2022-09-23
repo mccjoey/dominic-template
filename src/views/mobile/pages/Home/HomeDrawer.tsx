@@ -54,6 +54,7 @@ export const HomeDrawer: React.FC<HomeDrawerProps> = ({
               <div className={styles.bannerImage} key={`BannerSlide${index}`}>
                 <Image
                   src={`/images/home_${index + 1}.jpeg`}
+                  priority
                   loading="lazy"
                   width={1800}
                   height={2700}
