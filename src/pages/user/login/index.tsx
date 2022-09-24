@@ -8,7 +8,7 @@ import { IoIosLogIn } from "react-icons/io";
 import styles from "./styles.module.scss";
 
 const Login: NextPage = () => {
-  const { push: route } = useRouter();
+  const { back: goBack } = useRouter();
 
   return (
     <main className={styles.loginPage}>
@@ -17,7 +17,7 @@ const Login: NextPage = () => {
         style={{ backgroundImage: "url(/images/placeholder_background.jpeg)" }}
       >
         <form onSubmit={(e) => e.preventDefault()}>
-          <GrClose className={styles.closeLogin} onClick={() => route("/")} />
+          <GrClose className={styles.closeLogin} onClick={() => goBack()} />
           <h1>Entrar</h1>
           <small>Use uma das opções para fazer login</small>
           <ul>
