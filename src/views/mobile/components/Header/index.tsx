@@ -9,6 +9,7 @@ import { Menu } from "./Menu";
 import { Search } from "./Search";
 import { GrClose } from "react-icons/gr";
 import { Header } from "../../../../components/Header";
+import { useRouter } from "next/router";
 
 export const HeaderMobile: React.FC = () => {
   const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState<boolean>(false);
@@ -17,6 +18,7 @@ export const HeaderMobile: React.FC = () => {
   const [isFaqOpen, setIsFaqOpen] = useState<boolean>(false);
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
+  const { push: route } = useRouter();
 
   const toggleCart = useCallback(() => {
     if (isHeaderMenuOpen || isHeaderSearchOpen) {
@@ -99,8 +101,8 @@ export const HeaderMobile: React.FC = () => {
               setIsHeaderMenuOpen={toggleMenu}
             />
             <section className={styles.bottom}>
-              <button>Início</button>
-              <button>Minha Conta</button>
+              <button onClick={() => route("/user/login")}>Início</button>
+              <button onClick={() => route("/user/login")}>Minha Conta</button>
             </section>
           </Fragment>
         )}

@@ -1,4 +1,5 @@
 import type { AppProps } from "next/app";
+import { useRouter } from "next/router";
 import { Fragment } from "react";
 import { Footer } from "../components/Footer";
 import useView from "../hooks/useView";
@@ -13,14 +14,23 @@ import { HeaderMobile } from "../views/mobile/components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { innerWidth = 0 } = useView();
+  const { pathname } = useRouter();
 
   if (innerWidth <= 780) {
     return (
       <Fragment>
-        <HeaderMobile />
+        {pathname !== "/user/login" && (
+          <>
+            <HeaderMobile />
+          </>
+        )}
         <Component {...pageProps} />
-        <Footer />
-        <FooterMobile />
+        {pathname !== "/user/login" && (
+          <>
+            <Footer />
+            <FooterMobile />
+          </>
+        )}
       </Fragment>
     );
   }

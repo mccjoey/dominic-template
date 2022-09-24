@@ -73,13 +73,13 @@ export const FooterMobile: React.FC = () => {
           </li>
           <li
             className={`${styles.footerMenuItem} ${
-              pathname == "/perfil" && styles.active
+              pathname == "/user/login" && styles.active
             }`}
           >
             <div className={styles.indicator}>
               <BsDot />
             </div>
-            <Link href="/perfil">
+            <Link href="/user/login">
               <Image
                 width={32}
                 height={32}

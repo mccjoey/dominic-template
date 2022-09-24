@@ -1,0 +1,95 @@
+.loginPage {
+  height: 100vh;
+
+  .content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+
+    form {
+      position: relative;
+      width: 85%;
+      max-width: 485px;
+      height: fit-content;
+      transition: all 0.5s ease;
+      background-color: white;
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+    
+
+      .closeLogin {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+      }
+
+      h1 {
+        color: #000;
+        font-size: 24px;
+        font-weight: 300;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+
+      > small {
+        font-size: 12px;
+        font-weight: 100;
+        margin-bottom: 15px;
+      }
+
+      ul {
+        display: flex;
+        width: 100%;
+        max-width: 270px;
+        flex-direction: column;
+        gap: 10px;
+
+        li {
+          width: 100%;
+          list-style: none;
+          flex: 1;
+          text-align: left;
+          border: 1px solid #8a8a8a;
+          min-height: 40px;
+          color: #a1a1a1;
+          display: grid;
+          grid-template-columns: 65px auto;
+          align-items: center;
+          justify-items: center;
+
+          small {
+            width: 100%;
+            text-align: left;
+            font-size: 11px;
+          }
+
+          svg {
+            font-size: 22px;
+          }
+
+          &:nth-of-type(3) {
+            svg {
+              color: #5a7194;
+            }
+          }
+
+          &:nth-of-type(1),
+          &:nth-of-type(4) {
+            svg {
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
