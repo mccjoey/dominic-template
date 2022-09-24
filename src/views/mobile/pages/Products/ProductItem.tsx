@@ -66,25 +66,21 @@ export const ProductItem: React.FC<ProductItemProps> = ({ gridView }) => {
         <section>
           <h1>Selecione seu tamanho</h1>
           <ul>
-            <li>PP</li>
+            <li>
+              PP <small className={styles.warn}>Last feel items</small>
+            </li>
             <li>P</li>
             <li>M</li>
-            <li>G</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
-            <li>GG</li>
+            <li>
+              G
+              <small className={styles.noItems}>Not available I want it!</small>
+            </li>
+            <li>
+              GG
+              <small className={styles.estimated}>
+                Estimated shipment in 8 business days
+              </small>
+            </li>
           </ul>
           <div className={styles.sizesDrawerbottom}>
             <button>Encontre seu tamanho</button>
