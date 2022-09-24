@@ -223,7 +223,8 @@
   }
 
   &.sticky {
-    position: fixed;
+    position: sticky;
+    top: 0;
     background-color: white;
     animation: slideDown 0.75s ease forwards;
   }
@@ -233,7 +234,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    position: sticky;
     bottom: 0;
     padding: 0 25px;
     height: 64px;

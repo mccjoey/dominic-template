@@ -71,7 +71,25 @@ export const ProductItem: React.FC<ProductItemProps> = ({ gridView }) => {
             <li>M</li>
             <li>G</li>
             <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
+            <li>GG</li>
           </ul>
+          <div className={styles.sizesDrawerbottom}>
+            <button>Encontre seu tamanho</button>
+            <button>Guia de Tamanhos</button>
+          </div>
         </section>
       </Drawer>
     </Fragment>
