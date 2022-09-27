@@ -41,7 +41,7 @@ const Login: NextPage = () => {
           centerSlidePercentage={100}
           selectedItem={currentSlide}
           infiniteLoop={false}
-          swipeable
+          swipeable={false}
           centerMode
           dynamicHeight
         >
