@@ -37,7 +37,7 @@ const Login: NextPage = () => {
           showStatus={false}
           showArrows={false}
           showThumbs={false}
-          transitionTime={500}
+          transitionTime={100}
           centerSlidePercentage={100}
           selectedItem={currentSlide}
           infiniteLoop={false}

@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import Slider from "react-slick";
 import { Fragment, useState } from "react";
 import { Drawer } from "@mui/material";
+import Link from "next/link";
 
 interface ProductItemProps {
   gridView: number;
@@ -39,17 +40,18 @@ export const ProductItem: React.FC<ProductItemProps> = ({ gridView }) => {
         <Slider className={styles.productSlider} {...sliderSettings}>
           {Array.from({ length: 4 }).map((product, index) => (
             <div className={styles.productImage} key={`ProductSlide${index}`}>
-              <Image
-                src="/images/placeholder_product.webp"
-                loading="lazy"
-                width={1800}
-                height={2700}
-                alt="Produto"
-              />
+              <Link href="/produto">
+                <Image
+                  src="/images/placeholder_product.webp"
+                  loading="lazy"
+                  width={1800}
+                  height={2700}
+                  alt="Produto"
+                />
+              </Link>
             </div>
           ))}
         </Slider>
-
         <p className={styles.productName}>Blusa Poá Gola Torcida - Preto</p>
         <small className={styles.productPrice}>R$139,00</small>
         <small className={styles.productInterest}>3x de R$46,33</small>
