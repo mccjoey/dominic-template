@@ -27,7 +27,10 @@ export const ProductMobile = () => {
   setTimeout(() => {
     if (document) {
       const element = document.getElementById("whatsPopover");
-      element!.style!.display = "none";
+      if (element) {
+        element!.style!.display = "none";
+      }
+      return;
     }
   }, 5000);
 
@@ -107,7 +110,10 @@ export const ProductMobile = () => {
           </div>
           <div className={styles.productContent}>
             <div className={styles.productInfo}>
-              <small>Home - Roupas - Calças</small>
+              {/* <small>Home - Roupas - Calças</small> */}
+              <div className={styles.productColors}>
+                <small></small>
+              </div>
               <p>Calça Moletinho Preto</p>
               <p>
                 RS498,00 <span>| ou 3x de R$ 166,00</span>
