@@ -12,7 +12,7 @@ interface AccordionProps {
 
 export const Accordion: React.FC<AccordionProps> = ({ children, title }) => {
   return (
-    <Accordionn className={styles.accordion}>
+    <Accordionn className={styles.accordion} expanded={title === "Preço"}>
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         {title}
       </AccordionSummary>

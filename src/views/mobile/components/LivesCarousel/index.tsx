@@ -10,7 +10,7 @@ export const LivesCarousel = () => {
     infinite: false,
     centerPadding: "50px",
     slidesToShow: 2.5,
-    speed: 500,
+    speed: 500
   };
 
   return (

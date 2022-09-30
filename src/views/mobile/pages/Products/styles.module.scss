@@ -202,13 +202,19 @@
 }
 
 .filtersDrawer {
+  display: flex;
+  flex-direction: column;
+
   header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     padding: 10px 15px;
     height: 55px;
-    position: relative;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 2;
 
     h1 {
       position: absolute;
@@ -268,25 +274,28 @@
 
     section {
       padding: 20px 0;
-    }
-
-    section.Cor {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
       flex-wrap: wrap;
-      gap: 10px;
+      row-gap: 15px;
 
       p {
-        width: 48%;
+        flex: 1 1 50%;
+        font-size: 13px;
+        font-weight: 100;
+
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 10px;
         position: relative;
+        text-transform: uppercase;
 
         span {
           width: fit-content;
           height: fit-content;
           padding: 5px;
-          border: 1px solid black;
+          border: 1px solid #e5e5e5;
           background-color: yellow;
         }
 
@@ -297,9 +306,21 @@
         }
 
         &:has(input:checked) {
-          font-weight: 700;
+          font-weight: 400;
           span {
-            border-width: 2px;
+            border-color: black;
+          }
+        }
+      }
+
+      &.Preço {
+        position: relative;
+        small {
+          position: absolute;
+          bottom: 0px;
+
+          &:nth-of-type(2) {
+            right: 0;
           }
         }
       }
@@ -313,11 +334,43 @@
     justify-content: space-between;
 
     small {
+      text-transform: uppercase;
       font-weight: 400;
     }
 
     input {
       margin-right: 5px;
+    }
+  }
+
+  .filterOptions {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .filterActions {
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    position: sticky;
+    bottom: 0;
+
+    p {
+      text-align: center;
+      width: 100%;
+      font-weight: 100;
+      padding: 12px 24px;
+      border: 1px solid black;
+    }
+
+    p:first-of-type {
+      border: 1px solid black;
+      background-color: black;
+      color: white;
     }
   }
 }

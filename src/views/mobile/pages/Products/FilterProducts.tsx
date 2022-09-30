@@ -8,6 +8,7 @@ import { useState } from "react";
 import { GrClose } from "react-icons/gr";
 import { Header } from "../../../../components/Header";
 import { Accordion } from "./Accordion";
+import { Slider } from "@mui/material";
 
 interface FilterProductsProps {
   setGridView: (state: number) => void;
@@ -112,70 +113,165 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           </div>
         </div>
       </section>
-      <Drawer
-        open={isFiltersOpen}
-        onClose={() => setIsFiltersOpen(false)}
-        size="100%"
-        direction="right"
-        duration={0}
-        className={styles.filtersDrawer}
-      >
-        <section>
-          <Header>
-            <h1>Filtros</h1>
-            <GrClose onClick={() => setIsFiltersOpen(false)} />
-          </Header>
+      {isFiltersOpen && (
+        <Drawer
+          open={isFiltersOpen}
+          onClose={() => setIsFiltersOpen(false)}
+          size="100%"
+          direction="right"
+          duration={0}
+          className={styles.filtersDrawer}
+        >
+          <section className={styles.filterOptions}>
+            <Header>
+              <h1>Filtros</h1>
+              <GrClose onClick={() => setIsFiltersOpen(false)} />
+            </Header>
 
-          <Accordion title="Cor">
-            <p>
-              <span></span>Amarelo
+            <Accordion title="Cor">
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+              <p>
+                <span></span>Amarelo
+                <input type="checkbox" />
+              </p>
+            </Accordion>
+            <Accordion title="Tipo de produto">
+              <p>
+                Malha
+                <input type="checkbox" />
+              </p>
+              <p>
+                Vestidos
+                <input type="checkbox" />
+              </p>
+            </Accordion>
+            <Accordion title="Tipo de manga">
+              <p>
+                Alças
+                <input type="checkbox" />
+              </p>
+              <p>
+                Manga Comprida
+                <input type="checkbox" />
+              </p>
+              <p>
+                Sem Manga
+                <input type="checkbox" />
+              </p>
+            </Accordion>
+            <Accordion title="Longitude">
+              <p>
+                Curto
+                <input type="checkbox" />
+              </p>
+              <p>
+                Longo
+                <input type="checkbox" />
+              </p>
+              <p>
+                Midi
+                <input type="checkbox" />
+              </p>
+            </Accordion>
+            <Accordion title="Tamanho">
+              <p>
+                PP
+                <input type="checkbox" />
+              </p>
+              <p>
+                P
+                <input type="checkbox" />
+              </p>
+              <p>
+                M
+                <input type="checkbox" />
+              </p>
+              <p>
+                G
+                <input type="checkbox" />
+              </p>
+              <p>
+                GG
+                <input type="checkbox" />
+              </p>
+            </Accordion>
+            <Accordion title="Materiais (2)">
+              <p>
+                Aldodão
+                <input type="checkbox" />
+              </p>
+              <p>
+                Cetim
+                <input type="checkbox" />
+              </p>
+              <p>
+                Crochê
+                <input type="checkbox" />
+              </p>
+              <p>
+                Linho
+                <input type="checkbox" />
+              </p>
+              <p>
+                Veludo
+                <input type="checkbox" />
+              </p>
+            </Accordion>
+            <Accordion title="Preço">
+              <small>R$0</small>
+              <Slider
+                defaultValue={20}
+                getAriaValueText={(value) => `R$${value}`}
+                step={50}
+                valueLabelDisplay="on"
+                min={0}
+                max={500}
+                sx={{ color: "#000" }}
+              />
+              <small>R$500+</small>
+            </Accordion>
+            <div className={styles.checkbox}>
+              <small>Sustentável</small>
               <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-            <p>
-              <span></span>Amarelo
-              <input type="checkbox" />
-            </p>
-          </Accordion>
-          <Accordion title="Tipo de produto"></Accordion>
-          <Accordion title="Tipo de manga"></Accordion>
-          <Accordion title="Longitude"></Accordion>
-          <Accordion title="Tamanho"></Accordion>
-          <Accordion title="Materiais"></Accordion>
-          <Accordion title="Preço"></Accordion>
-          <div className={styles.checkbox}>
-            <small>Sustentável</small>
-            <input type="checkbox" />
-          </div>
-        </section>
-      </Drawer>
+            </div>
+          </section>
+          <section className={styles.filterActions}>
+            <p>Ver resultados 814</p>
+            <p>Limpar</p>
+          </section>
+        </Drawer>
+      )}
     </>
   );
 };
