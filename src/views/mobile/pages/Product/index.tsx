@@ -12,6 +12,7 @@ import useShowFooter from "../../../../hooks/useShowFooter";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { useRouter } from "next/router";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
+import { setTimeout } from "timers";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
@@ -22,6 +23,13 @@ export const ProductMobile = () => {
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
   const route = useRouter();
+
+  setTimeout(() => {
+    if (document) {
+      const element = document.getElementById("whatsPopover");
+      element!.style!.display = "none";
+    }
+  }, 5000);
 
   const toggleSizesDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -48,7 +56,7 @@ export const ProductMobile = () => {
       <main
         className={styles.main}
         style={{
-          paddingTop: `calc(80vh)`,
+          paddingTop: `${height}px`,
         }}
       >
         <div className={styles.content}>
@@ -293,7 +301,9 @@ export const ProductMobile = () => {
                   <div className={styles.columnSeparator}>a</div>
 
                   <div className={styles.whatsIcon}>
-                    <div className={styles.whatsPopover}>Compre pelo WhatsApp!</div>
+                    <div id="whatsPopover" className={styles.whatsPopover}>
+                      Compre pelo WhatsApp!
+                    </div>
                     <IoLogoWhatsapp />
                   </div>
                 </div>
