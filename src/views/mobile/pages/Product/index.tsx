@@ -6,12 +6,17 @@ import Image from "next/future/image";
 import { Drawer } from "@mui/material";
 import useScrollHeight from "../../../../hooks/useScrollHeight";
 import { RelProducts } from "../../components/RelProducts";
+import { BsChevronLeft } from "react-icons/bs";
+import useHeaderState from "../../../../hooks/useHeaderState";
+import useShowFooter from "../../../../hooks/useShowFooter";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
   const [height, setHeight] = useState(0);
   const [sizesDrawer, setSizesDrawer] = useState<boolean>(false);
   const scrollHeight = useScrollHeight(400);
+  const headerState = useHeaderState();
+  const showFooter = useShowFooter();
 
   const toggleSizesDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -42,6 +47,22 @@ export const ProductMobile = () => {
         }}
       >
         <div className={styles.content}>
+          <nav
+            className={`${styles.productNav} ${
+              styles[showFooter && headerState ? "sticky" : "transparent"]
+            }`}
+          >
+            <div>
+              <BsChevronLeft />
+              <Image
+                width={32}
+                height={32}
+                src="/icons/cart.svg"
+                priority
+                alt="Carrinho"
+              />
+            </div>
+          </nav>
           <div
             className={styles.imageSlider}
             ref={measuredRef}
@@ -95,7 +116,7 @@ export const ProductMobile = () => {
               </p>
             </div>
             <Image
-            className={styles.imageInfo}
+              className={styles.imageInfo}
               src="/images/product-info.jpeg"
               priority
               width={350}

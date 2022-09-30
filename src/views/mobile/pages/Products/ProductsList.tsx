@@ -12,7 +12,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({ gridView }) => {
 
   setTimeout(() => {
     setLoading(false);
-  }, 5000);
+  }, 3000);
 
   return (
     <section

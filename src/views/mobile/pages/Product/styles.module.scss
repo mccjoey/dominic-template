@@ -1,9 +1,44 @@
 .main {
   background-color: rgba(244, 244, 244, 0.592);
   height: 100%;
+  transition: background-color 0.5s ease;
+
+  &.open {
+    top: 0;
+    position: fixed;
+    background-color: white;
+    height: 100%;
+  }
 
   .content {
     height: 100%;
+
+    .productNav {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 2;
+      padding: 10px 15px;
+      height: 55px;
+
+      > div {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      &.sticky {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        animation: slideDown 0.75s ease forwards;
+      }
+    }
 
     .imageSlider {
       position: fixed;
@@ -91,7 +126,6 @@
             border-bottom: 1px solid black;
           }
           span {
-            
           }
         }
       }
@@ -241,5 +275,20 @@
         text-transform: uppercase;
       }
     }
+  }
+}
+
+@keyframes slideDown {
+  0% {    
+    position: fixed;
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+
+  100% {
+    position: fixed;
+    top:0;
+    transform: translateY(0px);
+    opacity: 1;
   }
 }
