@@ -294,10 +294,6 @@
           position: absolute;
           width: 100%;
           opacity: 0;
-
-          &:checked {
-            height: 200px;
-          }
         }
 
         &:has(input:checked) {
