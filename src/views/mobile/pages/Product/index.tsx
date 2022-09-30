@@ -38,7 +38,7 @@ export const ProductMobile = () => {
       <main
         className={styles.main}
         style={{
-          paddingTop: `calc(90vh)`,
+          paddingTop: `calc(80vh)`,
         }}
       >
         <div className={styles.content}>
