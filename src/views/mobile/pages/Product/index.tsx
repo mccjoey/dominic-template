@@ -9,14 +9,19 @@ import { RelProducts } from "../../components/RelProducts";
 import { BsChevronLeft } from "react-icons/bs";
 import useHeaderState from "../../../../hooks/useHeaderState";
 import useShowFooter from "../../../../hooks/useShowFooter";
+import { IoLogoWhatsapp } from "react-icons/io";
+import { useRouter } from "next/router";
+import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
   const [height, setHeight] = useState(0);
   const [sizesDrawer, setSizesDrawer] = useState<boolean>(false);
+  const [isProductFavorite, setIsProductFavorite] = useState<boolean>(false);
   const scrollHeight = useScrollHeight(400);
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
+  const route = useRouter();
 
   const toggleSizesDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -53,7 +58,7 @@ export const ProductMobile = () => {
             }`}
           >
             <div>
-              <BsChevronLeft />
+              <BsChevronLeft onClick={() => route.back()} />
               <Image
                 width={32}
                 height={32}
@@ -99,9 +104,6 @@ export const ProductMobile = () => {
               <p>
                 RS498,00 <span>| ou 3x de R$ 166,00</span>
               </p>
-              <button onClick={toggleSizesDrawer(true)}>
-                Selecionar tamanho
-              </button>
             </div>
             <div className={styles.productDecription}>
               <p>
@@ -274,6 +276,32 @@ export const ProductMobile = () => {
                 </tbody>
               </table>
             </div>
+            <section className={styles.bottomActions}>
+              <div className={styles.bottomContent}>
+                <div className={styles.actions}>
+                  {isProductFavorite ? (
+                    <AiTwotoneHeart
+                      className={styles.active}
+                      onClick={() => setIsProductFavorite(!isProductFavorite)}
+                    />
+                  ) : (
+                    <AiOutlineHeart
+                      onClick={() => setIsProductFavorite(!isProductFavorite)}
+                    />
+                  )}
+
+                  <div className={styles.columnSeparator}>a</div>
+
+                  <div className={styles.whatsIcon}>
+                    <div className={styles.whatsPopover}>Compre pelo WhatsApp!</div>
+                    <IoLogoWhatsapp />
+                  </div>
+                </div>
+                <button onClick={toggleSizesDrawer(true)}>
+                  Selecionar tamanho
+                </button>
+              </div>
+            </section>
             <div className={styles.productRel}>
               <RelProducts />
             </div>
