@@ -15,7 +15,7 @@ import { HeaderMobile } from "../views/mobile/components/Header";
 function MyApp({ Component, pageProps }: AppProps) {
   const { innerWidth = 0 } = useView();
   const { pathname } = useRouter();
-  const nonPaths: boolean = ["/user/login", "/feed"].includes(pathname);
+  const nonPaths: boolean = ["/user/login", "/feed", "/produto"].includes(pathname);
 
   if (innerWidth <= 780) {
     return (
@@ -26,12 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           </>
         )}
         <Component {...pageProps} />
-        {!nonPaths && (
-          <>
-            <Footer />
-            <FooterMobile />
-          </>
-        )}
+        {!nonPaths && <FooterMobile />}
+        <Footer />
       </Fragment>
     );
   }
