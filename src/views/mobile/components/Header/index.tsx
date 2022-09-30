@@ -69,7 +69,7 @@ export const HeaderMobile: React.FC = () => {
           >
             <nav className={`${styles.menuBurguer} ${styles.open}`} />
           </div>
-          <h1 className={styles.headerTitle}>Título</h1>
+          <h1 className={styles.headerTitle} onClick={() => route("/")}>Título</h1>
           <div className={styles.headerNav}>
             {isHeaderSearchOpen ? (
               <GrClose onClick={toggleSearch} />
