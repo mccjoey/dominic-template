@@ -24,7 +24,7 @@ const useShowFooter = () => {
         window.removeEventListener("scroll", controlNavbar);
       };
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScrollY]);
 
   return show;

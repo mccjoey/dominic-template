@@ -11,10 +11,9 @@
   transition: background-color 0.5s ease;
 
   &.open {
-    top: 0;
     position: fixed;
+    top: 0;
     background-color: white;
-    height: 100%;
   }
 
   .content {
@@ -102,152 +101,11 @@
     }
   }
 
-  .menuContent {
-    width: 100%;
-    border-top: 1px solid #e7e6e2;
-    flex: 1;
-    padding: 25px;
-    overflow-y: scroll;
-
-    li {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 5px;
-      text-transform: uppercase;
-
-      &:not(:last-of-type) {
-        padding-bottom: 20px;
-      }
-
-      small {
-        font-size: 14px;
-        font-weight: 300;
-      }
-
-      svg {
-        font-size: 10px;
-      }
-
-      .subMenu {
-        display: none;
-        flex-direction: column;
-        flex: 1 1 100%;
-        border-left: 1px solid black;
-        padding: 0 20px;
-        z-index: 2;
-
-        li {
-          list-style: none;
-          padding: 10px 0;
-          font-size: 12px;
-          font-weight: 400;
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 5px;
-        }
-      }
-
-      &:global(.open) {
-        > small {
-          font-weight: 400;
-        }
-
-        > ul {
-          display: flex;
-        }
-      }
-    }
-
-    .divider {
-      margin-bottom: 20px;
-      border-bottom: 1px solid #e7e6e2;
-    }
-
-    .accordion {
-      padding: 0;
-      margin: 0;
-      border: 0;
-      box-shadow: none;
-      background-color: transparent;
-      padding-bottom: 20px;
-
-      &:before {
-        height: 0;
-      }
-
-      :global(.MuiAccordionSummary-root) {
-        padding: 0;
-        min-height: auto;
-        justify-content: flex-start;
-        gap: 5px;
-      }
-
-      :global(.MuiAccordionSummary-content) {
-        margin: 0px;
-        font-size: 14px;
-        font-weight: 300;
-        text-transform: uppercase;
-        flex: 0;
-      }
-
-      :global(.MuiAccordionDetails-root) {
-        padding: 0;
-      }
-
-      :global(.MuiAccordionDetails-root) {
-        section {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 5px;
-          padding: 15px 0;
-          img {
-            width: 100%;
-            height: auto;
-          }
-        }
-      }
-
-      :global(.MuiAccordionSummary-expandIconWrapper) {
-        svg {
-          font-size: 10px;
-        }
-      }
-
-      :global(.MuiAccordionSummary-expandIconWrapper.Mui-expanded) {
-        transform: rotate(90deg);
-      }
-    }
-  }
-
   &.sticky {
     position: sticky;
     top: 0;
     background-color: white;
     animation: slideDown 0.75s ease forwards;
-  }
-
-  .bottom {
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    bottom: 0;
-    padding: 0 25px;
-    height: 64px;
-    width: 100%;
-
-    button {
-      background-color: transparent;
-      border: 0;
-      font-family: inherit;
-      font-weight: 400;
-      font-size: 16px;
-      text-transform: uppercase;
-    }
   }
 }
 
@@ -376,6 +234,165 @@
     font-weight: 300;
     font-size: 14px;
     text-align: justify;
+  }
+}
+
+.menuDrawer {
+  z-index: 3 !important;
+  margin-top: auto;
+  bottom: 0 !important;
+  height: calc(100vh - 55px) !important;
+
+  & + label {
+    display: none !important;
+  }
+}
+
+.menuContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .bottom {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    bottom: 0;
+    padding: 0 25px;
+    height: 64px;
+    width: 100%;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      font-family: inherit;
+      font-weight: 400;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.menuContent > ul {
+  height: 80%;
+  width: 100%;
+  border-top: 1px solid #e7e6e2;
+  flex: 1;
+  padding: 25px;
+  overflow-y: scroll;
+
+  li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    text-transform: uppercase;
+
+    &:not(:last-of-type) {
+      padding-bottom: 20px;
+    }
+
+    small {
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    svg {
+      font-size: 10px;
+    }
+
+    .subMenu {
+      display: none;
+      flex-direction: column;
+      flex: 1 1 100%;
+      border-left: 1px solid black;
+      padding: 0 20px;
+      z-index: 2;
+
+      li {
+        list-style: none;
+        padding: 10px 0;
+        font-size: 12px;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+    }
+
+    &:global(.open) {
+      > small {
+        font-weight: 400;
+      }
+
+      > ul {
+        display: flex;
+      }
+    }
+  }
+
+  .divider {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e7e6e2;
+  }
+
+  .accordion {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    background-color: transparent;
+    padding-bottom: 20px;
+
+    &:before {
+      height: 0;
+    }
+
+    :global(.MuiAccordionSummary-root) {
+      padding: 0;
+      min-height: auto;
+      justify-content: flex-start;
+      gap: 5px;
+    }
+
+    :global(.MuiAccordionSummary-content) {
+      margin: 0px;
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: uppercase;
+      flex: 0;
+    }
+
+    :global(.MuiAccordionDetails-root) {
+      padding: 0;
+    }
+
+    :global(.MuiAccordionDetails-root) {
+      section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+        padding: 15px 0;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    :global(.MuiAccordionSummary-expandIconWrapper) {
+      svg {
+        font-size: 10px;
+      }
+    }
+
+    :global(.MuiAccordionSummary-expandIconWrapper.Mui-expanded) {
+      transform: rotate(90deg);
+    }
   }
 }
 

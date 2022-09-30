@@ -69,7 +69,9 @@ export const HeaderMobile: React.FC = () => {
           >
             <nav className={`${styles.menuBurguer} ${styles.open}`} />
           </div>
-          <h1 className={styles.headerTitle} onClick={() => route("/")}>Título</h1>
+          <h1 className={styles.headerTitle} onClick={() => route("/")}>
+            Título
+          </h1>
           <div className={styles.headerNav}>
             {isHeaderSearchOpen ? (
               <GrClose onClick={toggleSearch} />
@@ -94,19 +96,13 @@ export const HeaderMobile: React.FC = () => {
             />
           </div>
         </div>
-        {isHeaderMenuOpen && (
-          <Fragment>
-            <Menu
-              setIsFaqOpen={setIsFaqOpen}
-              setIsHeaderMenuOpen={toggleMenu}
-            />
-            <section className={styles.bottom}>
-              <button onClick={() => route("/user/login")}>Início</button>
-              <button onClick={() => route("/user/login")}>Minha Conta</button>
-            </section>
-          </Fragment>
-        )}
       </Header>
+      <Menu
+        isOpen={isHeaderMenuOpen}
+        setIsOpen={setIsHeaderMenuOpen}
+        setIsFaqOpen={setIsFaqOpen}
+        setIsHeaderMenuOpen={toggleMenu}
+      />
       <Search isOpen={isHeaderSearchOpen} setIsOpen={setIsHeaderSearchOpen} />
       <CartDrawer isOpen={isCartOpen} setIsOpen={toggleCart} />
       <Faq isFaqOpen={isFaqOpen} setIsFaqOpen={setIsFaqOpen} />
