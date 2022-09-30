@@ -1,8 +1,14 @@
 .main {
   background-color: rgba(244, 244, 244, 0.592);
   height: 100%;
-  
+
   .content {
     height: 100%;
+
+    .player {
+      position: fixed;
+      top: 0;
+      z-index: 9;
+    }
   }
 }
