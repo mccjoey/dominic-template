@@ -68,35 +68,36 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
             }}
           />
         )}
-        <aside>
-          {muted ? (
-            <BsVolumeMute onClick={handleToggleMute} />
-          ) : (
-            <BsVolumeUp className={styles.active} onClick={handleToggleMute} />
-          )}
 
-          <BsShare />
-
-          <Image
-            key={`Product-${index}`}
-            src="/images/placeholder_product.webp"
-            priority
-            width={20}
-            height={20}
-            alt="Produto"
-            onClick={() => setIsModalOpen(true)}
-          />
-        </aside>
-        <footer>
-          <h1>Título do vídeo</h1>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-        </footer>
         {playing ? (
           <BsPause onClick={() => setPlaying(false)} />
         ) : (
           <BsPlay className={styles.active} onClick={() => setPlaying(true)} />
         )}
       </div>
+      <aside className={styles.aside}>
+        {muted ? (
+          <BsVolumeMute onClick={handleToggleMute} />
+        ) : (
+          <BsVolumeUp className={styles.active} onClick={handleToggleMute} />
+        )}
+
+        <BsShare />
+
+        <Image
+          key={`Product-${index}`}
+          src="/images/placeholder_product.webp"
+          priority
+          width={20}
+          height={20}
+          alt="Produto"
+          onClick={() => setIsModalOpen(true)}
+        />
+      </aside>
+      <footer className={styles.footer}>
+        <h1>Título do vídeo</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </footer>
       <ProductsModal open={isModalOpen} setOpen={setIsModalOpen} />
     </>
   );
