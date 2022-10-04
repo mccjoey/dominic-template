@@ -16,10 +16,12 @@ export const FeedMobile = () => {
   const videoLinks = [
     {
       id: "uadsfgdasihjdgfas",
+      title: "Título 1",
       link: "https://vimeo.com/755671237",
     },
     {
       id: "654sadjfhgas",
+      title: "Título 2",
       link: "https://vimeo.com/755671597",
     },
   ];
@@ -44,13 +46,6 @@ export const FeedMobile = () => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
   }, []);
-
-  
-
- 
-
-
-
 
   return (
     <main className={styles.feedMobile}>

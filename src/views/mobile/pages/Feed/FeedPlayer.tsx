@@ -17,6 +17,7 @@ interface FeedPlayerProps {
   video: {
     id: string;
     link: string;
+    title: string;
   };
 }
 
@@ -88,7 +89,7 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
           />
         </aside>
         <footer>
-          <h1>Título do vídeo</h1>
+          <h1>{video.title}</h1>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
         </footer>
         {playing ? (
