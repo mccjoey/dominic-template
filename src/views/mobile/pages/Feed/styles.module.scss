@@ -1,31 +1,174 @@
-.main {
+.feedMobile {
   background-color: black;
-  .content {
-    height: 100vh;
 
-    .player {
-      > div {
-        background-color: black !important;
+  .content {
+    height: calc(100vh - 62px);
+    display: flex;
+    flex-direction: column;
+
+    header {
+      color: white;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      height: 55px;
+
+      svg {
+        width: 20px;
+        height: 20px;
       }
     }
 
-    svg {
-      width: 100%;
+    .sliderWrapper {
       height: 100%;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 50px;
-      opacity: 0;
-      padding: 35%;
-
-      &.active {
-        opacity: .8;
-      }
     }
   }
 }
 
+.playerWrapper {
+  height: 100%;
+  position: relative !important;
 
+  .player {
+    pointer-events: none;
+    > div {
+      background-color: black !important;
+    }
+  }
+
+  aside,
+  footer {
+    position: absolute;
+    bottom: 15px;
+    color: white;
+  }
+
+  aside {
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+
+    svg {
+      position: relative;
+      width: 32px;
+      height: 32px;
+      background-color: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      padding: 5px;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+
+  footer {
+    width: 60%;
+    border-radius: 10px;
+    padding: 10px 15px;
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    h1 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 12px;
+      font-weight: 100;
+    }
+  }
+
+  > svg {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+
+    &.active {
+      opacity: 0.8;
+    }
+  }
+}
+
+.productsModal {
+  width: 100%;
+  :global(.MuiPaper-root) {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    max-height: 100%;
+    height: max-content;
+    width: 100%;
+  }
+}
+
+.productsCarousel {
+  padding-left: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .closeModal {
+    width: 32px;
+    height: 32px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}
+
+.productItem {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  background-color: white;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .productInfo {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .productName {
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .productPrice {
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    .productInterest {
+      font-weight: 400;
+      font-size: 12px;
+    }
+
+    button {
+      border: 0;
+      background-color: black;
+      color: white;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 100;
+      font-family: inherit;
+    }
+  }
+}

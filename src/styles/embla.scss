@@ -1,0 +1,34 @@
+.embla {
+  position: relative;
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.embla__viewport.is-draggable {
+}
+
+.embla__viewport.is-dragging {
+}
+
+.embla__container {
+  height: 100%;
+}
+
+.embla__slide {
+  position: relative;
+  height: 100%;
+}
+
+.embla__slide__inner {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}

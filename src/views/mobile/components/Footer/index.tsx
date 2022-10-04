@@ -55,19 +55,19 @@ export const FooterMobile: React.FC = () => {
           </li>
           <li
             className={`${styles.footerMenuItem} ${
-              pathname == "/feed" && styles.active
+              pathname == "/colecoes" && styles.active
             }`}
           >
             <div className={styles.indicator}>
               <BsDot />
             </div>
-            <Link href="/feed">
+            <Link href="/colecoes">
               <Image
                 width={32}
                 height={32}
                 src="/icons/live.svg"
                 priority
-                alt="Live"
+                alt="Coleções"
               />
             </Link>
           </li>

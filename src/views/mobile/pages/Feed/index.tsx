@@ -1,67 +1,90 @@
 import styles from "./styles.module.scss";
-import ReactPlayer from "react-player";
-import { useEffect, useState } from "react";
-import { BsPause, BsPlay } from "react-icons/bs";
+import { useCallback, useEffect, useState } from "react";
+import { BsChevronLeft } from "react-icons/bs";
+import { Header } from "../../../../components/Header";
+import Image from "next/future/image";
+import { useRouter } from "next/router";
+import { FooterMobile } from "../../components/Footer";
+import useEmblaCarousel from "embla-carousel-react";
+import { FeedPlayer } from "./FeedPlayer";
 
 export const FeedMobile = () => {
-  const [playing, setPlaying] = useState<boolean>(true);
+  const { back } = useRouter();
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const videoLinks = [
+    {
+      id: "uadsfgdasihjdgfas",
+      link: "https://vimeo.com/755671237",
+    },
+    {
+      id: "654sadjfhgas",
+      link: "https://vimeo.com/755671597",
+    },
+  ];
+
+  const [viewportRef, embla] = useEmblaCarousel({ axis: "y", loop: true });
+
+  embla?.on("select", () => {
+    setCurrentSlide(embla.selectedScrollSnap());
+  });
+
+  const onSelect = useCallback(() => {
+    if (!embla) return;
+  }, [embla]);
+
+  useEffect(() => {
+    if (!embla) return;
+    embla.on("select", onSelect);
+    embla.on("reInit", onSelect);
+    onSelect();
+  }, [embla, onSelect]);
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
   }, []);
 
-  /// Página com layout Dior com coleções
+  
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   slidesToShow: 3,
-  //   slidesToScroll: 1,
-  //   vertical: true,
-  //   verticalSwiping: true,
-  //   beforeChange: function(currentSlide, nextSlide) {
-  //     console.log("before change", currentSlide, nextSlide);
-  //   },
-  //   afterChange: function(currentSlide) {
-  //     console.log("after change", currentSlide);
-  //   }
-  // };
+ 
 
-  /// header
-  ///   Voltar, Carrinho
 
-  // Lateral
-  //  Mutar
-  //  Compartilhar
-  //  Video Produtos Modal
 
-  // Título e Descrição do Video
-
-  //Bottom Footer fixo
 
   return (
-    <main className={styles.main}>
+    <main className={styles.feedMobile}>
       <div className={styles.content}>
-        <ReactPlayer
-          className={styles.player}
-          playing={playing}
-          url="https://player.vimeo.com/video/755671597"
-          controls={false}
-          muted={false}
-          width="100%"
-          height="100%"
-          loop
-          config={{
-            file: {
-              attributes: { preload: "auto" },
-              forceAudio: true,
-            },
-          }}
-        />
-        {playing ? (
-          <BsPause onClick={() => setPlaying(false)} />
-        ) : (
-          <BsPlay className={styles.active} onClick={() => setPlaying(true)} />
-        )}
+        <Header>
+          <BsChevronLeft onClick={() => back()} />
+          <Image
+            width={32}
+            height={32}
+            src="/icons/cart_white.svg"
+            priority
+            alt="Carrinho"
+          />
+        </Header>
+        <section className={styles.sliderWrapper}>
+          <div className="embla">
+            <div className="embla__viewport" ref={viewportRef}>
+              <div className="embla__container">
+                {videoLinks.map((video, index) => (
+                  <div className="embla__slide" key={index}>
+                    <div className="embla__slide__inner">
+                      <FeedPlayer
+                        index={index}
+                        current={currentSlide}
+                        video={video}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        <FooterMobile />
       </div>
     </main>
   );
