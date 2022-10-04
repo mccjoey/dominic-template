@@ -22,11 +22,9 @@
     }
 
     .sliderWrapper {
-      flex: 1;
+      height: calc(100% - (62px + 55px));
     }
-     > footer {
-      position: relative;
-    }
+     
   }
 }
 
