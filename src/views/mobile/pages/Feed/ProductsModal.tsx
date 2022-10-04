@@ -17,9 +17,10 @@ export const ProductsModal: React.FC<ProductsModalProps> = ({
     event: {},
     reason: "backdropClick" | "escapeKeyDown"
   ) => {
-    if (reason) {
+    if (reason === "backdropClick") {
       return;
     }
+
     setOpen(false);
   };
 
@@ -38,7 +39,7 @@ export const ProductsModal: React.FC<ProductsModalProps> = ({
         <IoMdClose
           className={styles.closeModal}
           color={"#fff"}
-          onClick={handleClose}
+          onClick={() => setOpen(false)}
         />
         <Slider className={styles.carousel} {...carouselSettings}>
           {Array.from({ length: 4 }).map((product, index) => (
