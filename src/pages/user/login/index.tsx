@@ -1,10 +1,13 @@
 import styles from "./styles.module.scss";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { AiOutlineMail } from "react-icons/ai";
+import {
+  AiOutlineEyeInvisible,
+  AiOutlineEye,
+  AiOutlineMail,
+} from "react-icons/ai";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { GrClose } from "react-icons/gr";
 import { IoIosLogIn } from "react-icons/io";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -12,6 +15,9 @@ import { useCallback, useState } from "react";
 
 const Login: NextPage = () => {
   const { back: goBack } = useRouter();
+  const [passwordType, setPasswordType] = useState("password");
+  const [cpasswordType, setCPasswordType] = useState("password");
+
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const changeSlider = useCallback((number: number) => {
@@ -34,7 +40,7 @@ const Login: NextPage = () => {
           showStatus={false}
           showArrows={false}
           showThumbs={false}
-          transitionTime={100}
+          transitionTime={0}
           centerSlidePercentage={100}
           selectedItem={currentSlide}
           infiniteLoop={false}
@@ -76,7 +82,11 @@ const Login: NextPage = () => {
               <input type="email" required placeholder="Ex: jose@email.com" />
             </div>
             <div className={styles.buttons}>
-              <button className={styles.back} type="button" onClick={() => changeSlider(0)}>
+              <button
+                className={styles.back}
+                type="button"
+                onClick={() => changeSlider(0)}
+              >
                 Voltar
               </button>
               <button type="submit">Confirmar</button>
@@ -93,7 +103,11 @@ const Login: NextPage = () => {
               <input type="text" required />
             </div>
             <div className={styles.buttons}>
-              <button className={styles.back} type="button" onClick={() => changeSlider(1)}>
+              <button
+                className={styles.back}
+                type="button"
+                onClick={() => changeSlider(1)}
+              >
                 Voltar
               </button>
               <button type="submit">Entrar</button>
@@ -112,18 +126,31 @@ const Login: NextPage = () => {
             </div>
             <div className={styles.formInput}>
               <label>Senha</label>
-              <input type="password" required />
-            </div>            
+              <input type={passwordType} required />
+              {passwordType === "password" ? (
+                <AiOutlineEye onClick={() => setPasswordType("text")} />
+              ) : (
+                <AiOutlineEyeInvisible
+                  onClick={() => setPasswordType("password")}
+                />
+              )}
+            </div>
             <div className={styles.buttons}>
-              <button className={styles.back} type="button" onClick={() => changeSlider(0)}>
+              <button
+                className={styles.back}
+                type="button"
+                onClick={() => changeSlider(0)}
+              >
                 Voltar
               </button>
               <button type="submit">Entrar</button>
             </div>
             <div className={styles.formInput}>
-              <small onClick={() => changeSlider(4)}>Esqueci minha senha</small>
               <small onClick={() => changeSlider(4)}>
-                Não tem uma senha? Cadastre agora
+                Esqueceu sua senha de acesso?
+              </small>
+              <small onClick={() => changeSlider(4)}>
+                Não tem conta? Registre-se
               </small>
             </div>
           </form>
@@ -139,7 +166,11 @@ const Login: NextPage = () => {
               <input type="email" required />
             </div>
             <div className={styles.buttons}>
-              <button className={styles.back} type="button" onClick={() => changeSlider(3)}>
+              <button
+                className={styles.back}
+                type="button"
+                onClick={() => changeSlider(3)}
+              >
                 Voltar
               </button>
               <button type="submit">Confirmar</button>
@@ -151,11 +182,25 @@ const Login: NextPage = () => {
             <p>Enviaremos uma chave de validação para seu e-mail</p>
             <div className={styles.formInput}>
               <label>Nova senha</label>
-              <input type="password" required />
+              <input type={passwordType} required />
+              {passwordType === "password" ? (
+                <AiOutlineEye onClick={() => setPasswordType("text")} />
+              ) : (
+                <AiOutlineEyeInvisible
+                  onClick={() => setPasswordType("password")}
+                />
+              )}
             </div>
             <div className={styles.formInput}>
               <label>Confirmar nova senha</label>
-              <input type="password" required />
+              <input type={cpasswordType} required />
+              {cpasswordType === "password" ? (
+                <AiOutlineEye onClick={() => setCPasswordType("text")} />
+              ) : (
+                <AiOutlineEyeInvisible
+                  onClick={() => setCPasswordType("password")}
+                />
+              )}
             </div>
             <div className={styles.warning}>
               <p>Sua senha deve ter:</p>
@@ -165,7 +210,11 @@ const Login: NextPage = () => {
               <small>- 1 letra maiúscula</small>
             </div>
             <div className={styles.buttons}>
-              <button className={styles.back} type="button" onClick={() => changeSlider(4)}>
+              <button
+                className={styles.back}
+                type="button"
+                onClick={() => changeSlider(4)}
+              >
                 Voltar
               </button>
               <button type="submit">Cadastrar nova senha</button>
