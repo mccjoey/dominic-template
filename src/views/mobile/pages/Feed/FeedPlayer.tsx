@@ -56,12 +56,12 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
             className={styles.player}
             playing={index == current && playing}
             url={video.link}
-            loop
             volume={1}
             controls={false}
             muted={muted}
             width="100%"
             height="100%"
+            loop
             config={{
               file: {
                 attributes: { preload: "auto" },
