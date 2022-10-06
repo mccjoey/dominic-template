@@ -7,7 +7,6 @@ import useView from "../hooks/useView";
 import "../styles/global.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
-
 //DESKTOP
 
 //MOBILE
@@ -17,15 +16,15 @@ import { HeaderMobile } from "../views/mobile/components/Header";
 function MyApp({ Component, pageProps }: AppProps) {
   const { innerWidth = 0 } = useView();
   const { pathname } = useRouter();
-  
-  const nonPathsHeader: boolean = ["/user/login", "/colecoes/feed", "/produto"].includes(
+
+  const nonPathsHeader: boolean = ["/colecoes/feed", "/produto"].includes(
     pathname
   );
 
-  const nonPathsFooter: boolean = ["/user/login", "/colecoes/feed", "/produto"].includes(
+  const nonPathsFooter: boolean = ["/colecoes/feed", "/produto"].includes(
     pathname
   );
-  
+
   const nonPathsFixedFooter: boolean = [
     "/user/login",
     "/colecoes/feed",

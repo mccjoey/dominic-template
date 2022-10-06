@@ -29,7 +29,7 @@ const Login: NextPage = () => {
     <main className={styles.loginPage}>
       <section
         className={styles.content}
-        style={{ backgroundImage: "url(/images/placeholder_background.jpeg)" }}
+       
       >
         <Carousel
           className={styles.formSlider}
