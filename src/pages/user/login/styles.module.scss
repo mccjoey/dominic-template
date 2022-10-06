@@ -128,11 +128,11 @@
 
         small {
           width: 100%;
-          text-align: right;
+          text-align: left;
           font-size: 11px;
 
           &:not(:last-of-type) {
-            margin-bottom: 10px;
+            margin-bottom: 50px;
           }
         }
 
@@ -174,11 +174,12 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        padding-top: 15px;
+        margin-top: 35px;
+        padding-top: 50px;
         border-top: 1px solid #e7e6e2;
 
         button {
-          border: 0;
+          border: 1px solid black;
           background-color: black;
           color: white;
           padding: 10px 0;
@@ -186,6 +187,11 @@
           font-size: 14px;
           font-family: inherit;
           font-weight: 300;
+
+          &.back {
+            background-color: transparent;
+            color: black;
+          }
         }
       }
     }

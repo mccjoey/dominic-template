@@ -76,7 +76,7 @@ const Login: NextPage = () => {
               <input type="email" required placeholder="Ex: jose@email.com" />
             </div>
             <div className={styles.buttons}>
-              <button type="button" onClick={() => changeSlider(0)}>
+              <button className={styles.back} type="button" onClick={() => changeSlider(0)}>
                 Voltar
               </button>
               <button type="submit">Confirmar</button>
@@ -93,7 +93,7 @@ const Login: NextPage = () => {
               <input type="text" required />
             </div>
             <div className={styles.buttons}>
-              <button type="button" onClick={() => changeSlider(1)}>
+              <button className={styles.back} type="button" onClick={() => changeSlider(1)}>
                 Voltar
               </button>
               <button type="submit">Entrar</button>
@@ -113,18 +113,18 @@ const Login: NextPage = () => {
             <div className={styles.formInput}>
               <label>Senha</label>
               <input type="password" required />
+            </div>            
+            <div className={styles.buttons}>
+              <button className={styles.back} type="button" onClick={() => changeSlider(0)}>
+                Voltar
+              </button>
+              <button type="submit">Entrar</button>
             </div>
             <div className={styles.formInput}>
               <small onClick={() => changeSlider(4)}>Esqueci minha senha</small>
               <small onClick={() => changeSlider(4)}>
                 Não tem uma senha? Cadastre agora
               </small>
-            </div>
-            <div className={styles.buttons}>
-              <button type="button" onClick={() => changeSlider(0)}>
-                Voltar
-              </button>
-              <button type="submit">Entrar</button>
             </div>
           </form>
           <form
@@ -139,7 +139,7 @@ const Login: NextPage = () => {
               <input type="email" required />
             </div>
             <div className={styles.buttons}>
-              <button type="button" onClick={() => changeSlider(3)}>
+              <button className={styles.back} type="button" onClick={() => changeSlider(3)}>
                 Voltar
               </button>
               <button type="submit">Confirmar</button>
@@ -165,7 +165,7 @@ const Login: NextPage = () => {
               <small>- 1 letra maiúscula</small>
             </div>
             <div className={styles.buttons}>
-              <button type="button" onClick={() => changeSlider(4)}>
+              <button className={styles.back} type="button" onClick={() => changeSlider(4)}>
                 Voltar
               </button>
               <button type="submit">Cadastrar nova senha</button>
