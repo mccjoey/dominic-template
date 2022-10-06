@@ -241,7 +241,7 @@
   z-index: 3 !important;
   margin-top: auto;
   bottom: 0 !important;
-  height: calc(100vh - 55px) !important;
+  height: 100vh !important;
 
   & + label {
     display: none !important;
@@ -252,6 +252,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-top: 55px;
 
   .bottom {
     background-color: white;
