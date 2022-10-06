@@ -48,7 +48,7 @@
         img {
           object-fit: cover;
           width: 100%;
-          height:auto;
+          height: auto;
         }
       }
     }
@@ -66,13 +66,52 @@
         gap: 5px;
         font-size: 12px;
 
+        .iosDivider {
+          width: 40px;
+          border-top: 1px solid black;
+          border-radius: 50px;
+          margin-inline: auto;
+          margin-bottom: 15px;
+        }
+
         small {
           color: #8a8a8a;
         }
 
+        .productColors {
+          display: flex;
+          gap: 10px;
+
+          small {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            width: 24px;
+            height: 24px;
+            padding: 1px;
+            border: 1px solid transparent;
+
+            img {
+              width: 20px;
+              height: 20px;
+              object-fit: cover;
+            }
+
+            &.active {
+              border-color: black;
+            }
+          }
+        }
+
+        .productName {
+          font-size: 18px;
+        }
+
         p {
-          font-size: 12px;
+          font-size: 14px;
           span {
+            font-size: 12px;
             color: #8a8a8a;
           }
         }

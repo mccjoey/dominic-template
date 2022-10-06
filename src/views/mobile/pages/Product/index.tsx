@@ -111,10 +111,37 @@ export const ProductMobile = () => {
           <div className={styles.productContent}>
             <div className={styles.productInfo}>
               {/* <small>Home - Roupas - Calças</small> */}
+              <div className={styles.iosDivider}></div>
               <div className={styles.productColors}>
-                <small></small>
+                <small className={styles.active}>
+                  <Image
+                    src="/images/product_color1.webp"
+                    priority
+                    width={20}
+                    height={20}
+                    alt="Produto"
+                  />
+                </small>
+                <small >
+                  <Image
+                   src="/images/product_color2.webp"
+                    priority
+                    width={20}
+                    height={20}
+                    alt="Produto"
+                  />
+                </small>
+                <small >
+                  <Image
+                   src="/images/product_color3.webp"
+                    priority
+                    width={20}
+                    height={20}
+                    alt="Produto"
+                  />
+                </small>
               </div>
-              <p>Calça Moletinho Preto</p>
+              <p className={styles.productName}>Calça Moletinho Preto</p>
               <p>
                 RS498,00 <span>| ou 3x de R$ 166,00</span>
               </p>
