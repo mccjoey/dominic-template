@@ -27,10 +27,7 @@ const Login: NextPage = () => {
 
   return (
     <main className={styles.loginPage}>
-      <section
-        className={styles.content}
-       
-      >
+      <section className={styles.content}>
         <Carousel
           className={styles.formSlider}
           showIndicators={false}
@@ -46,7 +43,6 @@ const Login: NextPage = () => {
           dynamicHeight
         >
           <form onSubmit={(e) => e.preventDefault()}>
-            <GrClose className={styles.closeLogin} onClick={() => goBack()} />
             <h1>Entrar</h1>
             <small>Use uma das opções para fazer login</small>
             <ul>
@@ -74,7 +70,6 @@ const Login: NextPage = () => {
               changeSlider(2);
             }}
           >
-            <GrClose className={styles.closeLogin} onClick={() => goBack()} />
             <h1>Entrar</h1>
             <small>Por favor informe seu email</small>
             <div className={styles.formInput}>
@@ -88,7 +83,6 @@ const Login: NextPage = () => {
             </div>
           </form>
           <form onSubmit={(e) => e.preventDefault()}>
-            <GrClose className={styles.closeLogin} onClick={() => goBack()} />
             <h1>Entrar</h1>
             <small>Informe a chave de acesso</small>
             <p>
@@ -110,7 +104,6 @@ const Login: NextPage = () => {
               e.preventDefault();
             }}
           >
-            <GrClose className={styles.closeLogin} onClick={() => goBack()} />
             <h1>Entrar</h1>
             <small>Entrar com email e senha</small>
             <div className={styles.formInput}>
@@ -140,7 +133,6 @@ const Login: NextPage = () => {
               changeSlider(5);
             }}
           >
-            <GrClose className={styles.closeLogin} onClick={() => goBack()} />
             <h1>Entrar</h1>
             <small>Por favor informe seu email</small>
             <div className={styles.formInput}>
@@ -154,7 +146,6 @@ const Login: NextPage = () => {
             </div>
           </form>
           <form onSubmit={(e) => e.preventDefault()}>
-            <GrClose className={styles.closeLogin} onClick={() => goBack()} />
             <h1>Entrar</h1>
             <small>Cadastrar nova senha</small>
             <p>Enviaremos uma chave de validação para seu e-mail</p>
