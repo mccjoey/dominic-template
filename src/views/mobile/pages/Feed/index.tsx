@@ -46,6 +46,7 @@ export const FeedMobile = () => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
 
+    window.scrollTo(0,0);
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     window.addEventListener("resize", () => {
