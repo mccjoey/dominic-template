@@ -13,6 +13,8 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { useRouter } from "next/router";
 import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 import { setTimeout } from "timers";
+import { Accordion } from "./Accordion";
+import { SelectSizeSheet } from "../../../../components/SelectSizeSheet";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
@@ -152,7 +154,7 @@ export const ProductMobile = () => {
                 fechamento frontal por botão e bolsos frontais. Possui ombreiras
                 fixas e forro. <br />
                 Possui um tecido de linho macio composto com elastano, que
-                facilita o movimento. <br />   <br /> 
+                facilita o movimento. <br /> <br />
                 Dica de lavagem: Lavagem à mão. Não alvejar. Não secar em
                 tambor. Secagem em varal. Passar à ferro até 110°c, risco à
                 vapor ou prensa
@@ -179,9 +181,21 @@ export const ProductMobile = () => {
               <p>
                 SKU <span>14374</span>
               </p>
-              <p>
-                Política de troca <span>+</span>
-              </p>
+              <Accordion title="Política de troca">
+                <section className={styles.accordionContent}>
+                  <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Praesentium perspiciatis ipsam ipsa eligendi reprehenderit.
+                    Obcaecati, tenetur eligendi accusamus, in alias magnam vitae
+                    dolorum necessitatibus animi voluptate assumenda temporibus.
+                    Inventore, pariatur! Itaque ducimus dignissimos, nemo minima
+                    accusamus assumenda deleniti necessitatibus odit quo, culpa
+                    minus modi perferendis autem fuga nostrum ipsam consequatur
+                    est reiciendis veritatis quis quasi omnis molestias rem
+                    dolor? Harum.
+                  </p>
+                </section>
+              </Accordion>
             </div>
             <div className={styles.productShippingCalc}>
               <h1>Prazo de entrega</h1>
@@ -222,98 +236,6 @@ export const ProductMobile = () => {
                     <td>R$&nbsp;24,83</td>
                     <td>Transportadora - entrega em até 4 dias úteis</td>
                   </tr>
-                  <tr>
-                    <td>R$&nbsp;34,33</td>
-                    <td>Sedex - entrega em até 2 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac Village - entrega em até 9 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac RDBarra - entrega em até 9 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac Garcia - entrega em até 9 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac Forum - entrega em até 9 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac Gávea - entrega em até 9 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac Niterói - entrega em até 9 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac F Mall - entrega em até 9 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;30,20</td>
-                    <td>Pac ShLeblon - entrega em até 10 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;31,40</td>
-                    <td>Pac Bh - entrega em até 6 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;31,40</td>
-                    <td>Pac Curitiba - entrega em até 7 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;35,95</td>
-                    <td>Pac Salvador - entrega em até 8 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex Village - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex ShLeblon - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex RDBarra - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex Garcia - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex Forum - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex Gávea - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex Niterói - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;41,99</td>
-                    <td>Sedex F Mall - entrega em até 3 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;43,78</td>
-                    <td>Sedex Bh - entrega em até 2 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;43,78</td>
-                    <td>Sedex Curitiba - entrega em até 2 dias úteis</td>
-                  </tr>
-                  <tr>
-                    <td>R$&nbsp;75,09</td>
-                    <td>Sedex Salvador - entrega em até 3 dias úteis</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
@@ -351,37 +273,7 @@ export const ProductMobile = () => {
           </div>
         </div>
       </main>
-      <Drawer
-        anchor="bottom"
-        open={sizesDrawer}
-        onClose={toggleSizesDrawer(false)}
-        className={styles.sizesDrawer}
-      >
-        <section>
-          <h1>Selecione seu tamanho</h1>
-          <ul>
-            <li>
-              PP <small className={styles.warn}>Last feel items</small>
-            </li>
-            <li>P</li>
-            <li>M</li>
-            <li>
-              G
-              <small className={styles.noItems}>Not available I want it!</small>
-            </li>
-            <li>
-              GG
-              <small className={styles.estimated}>
-                Estimated shipment in 8 business days
-              </small>
-            </li>
-          </ul>
-          <div className={styles.sizesDrawerbottom}>
-            <button>Encontre seu tamanho</button>
-            <button>Guia de Tamanhos</button>
-          </div>
-        </section>
-      </Drawer>
+      <SelectSizeSheet open={sizesDrawer} setOpen={setSizesDrawer} />
     </>
   );
 };

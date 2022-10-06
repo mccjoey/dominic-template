@@ -6,6 +6,21 @@
   width: 100%;
   z-index: 3;
 
+  // &::before {
+  //   content: url(/icons/whatsapp2.svg);
+  //   display: block;
+  //   position: absolute;
+  //   right: 0;
+  //   background-color: #128c7e;
+  //   border-radius: 50px;
+  //   top: -50px;
+  //   width: 40px;
+  //   height: 40px;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  // }
+
   .content {
     padding: 15px;
 
@@ -84,6 +99,45 @@
 
   &.hidden {
     animation: slideDown 0.75s ease forwards;
+  }
+}
+
+.whatsIcon {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 9;
+  width: 32px;
+  height: 32px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 500px;
+  padding: 8px 0;
+}
+
+footer.show ~ .whatsIcon {
+  animation: slideUpWhats 0.7s ease forwards;
+}
+
+footer.hidden ~ .whatsIcon {
+  animation: slideDownWhats 0.7s ease forwards;
+}
+
+@keyframes slideUpWhats {
+  0% {
+    bottom: 15px;
+  }
+  100% {
+    bottom: calc(62px + 10px);
+  }
+}
+
+@keyframes slideDownWhats {
+  0% {
+    bottom: calc(62px + 10px);
+  }
+  100% {
+    bottom: 15px;
   }
 }
 

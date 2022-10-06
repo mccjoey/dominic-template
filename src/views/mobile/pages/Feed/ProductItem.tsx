@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { Drawer } from "@mui/material";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { SelectSizeSheet } from "../../../../components/SelectSizeSheet";
 
 interface ProductItemProps {
   setOpen: (state: boolean) => void;
@@ -48,37 +49,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({ setOpen }) => {
           </button>
         </div>
       </div>
-      <Drawer
-        anchor="bottom"
-        open={sizesDrawer}
-        onClose={toggleSizesDrawer(false)}
-        className={styles.sizesDrawer}
-      >
-        <section>
-          <h1>Selecione seu tamanho</h1>
-          <ul>
-            <li>
-              PP <small className={styles.warn}>Last feel items</small>
-            </li>
-            <li>P</li>
-            <li>M</li>
-            <li>
-              G
-              <small className={styles.noItems}>Not available I want it!</small>
-            </li>
-            <li>
-              GG
-              <small className={styles.estimated}>
-                Estimated shipment in 8 business days
-              </small>
-            </li>
-          </ul>
-          <div className={styles.sizesDrawerbottom}>
-            <button>Encontre seu tamanho</button>
-            <button>Guia de Tamanhos</button>
-          </div>
-        </section>
-      </Drawer>
+      <SelectSizeSheet open={sizesDrawer} setOpen={setSizesDrawer} />
     </>
   );
 };

@@ -312,91 +312,6 @@
   }
 }
 
-.sizesDrawer {
-  &:global(.MuiDrawer-root) {
-    display: flex !important;
-    align-items: flex-end !important;
-  }
-
-  :global(.MuiPaper-root) {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px 20px 0 0;
-    height: fit-content;
-    position: relative;
-  }
-
-  section {
-    height: 100%;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    h1 {
-      font-weight: 400;
-      text-align: center;
-      padding: 15px;
-    }
-
-    ul {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      overflow-y: auto;
-
-      li {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        list-style: none;
-        border-bottom: 1px solid #e7e6e2;
-        padding: 15px;
-        font-weight: 300;
-        letter-spacing: 2px;
-
-        small {
-          width: 50%;
-          text-align: right;
-          font-size: 10px;
-          font-weight: 700;
-
-          &.warn {
-            color: rgb(204, 119, 0);
-          }
-          &.noItems {
-            color: #212121;
-          }
-
-          &.estimated {
-            color: #cfcfcf;
-          }
-        }
-      }
-    }
-
-    .sizesDrawerbottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      position: sticky;
-      bottom: 0;
-      padding: 15px;
-      background-color: transparent;
-
-      button {
-        background-color: transparent;
-        border: 0;
-        font-family: inherit;
-        font-weight: 300;
-        font-size: 14px;
-        text-transform: uppercase;
-      }
-    }
-  }
-}
-
 @keyframes slideDown {
   0% {
     position: fixed;
@@ -409,5 +324,57 @@
     top: 0;
     transform: translateY(0px);
     opacity: 1;
+  }
+}
+
+.accordion {
+  padding: 20px 0;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  background-color: transparent;
+
+  &:before {
+    height: 0;
+  }
+
+  :global(.MuiAccordionSummary-root) {
+    padding: 0;
+    min-height: auto;
+  }
+
+  :global(.MuiAccordionSummary-content) {
+    margin: 0px;
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  :global(.MuiAccordionDetails-root) {
+    padding: 0;
+  }
+
+  :global(.MuiAccordionDetails-root) {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px 0;
+      li {
+        list-style: none;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .accordionContent {
+    padding: 0;
+
+    p {
+      padding: 0;
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
 }
