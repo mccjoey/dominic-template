@@ -64,6 +64,10 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 10px;
   row-gap: 30px;
+
+  &[data-gridview="2"] > :nth-of-type(5n) {
+    grid-column: span 2;
+  }
 }
 
 .productItem {
