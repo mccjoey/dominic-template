@@ -28,7 +28,7 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [playing, setPlaying] = useState<boolean>(true);
-  const [muted, setMuted] = useState<boolean>(true);
+  const [muted, setMuted] = useState<boolean>(false);
   const [hasWindow, setHasWindow] = useState<boolean>(false);
 
   const handleToggleMute = useCallback(() => {
@@ -57,13 +57,12 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
             playing={index == current && playing}
             url={video.link}
             loop
-            volume={1}            
+            volume={1}
             controls={false}
             muted={muted}
             width="100%"
             height="100%"
             config={{
-              
               file: {
                 attributes: { preload: "auto" },
                 forceAudio: true,
@@ -73,9 +72,9 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
         )}
         <aside>
           {muted ? (
-            <BsVolumeMute onClick={handleToggleMute} />
-          ) : (
             <BsVolumeUp className={styles.active} onClick={handleToggleMute} />
+          ) : (
+            <BsVolumeMute onClick={handleToggleMute} />
           )}
 
           <BsShare />
@@ -85,10 +84,9 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
             src="/images/placeholder_product.webp"
             priority
             width={20}
-            height={20}            
+            height={20}
             alt="Produto"
             onClick={() => setIsModalOpen(true)}
-            
           />
         </aside>
         <footer>
