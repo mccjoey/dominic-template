@@ -65,8 +65,8 @@ export const HomeDrawer: React.FC<HomeDrawerProps> = ({
           <small>{currentIndex + 1}/5</small>
         </div>
         <div className={styles.bottom}>
-          <button onClick={toggleDrawer}>오늘 하루 보지않기</button>
-          <button onClick={toggleDrawer}>닫기</button>
+          <button onClick={toggleDrawer}>Não exibir mais hoje</button>
+          <button onClick={toggleDrawer}>Fechar</button>
         </div>
       </section>
     </Drawer>

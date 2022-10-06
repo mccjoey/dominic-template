@@ -462,7 +462,7 @@
 
       h1 {
         font-weight: 400;
-        font-size: 20px;
+        font-size: 16px;
         margin-bottom: 10px;
       }
 
@@ -470,13 +470,14 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        gap: 15px;
+        gap: 10px;
         flex-wrap: wrap;
 
         li {
           font-weight: 300;
           list-style: none;
           color: #cacaca;
+          font-size: 14px;
           letter-spacing: 2px;
         }
       }
