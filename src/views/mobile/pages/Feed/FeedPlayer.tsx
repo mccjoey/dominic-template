@@ -10,6 +10,7 @@ import {
 import ReactPlayer from "react-player";
 import Image from "next/future/image";
 import { ProductsModal } from "./ProductsModal";
+import { SocialShare } from "../../../../components/SocialShare";
 
 interface FeedPlayerProps {
   index?: number;
@@ -19,12 +20,16 @@ interface FeedPlayerProps {
     link: string;
     title: string;
   };
+  sharePage: boolean;
+  setSharePage: (state: boolean) => void;
 }
 
 export const FeedPlayer: React.FC<FeedPlayerProps> = ({
   video,
   index,
   current,
+  sharePage,
+  setSharePage,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [playing, setPlaying] = useState<boolean>(true);
@@ -77,7 +82,7 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
             <BsVolumeMute onClick={handleToggleMute} />
           )}
 
-          <BsShare />
+          <BsShare onClick={() => setSharePage(true)} />
 
           <Image
             key={`Product-${index}`}
@@ -100,6 +105,7 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
         )}
       </div>
       <ProductsModal open={isModalOpen} setOpen={setIsModalOpen} />
+      <SocialShare open={sharePage} setOpen={setSharePage} />
     </>
   );
 };

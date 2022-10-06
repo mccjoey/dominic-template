@@ -1,15 +1,16 @@
 import styles from "./styles.module.scss";
+import Image from "next/future/image";
+import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { BsChevronLeft } from "react-icons/bs";
 import { Header } from "../../../../components/Header";
-import Image from "next/future/image";
 import { useRouter } from "next/router";
 import { FooterMobile } from "../../components/Footer";
-import useEmblaCarousel from "embla-carousel-react";
 import { FeedPlayer } from "./FeedPlayer";
 
 export const FeedMobile = () => {
   const { back } = useRouter();
+  const [sharePage, setSharePage] = useState(false)
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -45,7 +46,6 @@ export const FeedMobile = () => {
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
-
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     window.addEventListener("resize", () => {
@@ -78,6 +78,8 @@ export const FeedMobile = () => {
                         index={index}
                         current={currentSlide}
                         video={video}
+                        sharePage={sharePage}
+                        setSharePage={setSharePage}
                       />
                     </div>
                   </div>
