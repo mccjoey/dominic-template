@@ -63,7 +63,7 @@
         padding: 0 15px;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
         font-size: 12px;
 
         .iosDivider {
@@ -81,6 +81,7 @@
         .productColors {
           display: flex;
           gap: 10px;
+          margin-bottom: 15px;
 
           small {
             display: flex;
@@ -130,7 +131,7 @@
       }
 
       .productDecription {
-        margin-top: 20px;
+        margin-top: 40px;
         padding: 0 15px;
         p {
           font-size: 14px;
@@ -154,17 +155,10 @@
         margin-bottom: 30px;
 
         p {
-          border-top: 1px solid black;
           display: flex;
           justify-content: space-between;
           padding: 20px 0;
           font-weight: 700;
-
-          &:last-of-type {
-            border-bottom: 1px solid black;
-          }
-          span {
-          }
         }
       }
 
@@ -315,11 +309,17 @@
 }
 
 .sizesDrawer {
+  &:global(.MuiDrawer-root) {
+    display: flex !important;
+    align-items: flex-end !important;
+  }
+
   :global(.MuiPaper-root) {
     width: 100%;
-    height: 50%;
+    height: 100%;
     border-radius: 20px 20px 0 0;
     height: fit-content;
+    position: relative;
   }
 
   section {

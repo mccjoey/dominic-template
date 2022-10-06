@@ -122,18 +122,18 @@ export const ProductMobile = () => {
                     alt="Produto"
                   />
                 </small>
-                <small >
+                <small>
                   <Image
-                   src="/images/product_color2.webp"
+                    src="/images/product_color2.webp"
                     priority
                     width={20}
                     height={20}
                     alt="Produto"
                   />
                 </small>
-                <small >
+                <small>
                   <Image
-                   src="/images/product_color3.webp"
+                    src="/images/product_color3.webp"
                     priority
                     width={20}
                     height={20}
@@ -148,14 +148,14 @@ export const ProductMobile = () => {
             </div>
             <div className={styles.productDecription}>
               <p>
-                PRETO: Atemporal e elegante, é a cor ideal para compor produções
-                com peças estampadas ou looks monocromáticos.
-                <br />
-                Calça com cós de elástico e amarração de rolotê da própria malha
-                e com gancho levemente deslocado. O modelo traz conforto e é
-                ideal para compor um conjunto com a Blusa Prega Moletinho da
-                mesma cor, criando uma produção monocromática casual e elegante.
-                Modelo veste tamanho PP. Altura modelo: 1,74m
+                Blazer linho com modelagem alongada, detalhe botões frontais,
+                fechamento frontal por botão e bolsos frontais. Possui ombreiras
+                fixas e forro. <br />
+                Possui um tecido de linho macio composto com elastano, que
+                facilita o movimento. <br />   <br /> 
+                Dica de lavagem: Lavagem à mão. Não alvejar. Não secar em
+                tambor. Secagem em varal. Passar à ferro até 110°c, risco à
+                vapor ou prensa
               </p>
             </div>
             <Image
