@@ -238,7 +238,7 @@
 }
 
 .menuDrawer {
-  z-index: 3 !important;
+  z-index: 5 !important;
   margin-top: auto;
   bottom: 0 !important;
   height: 100% !important;
@@ -253,6 +253,7 @@
   flex-direction: column;
   height: 100%;
   padding-top: 55px;
+
 
   .bottom {
     background-color: white;
