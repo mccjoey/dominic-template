@@ -26,10 +26,10 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
   index,
   current,
 }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [playing, setPlaying] = useState<boolean>(true);
-  const [muted, setMuted] = useState(true);
-  const [hasWindow, setHasWindow] = useState(false);
+  const [muted, setMuted] = useState<boolean>(true);
+  const [hasWindow, setHasWindow] = useState<boolean>(false);
 
   const handleToggleMute = useCallback(() => {
     setMuted((current) => !current);
@@ -57,11 +57,13 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
             playing={index == current && playing}
             url={video.link}
             loop
+            volume={1}            
             controls={false}
             muted={muted}
             width="100%"
             height="100%"
             config={{
+              
               file: {
                 attributes: { preload: "auto" },
                 forceAudio: true,
@@ -83,9 +85,10 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
             src="/images/placeholder_product.webp"
             priority
             width={20}
-            height={20}
+            height={20}            
             alt="Produto"
             onClick={() => setIsModalOpen(true)}
+            
           />
         </aside>
         <footer>
