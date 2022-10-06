@@ -126,8 +126,22 @@ export const Menu: React.FC<MenuProps> = ({
           </li>
         </ul>
         <section className={styles.bottom}>
-          <button onClick={() => route("/user/login")}>Início</button>
-          <button onClick={() => route("/user/login")}>Minha Conta</button>
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              route("/user/login");
+            }}
+          >
+            Início
+          </button>
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              route("/user/login");
+            }}
+          >
+            Minha Conta
+          </button>
         </section>
       </section>
     </Drawer>
