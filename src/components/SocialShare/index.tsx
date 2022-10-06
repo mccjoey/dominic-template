@@ -53,22 +53,22 @@ export const SocialShare: React.FC<SocialShareProps> = ({ open, setOpen }) => {
         <div className={styles.socials}>
     
           <WhatsappShareButton url={shareUrl}>
-            <WhatsappIcon round={true} size={32} />
+            <WhatsappIcon round={true} size={45} />
           </WhatsappShareButton>
           <FacebookShareButton url={shareUrl}>
-            <FacebookIcon round={true} size={32} />
+            <FacebookIcon round={true} size={45} />
           </FacebookShareButton>
           <EmailShareButton url={shareUrl}>
-            <EmailIcon round={true} size={32} />
+            <EmailIcon round={true} size={45} />
           </EmailShareButton>
           <PinterestShareButton url={shareUrl} media={"oi"}>
-            <PinterestIcon round={true} size={32} />
+            <PinterestIcon round={true} size={45} />
           </PinterestShareButton>
           <TelegramShareButton url={shareUrl}>
-            <TelegramIcon round={true} size={32} />
+            <TelegramIcon round={true} size={45} />
           </TelegramShareButton>
           <TwitterShareButton url={shareUrl}>
-            <TwitterIcon round={true} size={32} />
+            <TwitterIcon round={true} size={45} />
           </TwitterShareButton>
         </div>
       </section>
