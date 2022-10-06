@@ -12,7 +12,7 @@ export const FooterMobile: React.FC = () => {
   return (
     <footer
       className={`${styles.footer} ${
-        pathname === "/" && styles[showFooter ? "show" : "hidden"]
+        styles[showFooter ? "show" : "hidden"]
       }`}
     >
       <div className={styles.content}>
