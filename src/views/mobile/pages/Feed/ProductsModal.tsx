@@ -43,7 +43,7 @@ export const ProductsModal: React.FC<ProductsModalProps> = ({
         />
         <Slider className={styles.carousel} {...carouselSettings}>
           {Array.from({ length: 4 }).map((product, index) => (
-            <ProductItem key={`HomeProduct-${index}`} />
+            <ProductItem setOpen={setOpen} key={`HomeProduct-${index}`} />
           ))}
         </Slider>
       </section>
