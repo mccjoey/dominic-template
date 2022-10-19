@@ -40,7 +40,9 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
     setMuted((current) => !current);
   }, []);
 
-
+  const setReady = useCallback(() => {
+    setIsReady(true)
+  }, [])
 
   return (
     <>
@@ -54,15 +56,14 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
           muted={muted}
           width="100%"
           height="100%"
-          onReady={() => setIsReady(true)}
+          onReady={setReady}
           loop
-          fallback={
-            <div className={styles.loading}>
-              <p>Carregando</p>
-            </div>
-          }
         />
-        {!isReady && <div className={styles.loading}>Ta carregando</div>}
+        {!isReady && (
+          <div className={styles.loading}>
+            <div className={`${styles.loader} ${styles["loader-2"]}`}></div>
+          </div>
+        )}
 
         <aside>
           {muted ? (
