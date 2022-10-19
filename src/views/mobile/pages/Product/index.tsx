@@ -208,7 +208,6 @@ export const ProductMobile = () => {
                     empresa Veria.
                   </p>
                   <p>
-                    {" "}
                     Não aceite um pedido com embalagem violada, na constatação
                     de avarias, embalagem violada, itens faltantes, produto em
                     desacordo com o pedido entre em contato conosco
