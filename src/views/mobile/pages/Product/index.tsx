@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -20,16 +20,24 @@ import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 import { setTimeout } from "timers";
 import { Accordion } from "./Accordion";
 import { SelectSizeSheet } from "../../../../components/SelectSizeSheet";
+import { ProductModal } from "./ProductModal";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
   const [height, setHeight] = useState(0);
   const [sizesDrawer, setSizesDrawer] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isProductFavorite, setIsProductFavorite] = useState<boolean>(false);
   const scrollHeight = useScrollHeight(400);
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
   const route = useRouter();
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsModalOpen(true);
+    }, 2000);
+  }, []);
 
   setTimeout(() => {
     if (document) {
@@ -288,6 +296,7 @@ export const ProductMobile = () => {
         </div>
       </main>
       <SelectSizeSheet open={sizesDrawer} setOpen={setSizesDrawer} />
+      <ProductModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </>
   );
 };
