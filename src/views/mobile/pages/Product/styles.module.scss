@@ -140,10 +140,9 @@
       }
 
       .productExtraInfo {
-        margin: 50px 15px;
-        padding: 25px;
+        margin: 70px 15px;
+        padding: 25px 0;
         display: flex;
-        align-items: center;
         justify-content: center;
         background-color: #f7f5f5;
 
@@ -151,7 +150,7 @@
           padding: 0 10px;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           flex-direction: column;
           gap: 15px;
 
@@ -184,6 +183,11 @@
           justify-content: space-between;
           padding: 20px 0;
           font-weight: 400;
+
+          &:first-of-type {
+            padding-top: 0;
+          }
+
           span {
             text-align: right;
             font-weight: 300;
@@ -394,7 +398,7 @@
   }
 
   .accordionContent {
-    padding: 0;
+    padding: 10px 0;
 
     p {
       padding: 0;
