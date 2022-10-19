@@ -196,15 +196,16 @@ export const ProductMobile = () => {
               <Accordion title="Política de troca">
                 <section className={styles.accordionContent}>
                   <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Praesentium perspiciatis ipsam ipsa eligendi reprehenderit.
-                    Obcaecati, tenetur eligendi accusamus, in alias magnam vitae
-                    dolorum necessitatibus animi voluptate assumenda temporibus.
-                    Inventore, pariatur! Itaque ducimus dignissimos, nemo minima
-                    accusamus assumenda deleniti necessitatibus odit quo, culpa
-                    minus modi perferendis autem fuga nostrum ipsam consequatur
-                    est reiciendis veritatis quis quasi omnis molestias rem
-                    dolor? Harum.
+                    Nossos termos da Política de Devolução estão de acordo com o
+                    código do consumidor para assegurar tanto o cliente quanto a
+                    empresa Veria.
+                  </p>
+                  <p>
+                    {" "}
+                    Não aceite um pedido com embalagem violada, na constatação
+                    de avarias, embalagem violada, itens faltantes, produto em
+                    desacordo com o pedido entre em contato conosco
+                    imediatamente que resolveremos seu problema.
                   </p>
                 </section>
               </Accordion>

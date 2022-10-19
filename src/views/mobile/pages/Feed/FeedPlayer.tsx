@@ -7,11 +7,11 @@ import {
   BsVolumeMute,
   BsVolumeUp,
 } from "react-icons/bs";
-import ReactPlayer from "react-player";
+import dynamic from "next/dynamic";
 import Image from "next/future/image";
 import { ProductsModal } from "./ProductsModal";
 import { SocialShare } from "../../../../components/SocialShare";
-
+const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 interface FeedPlayerProps {
   index?: number;
   current?: number;
@@ -32,49 +32,38 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
   setSharePage,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [isReady, setIsReady] = useState<boolean>(false);
   const [playing, setPlaying] = useState<boolean>(true);
   const [muted, setMuted] = useState<boolean>(false);
-  const [hasWindow, setHasWindow] = useState<boolean>(false);
 
   const handleToggleMute = useCallback(() => {
     setMuted((current) => !current);
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setHasWindow(true);
-    }
-  }, []);
 
-  // Lateral
-  //  Mutar
-  //  Compartilhar
-  //  Video Produtos Modal
-
-  // Título e Descrição do Video
 
   return (
     <>
       <div className={styles.playerWrapper}>
-        {hasWindow && (
-          <ReactPlayer
-            className={styles.player}
-            playing={index == current && playing}
-            url={video.link}
-            volume={1}
-            controls={false}
-            muted={muted}
-            width="100%"
-            height="100%"
-            loop
-            config={{
-              file: {
-                attributes: { preload: "auto" },
-                forceAudio: true,
-              },
-            }}
-          />
-        )}
+        <ReactPlayer
+          className={styles.player}
+          playing={index == current && isReady && playing}
+          url={video.link}
+          volume={1}
+          controls={false}
+          muted={muted}
+          width="100%"
+          height="100%"
+          onReady={() => setIsReady(true)}
+          loop
+          fallback={
+            <div className={styles.loading}>
+              <p>Carregando</p>
+            </div>
+          }
+        />
+        {!isReady && <div className={styles.loading}>Ta carregando</div>}
+
         <aside>
           {muted ? (
             <BsVolumeUp className={styles.active} onClick={handleToggleMute} />
