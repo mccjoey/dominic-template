@@ -1,6 +1,6 @@
 import { Drawer } from "@mui/material";
 import { Fragment, useState } from "react";
-import { BsChevronRight } from "react-icons/bs";
+import { BsChatRightDots, BsChevronRight } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { Header } from "../../../../components/Header";
 import styles from "./styles.module.scss";
@@ -134,7 +134,6 @@ export const Faq: React.FC<FaqProps> = ({ isFaqOpen, setIsFaqOpen }) => {
             <GrClose onClick={toggleDrawer(false)} />
           </Header>
 
-          <input type="search" placeholder="Qual é sua dúvida?" />
           <ul>
             {faqMock?.map((faq, index) => (
               <li
@@ -151,6 +150,11 @@ export const Faq: React.FC<FaqProps> = ({ isFaqOpen, setIsFaqOpen }) => {
               </li>
             ))}
           </ul>
+        </section>
+        <section className={styles.faqBottom}>
+          <div>
+            <BsChatRightDots /> <small>Converse com a gente</small>
+          </div>
         </section>
       </Drawer>
       <SubDrawer

@@ -58,6 +58,7 @@ export const FeedMobile = () => {
       <div className={styles.content}>
         <Header>
           <BsChevronLeft onClick={() => back()} />
+          <small>{currentSlide + 1}/{videoLinks.length}</small>
           <Image
             width={32}
             height={32}

@@ -39,11 +39,12 @@ export const SubDrawer: React.FC<SubDrawerProps> = ({
     >
       <Header className={styles.subDrawerHeader}>
         <div onClick={toggleSubDrawer(false)}>
-          <BsChevronLeft /> <small>Voltar</small>
+          <BsChevronLeft />
         </div>
-        <h1>{title}</h1>
+        <h1>Dúvidas</h1>
         <GrClose onClick={toggleAll} />
       </Header>
+      <h1 className={styles.subDrawerTitle}>{title}</h1>
       <section
         className={styles.subDrawerContent}
         dangerouslySetInnerHTML={{ __html: children }}
