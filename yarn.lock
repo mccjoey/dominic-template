@@ -2007,6 +2007,11 @@ react-player@^2.11.0:
     prop-types "^15.7.2"
     react-fast-compare "^3.0.1"
 
+react-progressbar-on-scroll@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-progressbar-on-scroll/-/react-progressbar-on-scroll-2.0.0.tgz#5f1b6adfc62a4bc5b13a6e07211177d6395bed0b"
+  integrity sha512-0obb88BaY2Ah428Zz/Zj1vlj9yx5IkX+J33FRzDymrhOZiiUA7BKIwl8v+gBd1vRFoBfAeMtk2adv4SIeWCH4g==
+
 react-responsive-carousel@^3.2.23:
   version "3.2.23"
   resolved "https://registry.yarnpkg.com/react-responsive-carousel/-/react-responsive-carousel-3.2.23.tgz#4c0016ff54603e604bb5c1f9e7ef2d1eda133f1d"

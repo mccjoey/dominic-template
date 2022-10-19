@@ -139,11 +139,36 @@
         }
       }
 
-      .imageInfo {
-        margin: 10px 0;
-        object-fit: cover;
-        width: 100%;
-        height: auto;
+      .productExtraInfo {
+        margin: 50px 15px;
+        padding: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f7f5f5;
+
+        div {
+          padding: 0 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          gap: 15px;
+
+          &:not(:last-of-type) {
+            border-right: 1px solid black;
+          }
+          svg {
+            width: 30px;
+            height: 30px;
+          }
+
+          p {
+            text-align: center;
+            font-size: 12px;
+            font-weight: 100;
+          }
+        }
       }
 
       .productAccordion {

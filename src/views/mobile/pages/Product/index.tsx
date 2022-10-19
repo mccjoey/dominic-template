@@ -6,7 +6,7 @@ import Image from "next/future/image";
 import { Drawer } from "@mui/material";
 import useScrollHeight from "../../../../hooks/useScrollHeight";
 import { RelProducts } from "../../components/RelProducts";
-import { BsChevronLeft } from "react-icons/bs";
+import { BsArrowLeftRight, BsChevronLeft, BsTags, BsTruck } from "react-icons/bs";
 import useHeaderState from "../../../../hooks/useHeaderState";
 import useShowFooter from "../../../../hooks/useShowFooter";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -160,14 +160,21 @@ export const ProductMobile = () => {
                 vapor ou prensa
               </p>
             </div>
-            <Image
-              className={styles.imageInfo}
-              src="/images/product-info.jpeg"
-              priority
-              width={350}
-              height={68}
-              alt="Produto"
-            />
+            <section  className={styles.productExtraInfo}>
+              <div>
+                <BsTruck />
+                <p>Free shipping over $198.</p>
+              </div>
+              <div>
+                <BsTags />
+                <p>Save up to 40% off with promotion code.</p>
+              </div>
+              <div>
+                <BsArrowLeftRight />
+                <p>Return & Exchange policy. More</p>
+              </div>
+            </section>
+            
             <div className={styles.productAccordion}>
               <p>
                 Tabela de medidas / Roupa <span>+</span>
@@ -267,6 +274,7 @@ export const ProductMobile = () => {
                 </button>
               </div>
             </section>
+
             <div className={styles.productRel}>
               <RelProducts />
             </div>

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Fragment } from "react";
 import { Footer } from "../components/Footer";
 import useView from "../hooks/useView";
+import ProgressBar from "react-progressbar-on-scroll";
 
 import "../styles/global.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
@@ -25,6 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     pathname
   );
 
+  const pathsProgressPage: boolean = ["/produto"].includes(pathname);
+
   const nonPathsFixedFooter: boolean = [
     "/user/login",
     "/colecoes/feed",
@@ -37,6 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} />
         {!nonPathsFooter && <FooterMobile />}
         {!nonPathsFixedFooter && <Footer />}
+        {pathsProgressPage && (
+          <ProgressBar height={5} position="bottom" color="rgb(255, 72, 0)" />
+        )}
       </Fragment>
     );
   }
