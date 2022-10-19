@@ -70,7 +70,7 @@ export const Menu: React.FC<MenuProps> = ({
               </li>
             </ul>
           </li>
-          <Accordion className={styles.accordion}>
+          <Accordion disableGutters className={styles.accordion}>
             <AccordionSummary expandIcon={<BsChevronRight />}>
               Coleção
             </AccordionSummary>

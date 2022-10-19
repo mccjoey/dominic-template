@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 export const Accordions = () => {
   return (
     <section className={styles.accordions}>
-      <Accordion className={styles.accordion}>
+      <Accordion disableGutters className={styles.accordion}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           Institucional
         </AccordionSummary>
@@ -28,7 +28,7 @@ export const Accordions = () => {
           </ul>
         </AccordionDetails>
       </Accordion>
-      <Accordion className={styles.accordion}>
+      <Accordion disableGutters className={styles.accordion}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           Minha conta
         </AccordionSummary>
@@ -41,7 +41,7 @@ export const Accordions = () => {
           </ul>
         </AccordionDetails>
       </Accordion>
-      <Accordion className={styles.accordion}>
+      <Accordion disableGutters className={styles.accordion}>
         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
           Ajuda
         </AccordionSummary>
