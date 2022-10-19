@@ -2,10 +2,8 @@ import Image from "next/future/image";
 import styles from "./styles.module.scss";
 import Slider from "react-slick";
 import { Fragment, useState } from "react";
-
 import Link from "next/link";
 import { SelectSizeSheet } from "../../components/SelectSizeSheet";
-
 
 interface ProductItemProps {
   gridView: number;
