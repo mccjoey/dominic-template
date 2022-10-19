@@ -68,6 +68,17 @@
   &[data-gridview="2"] > :nth-of-type(5n) {
     grid-column: span 2;
   }
+
+  @media only screen and (min-width: 781px) {
+    grid-template-columns: repeat(4, 1fr) !important;
+    &[data-gridview="2"] > :nth-of-type(5n) {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+  
+  }
+
+
 }
 
 .productItem {
@@ -144,6 +155,11 @@
 .filtersDrawer {
   display: flex;
   flex-direction: column;
+
+
+  @media only screen and (min-width: 781px) {
+    max-width: 400px;  
+  }
 
   header {
     display: flex;

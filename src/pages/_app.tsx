@@ -13,6 +13,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 //MOBILE
 import { FooterMobile } from "../views/mobile/components/Footer";
 import { HeaderMobile } from "../views/mobile/components/Header";
+import { HeaderDesk } from "../views/desktop/components/HeaderDesk";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { innerWidth = 0 } = useView();
@@ -49,6 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Fragment>
+      <HeaderDesk />
       <Component {...pageProps} />
     </Fragment>
   );

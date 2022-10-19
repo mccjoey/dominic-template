@@ -4,7 +4,8 @@ import Slider from "react-slick";
 import { Fragment, useState } from "react";
 
 import Link from "next/link";
-import { SelectSizeSheet } from "../../../../components/SelectSizeSheet";
+import { SelectSizeSheet } from "../../components/SelectSizeSheet";
+
 
 interface ProductItemProps {
   gridView: number;

@@ -1,16 +1,23 @@
+import styles from "./styles.module.scss";
+
 import type { NextPage } from "next";
-import useView from "../../hooks/useView";
-import ProductsDesktop from "../../views/desktop/pages/Products";
-import { ProductsMobile } from "../../views/mobile/pages/Products";
+import { PageBanner } from "../../views/mobile/components/PageBanner";
+import { FilterProducts } from "./FilterProducts";
+import { ProductsList } from "./ProductsList";
+import { useState } from "react";
 
 const Products: NextPage = () => {
-  const { innerWidth = 0 } = useView();
+  const [gridView, setGridView] = useState(2);
 
-  if (innerWidth <= 780) {
-    return <ProductsMobile />;
-  }
-
-  return <ProductsDesktop />;
+  return (
+    <main className={styles.main}>
+      <div className={styles.content}>
+        <PageBanner />
+        <FilterProducts setGridView={setGridView} />
+        <ProductsList gridView={gridView} />
+      </div>
+    </main>
+  );
 };
 
 export default Products;
