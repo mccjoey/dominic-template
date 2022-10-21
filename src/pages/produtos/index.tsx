@@ -33,7 +33,7 @@ const Products: NextPage = () => {
 
             <div style={{ padding: "100% 0 0 0", position: "relative" }}>
               <iframe
-                src="https://player.vimeo.com/video/762781104?h=07301b79de&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&loop=1&controls=0&background=1&muted=1"
+                src="https://player.vimeo.com/video/762781104?h=07301b79de&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&loop=1&controls=0&background=1"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture"
                 allowFullScreen

@@ -22,7 +22,23 @@ const HomeMobile: NextPage = () => {
     <Fragment>
       <main className={styles.main}>
         <div className={styles.content}>
-          <PageBanner />
+          {/* <PageBanner /> */}
+          <div style={{ padding: "177.78% 0 0 0", position: "relative" }}>
+              <iframe
+                src="https://player.vimeo.com/video/755671237?h=07301b79de&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&loop=1&controls=0&background=1&muted=1"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                }}
+                title="1200x1200 5s teste.mp4"
+              />
+            </div>
           <FeaturedProduct />
           <NewestProducts />
           <CenteredCarousel />
