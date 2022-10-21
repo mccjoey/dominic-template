@@ -32,11 +32,11 @@ export const ProductMobile = () => {
   const showFooter = useShowFooter();
   const route = useRouter();
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsModalOpen(true);
-    }, 2000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsModalOpen(true);
+  //   }, 2000);
+  // }, []);
 
   setTimeout(() => {
     if (document) {
@@ -155,9 +155,12 @@ export const ProductMobile = () => {
                   />
                 </small>
               </div>
-              <p className={styles.productName}>Calça Moletinho Preto <span> -10%</span></p>
+              <p className={styles.productName}>
+                Calça Moletinho Preto <span> -10%</span>
+              </p>
               <p>
-              <small>R$500,00</small> RS450,00  <span>| ou 3x de R$ 166,00</span>
+                <small>R$500,00</small> RS450,00{" "}
+                <span>| ou 3x de R$ 166,00</span>
               </p>
             </div>
             <div className={styles.productDecription}>
@@ -188,18 +191,37 @@ export const ProductMobile = () => {
             </section>
 
             <div className={styles.productAccordion}>
-              <p>
-                Tabela de medidas / Roupa <span>+</span>
-              </p>
-              <p>
-                Composição <span>100% Poliéster / Forro: 100% Poliéster</span>
-              </p>
-              <p>
-                Modelo <span>Modelo: Usa P / Altura: 1,65</span>
-              </p>
-              <p>
-                SKU <span>14374</span>
-              </p>
+              
+              <Accordion title="Tabela de Medidas / Roupa">
+                <section className={styles.accordionContent}>
+                  <p>
+                    Nossos termos da Política de Devolução estão de acordo com o
+                    código do consumidor para assegurar tanto o cliente quanto a
+                    empresa Veria.
+                  </p>
+                  <p>
+                    Não aceite um pedido com embalagem violada, na constatação
+                    de avarias, embalagem violada, itens faltantes, produto em
+                    desacordo com o pedido entre em contato conosco
+                    imediatamente que resolveremos seu problema.
+                  </p>
+                </section>
+              </Accordion>
+              <Accordion title="Composição">
+                <section className={styles.accordionContent}>
+                  <p>100% Poliéster / Forro: 100% Poliéster</p>
+                </section>
+              </Accordion>
+              <Accordion title="Modelo">
+                <section className={styles.accordionContent}>
+                  <p>Modelo: Usa P / Altura: 1,65</p>
+                </section>
+              </Accordion>
+              <Accordion title="SKU">
+                <section className={styles.accordionContent}>
+                  <p>14374</p>
+                </section>
+              </Accordion>
               <Accordion title="Política de troca">
                 <section className={styles.accordionContent}>
                   <p>

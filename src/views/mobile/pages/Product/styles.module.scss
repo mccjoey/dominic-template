@@ -111,19 +111,21 @@
           justify-content: space-between;
           font-size: 18px;
           color: black;
+          gap: 20px;
+          min-height: 26px;
 
           span {
-            border: 1px solid rgb(255, 72, 0);
+            border: 1px solid var(--mark-up);
             font-weight: 700;
             font-size: 12px;
-            color: rgb(255, 72, 0);
+            color: var(--mark-up);
             padding: 5px 25px;
           }
         }
 
         p {
           font-size: 14px;
-          color: rgb(255, 72, 0);
+          color: var(--mark-up);
 
           small {
             text-decoration: line-through;
@@ -184,7 +186,7 @@
           p {
             text-align: center;
             font-size: 12px;
-            font-weight: 100;
+            font-weight: 300;
           }
         }
       }
@@ -319,7 +321,7 @@
                 font-size: 13px;
                 white-space: nowrap;
                 color: rgb(255, 255, 255);
-                background: rgb(255, 72, 0);
+                background: var(--mark-up);
                 box-shadow: rgb(0 0 0 / 50%) 0px 3px 4px 0px;
                 transform: translateX(-50%);
                 transition: all 0.2s ease-in-out 0s;
@@ -330,7 +332,7 @@
                   content: "";
                   top: 100%;
                   left: 50%;
-                  border-top: 6px solid rgb(255, 72, 0);
+                  border-top: 6px solid var(--mark-up);
                   border-left: 4px solid transparent;
                   border-right: 4px solid transparent;
                   transform: translateX(-50%);
@@ -376,7 +378,7 @@
 }
 
 .accordion {
-  padding: 20px 0;
+  padding: 10px 0;
   margin: 0;
   border: 0;
   box-shadow: none !important;

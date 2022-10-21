@@ -8,9 +8,7 @@ import { ProductMobile } from "../../views/mobile/pages/Product";
 
 const Product: NextPage = () => {
   const { innerWidth = 0 } = useView();
-  const router = useRouter();
 
-  console.log(router);
 
   if (innerWidth <= 780) {
     return <ProductMobile />;
