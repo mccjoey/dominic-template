@@ -16,40 +16,40 @@ const Products: NextPage = () => {
     <main className={styles.main}>
       <div className={styles.content}>
         {innerWidth <= 780 ? (
-          <div
-            className={styles.playerWrapper}
-            style={{ minHeight: innerWidth }}
-          >
-            {/* <ReactPlayer
-              className={styles.player}
-              url="https://vimeo.com/762781104/07301b79de"
-              controls={false}
-              playing
-              muted
-              width="100%"
-              height="100%"
-              loop
-            /> */}
-
-            <div style={{ padding: "100% 0 0 0", position: "relative" }}>
-              <iframe
-                src="https://player.vimeo.com/video/762781104?h=07301b79de&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&loop=1&controls=0&background=1"
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                }}
-                title="1200x1200 5s teste.mp4"
-              />
-            </div>
+          <div style={{ padding: "100% 0 0 0", position: "relative" }}>
+            <iframe
+              src="https://player.vimeo.com/video/762781104?h=07301b79de&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&loop=1&controls=0&background=1"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+              title="1200x1200 5s teste.mp4"
+            />
           </div>
         ) : (
-          <PageBanner />
+          // <PageBanner />
+          <div style={{ padding: "33.33% 0 0 0", position: "relative" }}>
+            <iframe
+              src="https://player.vimeo.com/video/762782447?h=eb806320e8&badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&autoplay=1&loop=1&controls=0&background=1"
+              frameBorder="0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+              }}
+              title="1200x1200 5s teste.mp4"
+            />
+          </div>
         )}
 
         <FilterProducts setGridView={setGridView} />
