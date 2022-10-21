@@ -15,7 +15,7 @@ export const Accordion: React.FC<AccordionProps> = ({ children, title }) => {
     <Accordionn
       disableGutters
       elevation={0}
-      className={styles.accordion}
+      className={styles.productInfoAccordion}
       defaultExpanded={title === "Preço" ? true : undefined}
     >
       <AccordionSummary expandIcon={<ExpandMoreIcon />}>

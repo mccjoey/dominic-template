@@ -48,8 +48,6 @@ export const ProductMobile = () => {
     }, 5000);
   }, []);
 
-  
-
   const toggleSizesDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
@@ -193,7 +191,6 @@ export const ProductMobile = () => {
             </section>
 
             <div className={styles.productAccordion}>
-              
               <Accordion title="Tabela de Medidas / Roupa">
                 <section className={styles.accordionContent}>
                   <p>
