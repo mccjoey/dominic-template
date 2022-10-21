@@ -155,9 +155,9 @@ export const ProductMobile = () => {
                   />
                 </small>
               </div>
-              <p className={styles.productName}>Calça Moletinho Preto</p>
+              <p className={styles.productName}>Calça Moletinho Preto <span> -10%</span></p>
               <p>
-                RS498,00 <span>| ou 3x de R$ 166,00</span>
+              <small>R$500,00</small> RS450,00  <span>| ou 3x de R$ 166,00</span>
               </p>
             </div>
             <div className={styles.productDecription}>
