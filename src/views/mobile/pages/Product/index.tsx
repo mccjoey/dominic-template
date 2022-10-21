@@ -20,6 +20,7 @@ import { setTimeout } from "timers";
 import { Accordion } from "./Accordion";
 import { SelectSizeSheet } from "../../../../components/SelectSizeSheet";
 import { ProductModal } from "./ProductModal";
+import { useInView } from "react-intersection-observer";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
@@ -31,22 +32,6 @@ export const ProductMobile = () => {
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
   const route = useRouter();
-
-  useEffect(() => {
-    setTimeout(() => {
-      setIsModalOpen(true);
-    }, 2000);
-
-    setTimeout(() => {
-      if (document) {
-        const element = document.getElementById("whatsPopover");
-        if (element) {
-          element!.style!.display = "none";
-        }
-        return;
-      }
-    }, 5000);
-  }, []);
 
   const toggleSizesDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -67,6 +52,27 @@ export const ProductMobile = () => {
       setHeight(node.getBoundingClientRect().height);
     }
   }, []);
+
+  const { ref, inView } = useInView({
+    threshold: 0.8,
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (document) {
+        const element = document.getElementById("whatsPopover");
+        if (element) {
+          element!.style!.display = "none";
+        }
+        return;
+      }
+    }, 5000);
+
+    if (inView) {
+      setIsModalOpen(true);
+    }
+  }, [inView]);
 
   return (
     <>
@@ -308,7 +314,7 @@ export const ProductMobile = () => {
               </div>
             </section>
 
-            <div className={styles.productRel}>
+            <div className={styles.productRel} ref={ref}>
               <RelProducts />
             </div>
           </div>
