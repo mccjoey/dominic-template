@@ -32,21 +32,23 @@ export const ProductMobile = () => {
   const showFooter = useShowFooter();
   const route = useRouter();
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsModalOpen(true);
-  //   }, 2000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsModalOpen(true);
+    }, 2000);
 
-  setTimeout(() => {
-    if (document) {
-      const element = document.getElementById("whatsPopover");
-      if (element) {
-        element!.style!.display = "none";
+    setTimeout(() => {
+      if (document) {
+        const element = document.getElementById("whatsPopover");
+        if (element) {
+          element!.style!.display = "none";
+        }
+        return;
       }
-      return;
-    }
-  }, 5000);
+    }, 5000);
+  }, []);
+
+  
 
   const toggleSizesDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
