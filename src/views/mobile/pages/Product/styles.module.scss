@@ -198,6 +198,7 @@
         padding: 0 15px;
         text-transform: uppercase;
         margin-bottom: 30px;
+        background-color: #f7f7f7;
 
         p {
           display: flex;
@@ -378,7 +379,7 @@
 }
 
 .accordion {
-  padding: 10px 0 !important;
+  padding: 15px 0 !important;
   margin: 0 !important;
   border: 0 !important;
   box-shadow: none !important;
@@ -411,6 +412,7 @@
       flex-direction: column;
       gap: 15px;
       padding: 15px 0;
+
       li {
         list-style: none;
         font-size: 12px;
