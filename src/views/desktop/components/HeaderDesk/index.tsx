@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import { BsChevronRight } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
+
 export const HeaderDesk: React.FC = () => {
   const isScrollingUp = useShowFooter();
   const [isTopBarVisible, setIsTopBarVisible] = useState<boolean>(true);

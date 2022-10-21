@@ -77,13 +77,12 @@
       }
     }
 
-    .headerTitle {
-      position: absolute;
-      top: 50%;
+    .logo {
+      position: absolute;   
       left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 16px;
-      font-weight: 100;
+      transform: translateX(-50%);
+      width: 80px;
+      height: auto;
     }
 
     .headerNav {

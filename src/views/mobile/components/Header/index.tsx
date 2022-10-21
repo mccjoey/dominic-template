@@ -69,9 +69,15 @@ export const HeaderMobile: React.FC = () => {
           >
             <nav className={`${styles.menuBurguer} ${styles.open}`} />
           </div>
-          <h1 className={styles.headerTitle} onClick={() => route("/")}>
-            Título
-          </h1>
+          <Image
+            width={980}
+            height={166.04}
+            src="/images/logo_black.svg"
+            priority
+            alt="Logo"
+            className={styles.logo}
+            onClick={() => route("/")}
+          />
           <div className={styles.headerNav}>
             {isHeaderSearchOpen ? (
               <GrClose onClick={toggleSearch} />

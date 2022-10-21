@@ -7,3 +7,19 @@
     height: 100%;
   }
 }
+
+.playerWrapper {
+  position: relative;
+
+  .player {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    > div {
+      position: absolute;
+      object-fit: fill;
+      background-color: transparent !important;
+    }
+  }
+}
