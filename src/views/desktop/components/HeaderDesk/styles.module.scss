@@ -1,6 +1,31 @@
-.headerDesk {
+.topBar {
+  background-color: black;
   padding: 0 15px;
   min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.headerDesk {
+  background-color: white;
+  padding: 0 15px;
+  height: 60px;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,11 +43,14 @@
         display: flex;
         align-items: center;
         gap: 15px;
+
         li {
+          text-transform: uppercase;
           list-style: none;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 300;
           cursor: pointer;
+          display: inline-block;
 
           &:hover {
             font-weight: 400;
@@ -31,29 +59,43 @@
       }
     }
 
-    h1 {
-      font-size: 20px;
+    .logo {
+      width: 110px;
+      height: auto;
+      object-fit: cover;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
     }
 
     .navigation {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
+  }
+
+  &.stickyDown {
+    position: sticky;
+    animation: slideDown 0.75s ease forwards;
+  }
+
+  &.stickyUp {
+    position: sticky;
+    animation: slideUp 0.75s ease forwards;
   }
 }
 
 .subHeaderDesk {
   background-color: white;
-  z-index: 2;
-  position: sticky;
-  top: 0;
   padding: 0 15px;
   min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+  animation: none;
+  z-index: 2;
+
   .content {
     flex: 1;
     display: flex;
@@ -67,19 +109,65 @@
         align-items: center;
         gap: 15px;
         li {
+          text-transform: uppercase;
           list-style: none;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 300;
           cursor: pointer;
-
-          &:hover {
-            font-weight: 400;
-          }
         }
       }
     }
+  }
 
-    
+  &.stickyDown {
+    position: sticky;
+    top: 60px;
+    animation: slideDownSubHeader 0.75s ease forwards;
+  }
+
+  &.stickyUp {
+    position: sticky;
+    top: 0;
+    animation: slideDownSubHeaderUp 0.75s ease forwards;
   }
 }
 
+@keyframes slideDown {
+  0% {
+    top: -60px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: -60px;
+  }
+}
+
+@keyframes slideDownSubHeader {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 60px;
+  }
+}
+
+@keyframes slideDownSubHeaderUp {
+  0% {
+    top: 60px;
+  }
+
+  100% {
+    top: 0;
+  }
+}

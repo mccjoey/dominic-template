@@ -36,6 +36,7 @@ export const SubDrawer: React.FC<SubDrawerProps> = ({
       open={isSubDrawerOpen}
       onClose={toggleSubDrawer(false)}
       className={styles.faqModal}
+      transitionDuration={0}
     >
       <Header className={styles.subDrawerHeader}>
         <div onClick={toggleSubDrawer(false)}>
