@@ -14,6 +14,7 @@ export const Accordion: React.FC<AccordionProps> = ({ children, title }) => {
   return (
     <Accordionn
       disableGutters
+      elevation={0}
       className={styles.accordion}
       defaultExpanded={title === "Preço" ? true : undefined}
     >
