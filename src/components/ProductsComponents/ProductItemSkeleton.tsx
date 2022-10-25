@@ -4,7 +4,7 @@ import { Skeleton } from "@mui/material";
 export const ProductItemSkeleton: React.FC = () => {
   return (
     <div className={styles.productItemSkeleton}>
-      <Skeleton variant="rectangular" width="100%" height={262} />
+      <Skeleton variant="rectangular" width="100%" height={400} />
       <p className={styles.productName}>
         <Skeleton variant="text" sx={{ fontSize: "3rem" }} />
       </p>

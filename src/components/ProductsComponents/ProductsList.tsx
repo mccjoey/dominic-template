@@ -21,7 +21,7 @@ export const ProductsList: React.FC<ProductsListProps> = ({ gridView }) => {
       data-gridview={gridView}
     >
       {loading
-        ? Array.from({ length:4  }).map((product, index) => (
+        ? Array.from({ length: 12  }).map((product, index) => (
             <ProductItemSkeleton key={`HomeProduct-${index}`} />
           ))
         : Array.from({ length: 12 }).map((product, index) => (

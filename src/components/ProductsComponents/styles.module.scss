@@ -50,8 +50,7 @@
 }
 
 .productsList {
-  padding-block: 60px;
-  padding-inline: var(--padding-inline-desk);
+  padding: 60px 15px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 10px;
@@ -62,16 +61,15 @@
   }
 
   @media only screen and (min-width: 781px) {
-    grid-template-columns: repeat(auto-fill,minmax(200px,280px)) !important;
+    padding-inline: var(--padding-inline-desk);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 280px)) !important;
     margin-inline: auto;
     justify-content: center;
 
     &[data-gridview="2"] > :nth-of-type(5n) {
       grid-column: span 1;
       grid-row: span 1;
-
     }
-    
   }
 }
 
@@ -115,8 +113,6 @@
         height: auto;
         margin-bottom: 15px;
       }
-
-      
     }
   }
 
@@ -138,13 +134,13 @@
 
   // @media only screen and (min-width: 781px) {
   //   .productName ,
-  
+
   //   .productPrice,
-  
+
   //   .productInterest {
   //    display: none;
   //   }
-    
+
   // }
 
   button {
