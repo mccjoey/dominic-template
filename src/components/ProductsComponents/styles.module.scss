@@ -1,5 +1,6 @@
 .filterProducts {
   padding: 50px 15px 15px;
+  padding-inline: var(--padding-inline-desk);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +50,8 @@
 }
 
 .productsList {
-  padding: 60px 15px;
+  padding-block: 60px;
+  padding-inline: var(--padding-inline-desk);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 10px;
@@ -60,10 +62,13 @@
   }
 
   @media only screen and (min-width: 781px) {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(auto-fill,minmax(200px,280px)) !important;
+    margin-inline: auto;
+    justify-content: center;
+
     &[data-gridview="2"] > :nth-of-type(5n) {
-      grid-column: span 2;
-      grid-row: span 2;
+      grid-column: span 1;
+      grid-row: span 1;
 
     }
     
