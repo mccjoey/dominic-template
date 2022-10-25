@@ -1,6 +1,6 @@
 .topBar {
   background-color: black;
-  padding: 0 15px;
+  padding-inline: var(--padding-inline-desk);
   min-height: 60px;
   display: flex;
   align-items: center;
@@ -23,7 +23,7 @@
 
 .headerDesk {
   background-color: white;
-  padding: 0 15px;
+  padding-inline: var(--padding-inline-desk);
   height: 60px;
   z-index: 2;
   display: flex;
@@ -88,7 +88,7 @@
 
 .subHeaderDesk {
   background-color: white;
-  padding: 0 15px;
+  padding-inline: var(--padding-inline-desk);
   min-height: 60px;
   display: flex;
   align-items: center;
