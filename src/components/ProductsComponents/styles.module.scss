@@ -40,10 +40,19 @@
     .filter {
       display: flex;
       align-items: center;
+      cursor: pointer;
 
       small {
         font-weight: 400;
         font-size: 12px;
+      }
+    }
+
+    .filterView {
+      display: flex;
+      gap: 5px;
+      img {
+        cursor: pointer;
       }
     }
   }

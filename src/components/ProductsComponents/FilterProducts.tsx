@@ -82,14 +82,14 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           </Link>
         </div>
         <div className={styles.filterMenu}>
-          <div className={styles.filter}>
+          <div className={styles.filter}  onClick={() => setIsFiltersOpen(true)}>
             <Image
               width={32}
               height={32}
               src="/icons/filter.svg"
               priority
               alt="Home"
-              onClick={() => setIsFiltersOpen(true)}
+             
             />
             <small>Filtro</small>
           </div>
