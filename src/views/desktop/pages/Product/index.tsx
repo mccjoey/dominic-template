@@ -12,7 +12,7 @@ export const ProductDesktop = () => {
               <Image
                 key={image.id}
                 src={image.src}
-                loading="lazy"
+                priority
                 width={1800}
                 height={2700}
                 alt="Produto"
