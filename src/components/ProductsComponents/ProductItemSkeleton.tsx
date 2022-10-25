@@ -1,10 +1,17 @@
 import styles from "./styles.module.scss";
 import { Skeleton } from "@mui/material";
+import useView from "../../hooks/useView";
 
 export const ProductItemSkeleton: React.FC = () => {
+  const { innerWidth = 0 } = useView();
+
   return (
     <div className={styles.productItemSkeleton}>
-      <Skeleton variant="rectangular" width="100%" height={400} />
+      <Skeleton
+        variant="rectangular"
+        width="100%"
+        height={innerWidth >= 780 ? 400 : 262}
+      />
       <p className={styles.productName}>
         <Skeleton variant="text" sx={{ fontSize: "3rem" }} />
       </p>
