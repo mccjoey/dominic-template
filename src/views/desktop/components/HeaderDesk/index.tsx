@@ -4,8 +4,10 @@ import styles from "./styles.module.scss";
 import { BsChevronRight } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export const HeaderDesk: React.FC = () => {
+  const { push: route } = useRouter();
   const isScrollingUp = useShowFooter();
   const [isTopBarVisible, setIsTopBarVisible] = useState<boolean>(true);
 
@@ -42,6 +44,7 @@ export const HeaderDesk: React.FC = () => {
             priority
             alt="Logo"
             className={styles.logo}
+            onClick={() => route("/")}
           />
           <nav className={styles.navigation}>
             <Image
