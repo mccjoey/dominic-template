@@ -1,7 +1,6 @@
 import type {
   NextPage,
 } from "next";
-import { useRouter } from "next/router";
 import useView from "../../hooks/useView";
 import { ProductDesktop } from "../../views/desktop/pages/Product";
 import { ProductMobile } from "../../views/mobile/pages/Product";

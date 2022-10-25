@@ -27,14 +27,16 @@ export const ProductItem: React.FC<ProductItemProps> = ({ gridView }) => {
         <Slider className={styles.productSlider} {...sliderSettings}>
           {Array.from({ length: 4 }).map((product, index) => (
             <div className={styles.productImage} key={`ProductSlide${index}`}>
-              <Link href="/produto">
-                <Image
-                  src="/images/placeholder_product.webp"
-                  loading="lazy"
-                  width={1800}
-                  height={2700}
-                  alt="Produto"
-                />
+              <Link href="/produto" rel="noopener noreferrer">
+                <a>
+                  <Image
+                    src="/images/placeholder_product.webp"
+                    loading="lazy"
+                    width={1800}
+                    height={2700}
+                    alt="Produto"
+                  />
+                </a>
               </Link>
             </div>
           ))}

@@ -31,10 +31,10 @@ export const HeaderDesk: React.FC = () => {
         <div className={styles.content}>
           <nav className={styles.menu}>
             <ul>
-              <li>Novidades</li>
-              <li>Roupas</li>
-              <li>Promoção</li>
-              <li>Blog</li>
+              <li onClick={() => route("/produtos")}>Novidades</li>
+              <li onClick={() => route("/produtos")}>Roupas</li>
+              <li onClick={() => route("/produtos")}>Promoção</li>
+              <li onClick={() => route("/produtos")}>Blog</li>
             </ul>
           </nav>
           <Image
