@@ -52,6 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Fragment>
       <HeaderDesk />
       <Component {...pageProps} />
+      <Footer />
     </Fragment>
   );
 }
