@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import Image from "next/future/image";
+import Image from "next/image";
 import useHeaderState from "../../../../hooks/useHeaderState";
 import { CartDrawer } from "../CartDrawer";
 import { Fragment, useCallback, useEffect, useState } from "react";

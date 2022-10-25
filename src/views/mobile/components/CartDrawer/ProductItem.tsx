@@ -1,4 +1,4 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import styles from "./styles.module.scss";
 import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import { AiOutlineDelete } from "react-icons/ai";

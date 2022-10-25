@@ -25,7 +25,7 @@
   background-color: white;
   padding-inline: var(--padding-inline-desk);
   height: 60px;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,7 +95,7 @@
   align-items: center;
   justify-content: center;
   animation: none;
-  z-index: 2;
+  z-index: 3;
 
   .content {
     flex: 1;

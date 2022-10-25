@@ -1,9 +1,9 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import useShowFooter from "../../../../hooks/useShowFooter";
 import styles from "./styles.module.scss";
 import { BsChevronRight } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export const HeaderDesk: React.FC = () => {
@@ -27,8 +27,9 @@ export const HeaderDesk: React.FC = () => {
         className={`${styles.headerDesk} ${
           styles[isScrollingUp ? "stickyDown" : "stickyUp"]
         }`}
+        id="headerDesk"
       >
-        <div className={styles.content}>
+        <div className={styles.content} >
           <nav className={styles.menu}>
             <ul>
               <li onClick={() => route("/produtos")}>Novidades</li>
@@ -82,6 +83,7 @@ export const HeaderDesk: React.FC = () => {
         className={`${styles.subHeaderDesk}  ${
           styles[isScrollingUp ? "stickyDown" : "stickyUp"]
         }`}
+        id="subHeaderDesk"
       >
         <div className={styles.content}>
           <nav>

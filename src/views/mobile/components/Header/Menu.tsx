@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import Image from "next/future/image";
+import Image from "next/image";
 import { BsChevronRight } from "react-icons/bs";
 import { Accordion, AccordionDetails, AccordionSummary } from "@mui/material";
 import { BaseSyntheticEvent } from "react";

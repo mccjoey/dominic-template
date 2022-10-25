@@ -8,7 +8,7 @@ import {
   BsVolumeUp,
 } from "react-icons/bs";
 import dynamic from "next/dynamic";
-import Image from "next/future/image";
+import Image from "next/image";
 import { ProductsModal } from "./ProductsModal";
 import { SocialShare } from "../../../../components/SocialShare";
 const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });

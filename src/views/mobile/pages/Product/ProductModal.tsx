@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { useCallback, useEffect } from "react";
-import Image from "next/future/image";
+import Image from "next/image";
 import { GrClose } from "react-icons/gr";
 
 interface ProductModalProps {

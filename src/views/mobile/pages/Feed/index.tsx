@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import Image from "next/future/image";
+import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
 import { BsChevronLeft } from "react-icons/bs";

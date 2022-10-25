@@ -1,4 +1,4 @@
-import Image from "next/future/image";
+import Image from "next/image";
 import styles from "./styles.module.scss";
 import Slider from "react-slick";
 import { Fragment, useState } from "react";
@@ -28,15 +28,13 @@ export const ProductItem: React.FC<ProductItemProps> = ({ gridView }) => {
           {Array.from({ length: 4 }).map((product, index) => (
             <div className={styles.productImage} key={`ProductSlide${index}`}>
               <Link href="/produto" rel="noopener noreferrer">
-                <a>
-                  <Image
-                    src="/images/placeholder_product.webp"
-                    loading="lazy"
-                    width={1800}
-                    height={2700}
-                    alt="Produto"
-                  />
-                </a>
+                <Image
+                  src="/images/placeholder_product.webp"
+                  loading="lazy"
+                  width={1800}
+                  height={2700}
+                  alt="Produto"
+                />
               </Link>
             </div>
           ))}

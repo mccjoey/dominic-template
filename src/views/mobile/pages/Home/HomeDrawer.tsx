@@ -3,7 +3,7 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { useCallback, useEffect, useState } from "react";
 import Slider from "react-slick";
-import Image from "next/future/image";
+import Image from "next/image";
 
 interface HomeDrawerProps {
   isOpen: boolean;
