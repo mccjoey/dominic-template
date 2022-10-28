@@ -4,10 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains : ["i0.wp.com"]
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  }
 };
 
 module.exports = nextConfig;
