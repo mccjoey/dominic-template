@@ -13,6 +13,7 @@ export const CollectionItem = () => {
         src="/images/collectionBanner.jpeg"
         priority
         alt="Coleção"
+        onClick={() => route("/colecoes/feed")}
       />
       <p className={styles.category}>Moda Feminina</p>
       <p className={styles.name}>Coleção Outono-Inverno 2022-2023</p>

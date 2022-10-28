@@ -123,6 +123,7 @@ export const Faq: React.FC<FaqProps> = ({ isFaqOpen, setIsFaqOpen }) => {
   return (
     <Fragment>
       <Drawer
+      id="asdasd"
         anchor="left"
         open={isFaqOpen}
         onClose={toggleDrawer(false)}

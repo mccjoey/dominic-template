@@ -75,6 +75,7 @@ export const HeaderDesk: React.FC = () => {
               src="/icons/live.svg"
               priority
               alt="Coleções"
+              onClick={() => route("/colecoes")}
             />
           </nav>
         </div>

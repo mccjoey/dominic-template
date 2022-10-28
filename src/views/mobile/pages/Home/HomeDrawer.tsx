@@ -15,6 +15,7 @@ export const HomeDrawer: React.FC<HomeDrawerProps> = ({
   setIsOpen,
 }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+
   const sliderSettings = {
     arrows: false,
     dots: false,

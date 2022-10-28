@@ -6,21 +6,6 @@
   width: 100%;
   z-index: 3;
 
-  // &::before {
-  //   content: url(/icons/whatsapp2.svg);
-  //   display: block;
-  //   position: absolute;
-  //   right: 0;
-  //   background-color: #128c7e;
-  //   border-radius: 50px;
-  //   top: -50px;
-  //   width: 40px;
-  //   height: 40px;
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
-
   .content {
     padding: 15px;
 
@@ -55,6 +40,7 @@
             align-items: flex-start;
             justify-content: center;
             border-radius: 100%;
+            z-index: -1;
 
             svg {
               font-size: 20px;

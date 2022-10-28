@@ -2,15 +2,21 @@ import styles from "./styles.module.scss";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback, useEffect, useState } from "react";
-import { BsChevronLeft } from "react-icons/bs";
+import {
+  BsChevronCompactLeft,
+  BsChevronCompactRight,
+  BsChevronLeft,
+} from "react-icons/bs";
 import { Header } from "../../../../components/Header";
 import { useRouter } from "next/router";
 import { FooterMobile } from "../../components/Footer";
 import { FeedPlayer } from "./FeedPlayer";
+import useView from "../../../../hooks/useView";
 
 export const FeedMobile = () => {
   const { back } = useRouter();
-  const [sharePage, setSharePage] = useState(false)
+  const [sharePage, setSharePage] = useState(false);
+  const { innerWidth = 0 } = useView();
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -27,7 +33,10 @@ export const FeedMobile = () => {
     },
   ];
 
-  const [viewportRef, embla] = useEmblaCarousel({ axis: "y", loop: true });
+  const [viewportRef, embla] = useEmblaCarousel({
+    axis: "y",
+    loop: true,
+  });
 
   embla?.on("select", () => {
     setCurrentSlide(embla.selectedScrollSnap());
@@ -41,10 +50,14 @@ export const FeedMobile = () => {
     if (!embla) return;
     embla.on("select", onSelect);
     embla.on("reInit", onSelect);
+
     onSelect();
   }, [embla, onSelect]);
 
-  useEffect(() => {  
+  const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
+  const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
+
+  useEffect(() => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
     window.addEventListener("resize", () => {
@@ -58,7 +71,9 @@ export const FeedMobile = () => {
       <div className={styles.content}>
         <Header>
           <BsChevronLeft onClick={() => back()} />
-          <small>{currentSlide + 1}/{videoLinks.length}</small>
+          <small>
+            {currentSlide + 1} / {videoLinks.length}
+          </small>
           <Image
             width={32}
             height={32}
@@ -68,6 +83,7 @@ export const FeedMobile = () => {
           />
         </Header>
         <section className={styles.sliderWrapper}>
+          <BsChevronCompactLeft className={styles.arrow} onClick={scrollPrev} />
           <div className="embla">
             <div className="embla__viewport" ref={viewportRef}>
               <div className="embla__container">
@@ -80,6 +96,7 @@ export const FeedMobile = () => {
                         video={video}
                         sharePage={sharePage}
                         setSharePage={setSharePage}
+                        innerWidth={innerWidth}
                       />
                     </div>
                   </div>
@@ -87,8 +104,12 @@ export const FeedMobile = () => {
               </div>
             </div>
           </div>
+          <BsChevronCompactRight
+            className={styles.arrow}
+            onClick={scrollNext}
+          />
         </section>
-        <FooterMobile />
+        {innerWidth <= 780 && <FooterMobile />}
       </div>
     </main>
   );

@@ -51,7 +51,7 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
       <div className={styles.playerWrapper}>
         <ReactPlayer
           className={styles.player}
-          playing={index == current && isReady && playing}
+          playing={index === current && isReady && playing}
           url={video.link}
           volume={1}
           controls={false}

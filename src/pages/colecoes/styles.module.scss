@@ -1,9 +1,18 @@
 .collectionsPage {
   padding: 55px 0;
-  
+
+  @media only screen and (min-width: 781px) {
+    padding-inline: var(--padding-inline-desk);
+  }
+
   .content {
     display: flex;
     flex-direction: column;
-    gap: 50px;    
+    gap: 50px;
+
+    @media only screen and (min-width: 781px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }

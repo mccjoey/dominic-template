@@ -22,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const nonPathsHeader: boolean = ["/colecoes/feed", "/produto"].includes(
     pathname
   );
+  const nonPathsDeskHeader: boolean = ["/colecoes/feed"].includes(pathname);
 
   const nonPathsFooter: boolean = ["/colecoes/feed", "/produto"].includes(
     pathname
@@ -30,6 +31,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   const pathsProgressPage: boolean = ["/produto"].includes(pathname);
 
   const nonPathsFixedFooter: boolean = [
+    "/user/login",
+    "/colecoes/feed",
+  ].includes(pathname);
+  const nonPathsDeskFixedFooter: boolean = [
     "/user/login",
     "/colecoes/feed",
   ].includes(pathname);
@@ -50,9 +55,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <Fragment>
-      <HeaderDesk />
+      {!nonPathsDeskHeader && <HeaderDesk />}
       <Component {...pageProps} />
-      <Footer />
+      {!nonPathsDeskFixedFooter && <Footer />}
     </Fragment>
   );
 }
