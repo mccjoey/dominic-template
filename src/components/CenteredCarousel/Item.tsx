@@ -14,8 +14,6 @@ type VideoItemProps = {
 const Item: React.FC<VideoItemProps> = ({ video, canPlay }) => {
   const [playing, setPlaying] = useState<boolean>(false);
 
-  console.log(canPlay);
-
   return (
     <div className={styles.item}>
       <div style={{ padding: "125% 0 0 0", position: "relative" }}>

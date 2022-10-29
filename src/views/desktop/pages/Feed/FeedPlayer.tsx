@@ -1,5 +1,5 @@
 import styles from "./styles.module.scss";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import {
   BsPause,
   BsPlay,
@@ -11,10 +11,11 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { ProductsModal } from "./ProductsModal";
 import { SocialShare } from "../../../../components/SocialShare";
-const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
+const Vimeo = dynamic(() => import("@u-wave/react-vimeo"), { ssr: false });
+
 interface FeedPlayerProps {
-  index?: number;
-  current?: number;
+  index: number;
+  current: number;
   video: {
     id: string;
     link: string;
@@ -22,7 +23,6 @@ interface FeedPlayerProps {
   };
   sharePage: boolean;
   setSharePage: (state: boolean) => void;
-  innerWidth: number
 }
 
 export const FeedPlayer: React.FC<FeedPlayerProps> = ({
@@ -31,51 +31,51 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
   current,
   sharePage,
   setSharePage,
-  innerWidth
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isReady, setIsReady] = useState<boolean>(false);
-  const [playing, setPlaying] = useState<boolean>(true);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
   const [muted, setMuted] = useState<boolean>(false);
 
   const handleToggleMute = useCallback(() => {
     setMuted((current) => !current);
   }, []);
 
-  const setReady = useCallback(() => {
-    setIsReady(true)
-  }, [])
+  const handleTogglePause = useCallback(() => {
+    setIsPaused((current) => !current);
+  }, []);
+
+  const onVideoReady = useCallback(() => {
+    setIsReady(true);
+  }, []);
 
   return (
     <>
-      <div className={styles.playerWrapper}>
-        <ReactPlayer
-          className={styles.player}
-          playing={index === current && isReady && playing}
-          url={video.link}
-          volume={1}
+      <section className={styles.playerWrapper}>
+        <Vimeo
+          video={video.link}
           controls={false}
+          autoplay={true}
+          volume={1}
           muted={muted}
-          width="100%"
-          height="100%"
-          onReady={setReady}
+          onReady={onVideoReady}
+          paused={index === current && isReady && isPaused}
+          background={false}
+          showPortrait
           loop
         />
-        {!isReady && (
+        {isReady && (
           <div className={styles.loading}>
             <div className={`${styles.loader} ${styles["loader-2"]}`}></div>
           </div>
         )}
-
         <aside>
           {!muted ? (
             <BsVolumeUp className={styles.active} onClick={handleToggleMute} />
           ) : (
             <BsVolumeMute onClick={handleToggleMute} />
           )}
-
           <BsShare onClick={() => setSharePage(true)} />
-
           <Image
             key={`Product-${index}`}
             src="/images/placeholder_product.webp"
@@ -87,16 +87,20 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
           />
         </aside>
         <footer>
-          <h1>{video.title}</h1>
+          <h1>{video?.title}</h1>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
         </footer>
-        {playing ? (
-          <BsPause onClick={() => setPlaying(false)} />
+        {isPaused ? (
+          <BsPlay className={styles.active} onClick={handleTogglePause} />
         ) : (
-          <BsPlay className={styles.active} onClick={() => setPlaying(true)} />
+          <BsPause onClick={handleTogglePause} />
         )}
-      </div>
-      <ProductsModal open={isModalOpen} setOpen={setIsModalOpen} innerWidth={innerWidth} />
+      </section>
+      <ProductsModal
+        open={isModalOpen}
+        setOpen={setIsModalOpen}
+        innerWidth={innerWidth}
+      />
       <SocialShare open={sharePage} setOpen={setSharePage} />
     </>
   );

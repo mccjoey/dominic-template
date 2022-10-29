@@ -9,6 +9,9 @@ import "../styles/global.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 
 //DESKTOP
+import 'swiper/scss';
+import 'swiper/scss/navigation';
+import 'swiper/scss/pagination';
 
 //MOBILE
 import { FooterMobile } from "../views/mobile/components/Footer";

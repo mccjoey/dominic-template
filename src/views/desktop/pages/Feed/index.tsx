@@ -1,100 +1,59 @@
 import styles from "./styles.module.scss";
-import Image from "next/image";
-import useEmblaCarousel from "embla-carousel-react";
-import { useCallback, useEffect, useState } from "react";
-import {
-  BsChevronCompactLeft,
-  BsChevronCompactRight,
-  BsChevronLeft,
-} from "react-icons/bs";
-import { Header } from "../../../../components/Header";
-import { useRouter } from "next/router";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
 import { FeedPlayer } from "./FeedPlayer";
-import useView from "../../../../hooks/useView";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export const FeedDesktop = () => {
   const { back } = useRouter();
-  const [sharePage, setSharePage] = useState(false);
+  const [sharePage, setSharePage] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const { innerWidth = 0 } = useView();
 
   const videoLinks = [
     {
-      id: "uadsfgdasihjdgfas",
+      id: "755671237",
       title: "Título 1",
       link: "https://vimeo.com/755671237",
     },
     {
-      id: "654sadjfhgas",
+      id: "755671597",
       title: "Título 2",
       link: "https://vimeo.com/755671597",
     },
   ];
 
-  const [viewportRef, embla] = useEmblaCarousel({
-    loop: false,
-    draggable: false,
-    skipSnaps: false
-  });
-
-  const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
-  const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
-
-  const onSelect = useCallback(() => {
-    if (!embla) return;
-    setCurrentIndex(embla.selectedScrollSnap)
-  }, [embla]);
-
   useEffect(() => {
-    if (!embla) return;
-    embla.on("select", onSelect);
-    embla.on("reInit", onSelect);
-    onSelect();
-  }, [embla, onSelect]);
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+  }, []);
 
   return (
-    <main className={styles.feedMobile}>
+    <main className={styles.feedDesktop}>
       <div className={styles.content}>
-        <Header>
-          <BsChevronLeft onClick={() => back()} />
-          <small>
-            {currentIndex + 1} / {videoLinks.length}
-          </small>
-          <Image
-            width={32}
-            height={32}
-            src="/icons/cart_white.svg"
-            priority
-            alt="Carrinho"
-          />
-        </Header>
-        <section className={styles.sliderWrapper}>
-          <BsChevronCompactLeft className={styles.arrow} onClick={scrollPrev} />
-          <div className="embla2">
-            <div className="embla__viewport2" ref={viewportRef}>
-              <div className="embla__container2">
-                {videoLinks?.map((video, index) => (
-                  <div className="embla__slide2" key={`videoDesk${index}`}>
-                    <div className="embla__slide__inner2">
-                      <FeedPlayer
-                        index={index}
-                        current={currentIndex}
-                        video={video}
-                        sharePage={sharePage}
-                        setSharePage={setSharePage}
-                        innerWidth={innerWidth}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-          <BsChevronCompactRight
-            className={styles.arrow}
-            onClick={scrollNext}
-          />
-        </section>
+        <Swiper
+          navigation={true}
+          modules={[Navigation]}
+          className={styles.swipperSlider}
+          onSlideChange={(e) => setCurrentIndex(e.activeIndex)}
+        >
+          {videoLinks?.map((video, index) => (
+            <SwiperSlide key={video.id}>
+              <FeedPlayer
+                index={index}
+                video={video}
+                sharePage={sharePage}
+                current={currentIndex}
+                setSharePage={setSharePage}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </main>
   );
