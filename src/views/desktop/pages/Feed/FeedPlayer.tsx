@@ -1,3 +1,4 @@
+"use-client";
 import styles from "./styles.module.scss";
 import { useCallback, useState } from "react";
 import {
@@ -7,11 +8,11 @@ import {
   BsVolumeMute,
   BsVolumeUp,
 } from "react-icons/bs";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import { ProductsModal } from "./ProductsModal";
 import { SocialShare } from "../../../../components/SocialShare";
-const Vimeo = dynamic(() => import("@u-wave/react-vimeo"), { ssr: false });
+import dynamic from "next/dynamic";
+const ReactPlayer = dynamic(() => import("react-player/lazy"), { ssr: false });
 
 interface FeedPlayerProps {
   index: number;
@@ -34,7 +35,7 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isReady, setIsReady] = useState<boolean>(false);
-  const [isPaused, setIsPaused] = useState<boolean>(false);
+  const [playing, setPlaying] = useState<boolean>(true);
   const [muted, setMuted] = useState<boolean>(false);
 
   const handleToggleMute = useCallback(() => {
@@ -42,28 +43,29 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
   }, []);
 
   const handleTogglePause = useCallback(() => {
-    setIsPaused((current) => !current);
+    setPlaying((current) => !current);
   }, []);
 
-  const onVideoReady = useCallback(() => {
+  const setReady = useCallback(() => {
     setIsReady(true);
   }, []);
 
   return (
     <>
       <section className={styles.playerWrapper}>
-        <Vimeo
-          video={video.link}
-          controls={false}
-          autoplay={true}
+        <ReactPlayer
+          className={styles.player}
+          playing={index == current && isReady && playing}
+          url={video.link}
           volume={1}
+          controls={false}
           muted={muted}
-          paused={index === current && isReady && isPaused}
-          background={false}
-          onLoaded={onVideoReady}
+          width="100%"
+          height="100%"
+          onReady={setReady}
           loop
         />
-        {isReady && (
+        {!isReady && (
           <div className={styles.loading}>
             <div className={`${styles.loader} ${styles["loader-2"]}`}></div>
           </div>
@@ -89,10 +91,10 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
           <h1>{video?.title}</h1>
           <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
         </footer>
-        {isPaused ? (
-          <BsPlay className={styles.active} onClick={handleTogglePause} />
-        ) : (
+        {playing ? (
           <BsPause onClick={handleTogglePause} />
+        ) : (
+          <BsPlay className={styles.active} onClick={handleTogglePause} />
         )}
       </section>
       <ProductsModal
