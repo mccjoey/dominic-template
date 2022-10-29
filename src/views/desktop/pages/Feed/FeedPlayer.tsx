@@ -58,10 +58,9 @@ export const FeedPlayer: React.FC<FeedPlayerProps> = ({
           autoplay={true}
           volume={1}
           muted={muted}
-          onReady={onVideoReady}
           paused={index === current && isReady && isPaused}
           background={false}
-          showPortrait
+          onLoaded={onVideoReady}
           loop
         />
         {isReady && (
