@@ -34,27 +34,10 @@
 
     .sliderWrapper {
       flex: 1;
-
-      @media only screen and (min-width: 781px) {
-        margin-inline: auto;
-        width: 1200px;
-        max-width: 1200px;
-        padding: 50px 100px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        svg{
-          color: white;
-          font-size: 50px;
-          cursor: pointer;
-        }
-      }
     }
 
     > footer {
       position: relative;
-      height: 60px;
     }
   }
 }

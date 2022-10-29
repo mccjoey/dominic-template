@@ -83,7 +83,6 @@ export const FeedMobile = () => {
           />
         </Header>
         <section className={styles.sliderWrapper}>
-          <BsChevronCompactLeft className={styles.arrow} onClick={scrollPrev} />
           <div className="embla">
             <div className="embla__viewport" ref={viewportRef}>
               <div className="embla__container">
@@ -109,7 +108,7 @@ export const FeedMobile = () => {
             onClick={scrollNext}
           />
         </section>
-        {innerWidth <= 780 && <FooterMobile />}
+        <FooterMobile />
       </div>
     </main>
   );
