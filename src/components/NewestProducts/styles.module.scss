@@ -3,22 +3,43 @@
   display: flex;
   flex-direction: column;
 
+  @media only screen and (min-width: 781px) {
+    background-color: white;
+    padding-inline: var(--padding-inline-desk);
+  }
+
   .productsList {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: 10px;
     row-gap: 30px;
+
+    @media only screen and (min-width: 781px) {
+      // grid-template-columns: repeat(auto-fill, minmax(200px, 380px)) !important;
+      // justify-content: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
 }
 
 .productItem {
   display: flex;
   flex-direction: column;
-  
+
+  @media only screen and (min-width: 781px) {
+    min-width: 200px;
+    max-width: 380px;
+  }
+
   img {
     width: 100%;
     height: auto;
     margin-bottom: 15px;
+    cursor: pointer;
   }
 
   .productName {

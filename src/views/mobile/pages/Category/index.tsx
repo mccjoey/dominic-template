@@ -1,4 +1,4 @@
-import { PageBanner } from "../../components/PageBanner";
+import { PageBanner } from "../../../../components/PageBanner";
 import styles from "./styles.module.scss";
 
 export const CategoryMobile = () => {

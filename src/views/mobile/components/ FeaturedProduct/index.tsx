@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { SectionTitle } from "../SectionTitle";
+import { SectionTitle } from "../../../../components/SectionTitle";
+
 import styles from "./styles.module.scss";
 
 export const FeaturedProduct = () => {

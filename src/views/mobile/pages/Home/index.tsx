@@ -3,11 +3,12 @@ import { Fragment, useState } from "react";
 import { useTimeout } from "../../../../hooks/useTimeout";
 import { FeaturedProduct } from "../../components/ FeaturedProduct";
 import { CenteredCarousel } from "../../../../components/CenteredCarousel";
-import { LivesCarousel } from "../../components/LivesCarousel";
-import { NewestProducts } from "../../components/NewestProducts";
-import { ProductsCarousel } from "../../components/ProductsCarousel";
+
+import { NewestProducts } from "../../../../components/NewestProducts";
+import { ProductsCarousel } from "../../../../components/ProductsCarousel";
 import { HomeDrawer } from "./HomeDrawer";
 import styles from "./styles.module.scss";
+import { LivesCarousel } from "../../../../components/LivesCarousel";
 
 const HomeMobile: NextPage = () => {
   const [homeDrawer, setHomeDrawer] = useState<boolean>(false);

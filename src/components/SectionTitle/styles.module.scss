@@ -13,4 +13,10 @@
     font-weight: 700;
     font-size: 24px;
   }
+
+  @media only screen and (min-width: 781px) {
+    p {
+      font-size: 14px;
+    }
+  }
 }

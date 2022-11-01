@@ -1,5 +1,5 @@
 import Image from "next/image";
-import useView from "../../../../hooks/useView";
+import useView from "../../hooks/useView";
 import styles from "./styles.module.scss";
 
 export const PageBanner: React.FC = () => {

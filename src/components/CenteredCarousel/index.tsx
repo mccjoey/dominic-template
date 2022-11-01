@@ -1,19 +1,22 @@
 import styles from "./styles.module.scss";
-import { SectionTitle } from "../../views/mobile/components/SectionTitle";
 import Slider from "react-slick";
 import Item from "./Item";
 import { veriaTvVideos } from "../../mock/veriaTv";
 import { useState } from "react";
-import Arrow from '@elsdoerfer/react-arrow';
+import Arrow from "@elsdoerfer/react-arrow";
+import { SectionTitle } from "../SectionTitle";
+import useView from "../../hooks/useView";
 
 export const CenteredCarousel = () => {
+  const { innerWidth = 0 } = useView();
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const carouselSettings = {
     arrows: false,
     centerMode: true,
     className: "center",
     infinite: true,
-    centerPadding: "50px",
+    centerPadding: innerWidth >= 780 ? "450px" : "50px",
     slidesToShow: 1,
     slidesToScroll: 1,
     swipeToSlide: true,

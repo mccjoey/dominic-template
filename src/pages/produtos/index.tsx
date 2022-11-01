@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import type { NextPage } from "next";
-import { PageBanner } from "../../views/mobile/components/PageBanner";
+import { PageBanner } from "../../components/PageBanner";
 import { useState } from "react";
 import { FilterProducts } from "../../components/ProductsComponents/FilterProducts";
 import { ProductsList } from "../../components/ProductsComponents/ProductsList";

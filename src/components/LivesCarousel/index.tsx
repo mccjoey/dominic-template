@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
-import { SectionTitle } from "../SectionTitle";
 import Slider from "react-slick";
 import { LiveItem } from "./LiveItem";
+import { SectionTitle } from "../SectionTitle";
 
 export const LivesCarousel = () => {
   const carouselSettings = {
