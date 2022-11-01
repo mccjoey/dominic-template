@@ -38,7 +38,7 @@ const HomeMobile: NextPage = () => {
           <NewestProducts />
           <CenteredCarousel />
           <ProductsCarousel />
-          <LivesCarousel />
+          {/* <LivesCarousel /> */}
         </div>
       </main>
       <HomeDrawer isOpen={homeDrawer} setIsOpen={setHomeDrawer} />

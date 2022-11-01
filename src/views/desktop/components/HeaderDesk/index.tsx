@@ -5,11 +5,13 @@ import { BsChevronRight } from "react-icons/bs";
 import { IoMdClose } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useMenuStore } from "../../../../store/stores";
 
 export const HeaderDesk: React.FC = () => {
   const { push: route } = useRouter();
   const isScrollingUp = useShowFooter();
   const [isTopBarVisible, setIsTopBarVisible] = useState<boolean>(true);
+  const { toggleCart, toggleSearchMenu } = useMenuStore();
 
   return (
     <>
@@ -29,7 +31,7 @@ export const HeaderDesk: React.FC = () => {
         }`}
         id="headerDesk"
       >
-        <div className={styles.content} >
+        <div className={styles.content}>
           <nav className={styles.menu}>
             <ul>
               <li onClick={() => route("/produtos")}>Novidades</li>
@@ -54,20 +56,26 @@ export const HeaderDesk: React.FC = () => {
               src="/icons/search.svg"
               priority
               alt="Pesquisar"
+              onClick={toggleSearchMenu}
             />
-            <Image
-              width={32}
-              height={32}
-              src="/icons/cart.svg"
-              priority
-              alt="Carrinho"
-            />
+            <div>
+              <Image
+                width={32}
+                height={32}
+                src="/icons/cart.svg"
+                priority
+                alt="Carrinho"
+                onClick={toggleCart}
+              />
+              <small>73</small>
+            </div>
             <Image
               width={32}
               height={32}
               src="/icons/user.svg"
               priority
               alt="User"
+              onClick={() => route("/user/login")}
             />
             <Image
               width={32}

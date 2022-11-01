@@ -1,64 +1,73 @@
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import useHeaderState from "../../../../hooks/useHeaderState";
-import { CartDrawer } from "../CartDrawer";
+import { CartDrawer } from "../../../../components/CartDrawer";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import useShowFooter from "../../../../hooks/useShowFooter";
 import { Faq } from "./FAQ";
 import { Menu } from "./Menu";
-import { Search } from "./Search";
+import { Search } from "../../../../components/SearchMenu";
 import { GrClose } from "react-icons/gr";
 import { Header } from "../../../../components/Header";
 import { useRouter } from "next/router";
+import { useMenuStore } from "../../../../store/stores";
 
 export const HeaderMobile: React.FC = () => {
   const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState<boolean>(false);
   const [isHeaderSearchOpen, setIsHeaderSearchOpen] = useState<boolean>(false);
-  const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
   const [isFaqOpen, setIsFaqOpen] = useState<boolean>(false);
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
   const { push: route } = useRouter();
+  const {
+    toggleCart: setCart,
+    cart,
+    toggleSearchMenu,
+    searchMenu,
+  } = useMenuStore();
 
   const toggleCart = useCallback(() => {
-    if (isHeaderMenuOpen || isHeaderSearchOpen) {
-      setIsCartOpen(!isCartOpen);
+    if (isHeaderMenuOpen || searchMenu) {
+      setCart();
       setIsHeaderMenuOpen(false);
       return setIsHeaderSearchOpen(false);
     }
-    return setIsCartOpen(!isCartOpen);
-  }, [isCartOpen, isHeaderMenuOpen, isHeaderSearchOpen]);
+    return setCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cart, isHeaderMenuOpen, searchMenu]);
 
   const toggleSearch = useCallback(() => {
     if (isHeaderMenuOpen) {
       setIsHeaderMenuOpen(false);
-      return setIsHeaderSearchOpen(!isHeaderSearchOpen);
+      return toggleSearchMenu();
     }
-    return setIsHeaderSearchOpen(!isHeaderSearchOpen);
-  }, [isHeaderMenuOpen, isHeaderSearchOpen]);
+    return toggleSearchMenu();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isHeaderMenuOpen, searchMenu]);
 
   const toggleMenu = useCallback(() => {
-    if (isHeaderSearchOpen) {
-      setIsHeaderSearchOpen(false);
+    if (searchMenu) {
+      toggleSearchMenu();
       return setIsHeaderMenuOpen(!isHeaderMenuOpen);
     }
     return setIsHeaderMenuOpen(!isHeaderMenuOpen);
-  }, [isHeaderMenuOpen, isHeaderSearchOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isHeaderMenuOpen, searchMenu]);
 
   useEffect(() => {
-    if (isHeaderMenuOpen || isHeaderSearchOpen) {
+    if (isHeaderMenuOpen || searchMenu) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-  }, [isHeaderMenuOpen, isHeaderSearchOpen]);
+  }, [isHeaderMenuOpen, searchMenu]);
 
   return (
     <Fragment>
       <Header
         className={`${styles.mainHeader} ${
           styles[showFooter && headerState ? "sticky" : "transparent"]
-        } ${(isHeaderMenuOpen || isHeaderSearchOpen) && styles.open}`}
+        } ${(isHeaderMenuOpen || searchMenu) && styles.open}`}
       >
         <div className={styles.content}>
           <div
@@ -92,14 +101,17 @@ export const HeaderMobile: React.FC = () => {
               />
             )}
 
-            <Image
-              width={32}
-              height={32}
-              src="/icons/cart.svg"
-              priority
-              alt="Carrinho"
-              onClick={toggleCart}
-            />
+            <div>
+              <Image
+                width={32}
+                height={32}
+                src="/icons/cart.svg"
+                priority
+                alt="Carrinho"
+                onClick={toggleCart}
+              />
+              <small>73</small>
+            </div>
           </div>
         </div>
       </Header>
@@ -109,8 +121,6 @@ export const HeaderMobile: React.FC = () => {
         setIsFaqOpen={setIsFaqOpen}
         setIsHeaderMenuOpen={toggleMenu}
       />
-      <Search isOpen={isHeaderSearchOpen} setIsOpen={setIsHeaderSearchOpen} />
-      <CartDrawer isOpen={isCartOpen} setIsOpen={toggleCart} />
       <Faq isFaqOpen={isFaqOpen} setIsFaqOpen={setIsFaqOpen} />
     </Fragment>
   );

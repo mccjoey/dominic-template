@@ -1,0 +1,19 @@
+.cartFeature {
+  padding: 15px;
+
+  .content {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    gap: 15px;
+
+    h1 {
+      font-size: 18px;
+    }
+    
+  }
+}

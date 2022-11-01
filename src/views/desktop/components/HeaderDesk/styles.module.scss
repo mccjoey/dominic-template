@@ -77,6 +77,24 @@
       img {
         cursor: pointer;
       }
+
+      div {
+        position: relative;
+        small {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 15px;
+          height: 15px;
+          top: 0;
+          right: 0;
+          position: absolute;
+          background-color: black;
+          border-radius: 50px;
+          color: white;
+          font-size: 10px;
+        }
+      }
     }
   }
 

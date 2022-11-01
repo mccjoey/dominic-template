@@ -9,6 +9,10 @@
     background-size: cover;
     overflow-x: hidden;
 
+    @media only screen and (min-width: 781px) {
+      height: auto;
+    }
+
     .formSlider {
       :global(.slider) {
         width: 100vw;

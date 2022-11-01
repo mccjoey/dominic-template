@@ -21,6 +21,8 @@ import { Accordion } from "./Accordion";
 import { SelectSizeSheet } from "../../../../components/SelectSizeSheet";
 import { ProductModal } from "./ProductModal";
 import { useInView } from "react-intersection-observer";
+import { ProductReview } from "../../../../components/ProductReview";
+import { useMenuStore } from "../../../../store/stores";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
@@ -32,6 +34,7 @@ export const ProductMobile = () => {
   const headerState = useHeaderState();
   const showFooter = useShowFooter();
   const route = useRouter();
+  const { toggleCart } = useMenuStore();
 
   const toggleSizesDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -96,6 +99,7 @@ export const ProductMobile = () => {
                 src="/icons/cart.svg"
                 priority
                 alt="Carrinho"
+                onClick={toggleCart}
               />
             </div>
           </nav>
@@ -313,6 +317,7 @@ export const ProductMobile = () => {
                 </button>
               </div>
             </section>
+            <ProductReview />
 
             <div className={styles.productRel} ref={ref}>
               <RelProducts />

@@ -6,7 +6,6 @@ import { ProductsCarousel } from "../../../../components/ProductsCarousel";
 import { CenteredCarousel } from "../../../../components/CenteredCarousel";
 
 const HomeDesktop: NextPage = () => {
-  console.log("asdfsajb")
   return (
     <main className={styles.main}>
       <div className={styles.content}>

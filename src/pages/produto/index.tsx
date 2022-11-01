@@ -8,7 +8,6 @@ import { ProductMobile } from "../../views/mobile/pages/Product";
 const Product: NextPage = () => {
   const { innerWidth = 0 } = useView();
 
-
   if (innerWidth <= 780) {
     return <ProductMobile />;
   }

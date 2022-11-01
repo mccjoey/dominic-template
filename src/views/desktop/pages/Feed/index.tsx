@@ -40,8 +40,7 @@ export const FeedDesktop = () => {
           navigation={true}
           modules={[Navigation]}
           className={styles.swipperSlider}
-          onSlideChange={(e) => setCurrentIndex(e.activeIndex)}
-          
+          onSlideChange={(e) => setCurrentIndex(e.activeIndex)}          
         >
           {videoLinks?.map((video, index) => (
             <SwiperSlide key={video.id}>

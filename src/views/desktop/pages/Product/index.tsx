@@ -9,9 +9,12 @@ import { AiOutlineHeart, AiTwotoneHeart } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import useShowFooter from "../../../../hooks/useShowFooter";
+import useScrollHeight from "../../../../hooks/useScrollHeight";
+import { ProductReview } from "../../../../components/ProductReview";
 
 export const ProductDesktop = () => {
   const isScrollingUp = useShowFooter();
+  const scrollHeight = useScrollHeight(800);
   const [sizesDrawer, setSizesDrawer] = useState<boolean>(false);
   const [firstDown, setFirstDown] = useState<boolean>(false);
   const [isProductFavorite, setIsProductFavorite] = useState<boolean>(false);
@@ -51,12 +54,19 @@ export const ProductDesktop = () => {
         return;
       }
     }, 5000);
+
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    window.addEventListener("resize", () => {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
   }, [header]);
 
   return (
     <main className={styles.main}>
       <div className={styles.content}>
-        {!inViewBuyButton && (
+        {!inViewBuyButton && scrollHeight && (
           <div
             className={`${styles.productSticky}         
           ${isScrollingUp && styles.stickyDown2}
@@ -79,7 +89,6 @@ export const ProductDesktop = () => {
                 RS450,00
               </p>
               <p data-selectedColor="preto">
-               
                 <small className={styles.active}>
                   <Image
                     src="/images/product_color1.webp"
@@ -298,9 +307,10 @@ export const ProductDesktop = () => {
             </div>
           </aside>
         </section>
-        <div className={styles.productRel}>
+        <ProductReview />
+        <section className={styles.productRel}>
           <RelProducts />
-        </div>
+        </section>
       </div>
     </main>
   );

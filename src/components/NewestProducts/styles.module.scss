@@ -15,13 +15,8 @@
     row-gap: 30px;
 
     @media only screen and (min-width: 781px) {
-      // grid-template-columns: repeat(auto-fill, minmax(200px, 380px)) !important;
-      // justify-content: center;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 380px)) !important;
+      justify-content: center;
     }
   }
 }
@@ -29,11 +24,6 @@
 .productItem {
   display: flex;
   flex-direction: column;
-
-  @media only screen and (min-width: 781px) {
-    min-width: 200px;
-    max-width: 380px;
-  }
 
   img {
     width: 100%;

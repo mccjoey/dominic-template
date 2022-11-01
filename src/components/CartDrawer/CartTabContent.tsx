@@ -1,10 +1,12 @@
 import styles from "./styles.module.scss";
 import { Fragment } from "react";
 import { ProductItem } from "./ProductItem";
+import { CartFeature } from "../CartFeature";
 
 export const CartTabContent = () => {
   return (
     <Fragment>
+      <CartFeature />
       <div className={styles.productsList}>
         {Array.from({ length: 3 }).map((product, index) => (
           <ProductItem key={`CartProductItem${index}`} />

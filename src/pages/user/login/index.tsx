@@ -17,19 +17,11 @@ const Login: NextPage = () => {
   const { back: goBack } = useRouter();
   const [passwordType, setPasswordType] = useState("password");
   const [cpasswordType, setCPasswordType] = useState("password");
-
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const changeSlider = useCallback((number: number) => {
     setCurrentSlide(number);
   }, []);
-
-  // home -------------------------- OK
-  // Login com Token - EMAIL; ------ OK
-  // Login com Token - Token; ------ OK
-  // Login com email e senha;
-  // Esqueci minha senha;
-  // Cadastrar;
 
   return (
     <main className={styles.loginPage}>

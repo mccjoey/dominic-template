@@ -1,0 +1,167 @@
+.searchDrawer {
+  width: 100%;
+  overflow-y: auto;
+
+
+  @media only screen and (min-width: 781px) {
+   height: max-content !important;
+   padding-bottom: 40px;
+  }
+
+  .searchContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+    overflow-y: auto;
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 10px 15px;
+      height: 55px;
+
+      @media only screen and (min-width: 781px) {
+        padding-inline: var(--padding-inline-desk);
+      }
+
+      > svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    > h1 {
+      font-weight: 400;
+      font-size: 20px;
+      padding: 0 15px;
+
+      @media only screen and (min-width: 781px) {
+        padding-inline: var(--padding-inline-desk);
+      }
+    }
+
+    .searchInput {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 0 15px;
+
+      @media only screen and (min-width: 781px) {
+        padding-inline: var(--padding-inline-desk);
+      }
+
+      input {
+        width: 100%;
+        border: 0;
+        border-bottom: 1px solid black;
+        padding-bottom: 6px;
+        padding-right: 20px;
+        font-size: 14px;
+        font-weight: 300;
+        font-family: inherit;
+        height: 32px;
+        outline: none;
+      }
+
+      svg {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+        right: 0;
+        padding: 5px;
+        border-bottom: 1px solid black;
+      }
+    }
+
+    .searchTerms {
+      padding: 0 15px;
+
+      @media only screen and (min-width: 781px) {
+        padding-inline: var(--padding-inline-desk);
+      }
+
+      h1 {
+        font-weight: 400;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        li {
+          font-weight: 300;
+          list-style: none;
+          color: #cacaca;
+          font-size: 14px;
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    .productsList {
+      padding: 15px;
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      column-gap: 10px;
+      row-gap: 30px;
+
+      @media only screen and (min-width: 781px) {
+        padding-inline: var(--padding-inline-desk);
+        grid-template-columns: repeat(5, 1fr) !important;
+      }
+    }
+
+    .productItem {
+      display: flex;
+      flex-direction: column;
+
+      .productSlider {
+        display: grid;
+
+        :global(.slick-dots) {
+          bottom: 0px;
+
+          & li button::before {
+            font-size: 10px;
+          }
+
+          & li {
+            width: 5px;
+          }
+        }
+
+        .productImage {
+          img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+          }
+        }
+      }
+
+      .productName {
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      .productPrice {
+        font-weight: 700;
+        font-size: 12px;
+        margin: 10px 0 5px;
+      }
+
+      .productInterest {
+        font-weight: 400;
+        font-size: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+.productReview {
+  margin-block: 50px;
+  padding-inline: 15px;
+
+  @media only screen and (min-width: 781px) {
+    margin-block: 100px;
+    padding-inline: 0px;
+  }
+
+  .content {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 1fr;
+
+    @media only screen and (min-width: 781px) {
+      grid-template-columns: 250px auto;
+      gap: 80px;
+    }
+
+    .reviewActions {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      small {
+        font-size: 15px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      button {
+        border: 2px solid black;
+        padding: 5px 20px;
+        font: inherit;
+        font-size: 16px;
+        background-color: white;
+      }
+    }
+
+    .reviewList {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      > * {
+        padding-bottom: 15px;
+        &:not(:last-of-type) {
+          border-bottom: 1px solid #e3e3e3;
+        }
+      }
+    }
+  }
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    small {
+      font-size: 15px;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    h1 {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}

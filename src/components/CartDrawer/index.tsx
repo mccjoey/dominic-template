@@ -5,25 +5,30 @@ import { GrClose } from "react-icons/gr";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { CartTabContent } from "./CartTabContent";
 import { FavoriteTabContent } from "./FavoriteTabContent";
-import { Header } from "../../../../components/Header";
+import { Header } from "../Header";
+import { useMenuStore } from "../../store/stores";
+import { useEffect } from "react";
 
 interface CartDrawerProps {
   isOpen: boolean;
-  setIsOpen: (state?: boolean | any) => void;
 }
 
-export const CartDrawer: React.FC<CartDrawerProps> = ({
-  isOpen,
-  setIsOpen,
-}) => {
+export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen }) => {
+  const { toggleCart } = useMenuStore();
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
+
   return (
-    <Drawer open={isOpen} onClose={setIsOpen} direction="right" size="95%">
+    <Drawer open={isOpen} onClose={toggleCart} direction="right" className={styles.cartModal}>
       <section className={styles.cartContent}>
         <Header>
-          <GrClose
-            className={styles.closeModal}
-            onClick={() => setIsOpen(!isOpen)}
-          />
+          <GrClose className={styles.closeModal} onClick={toggleCart} />
         </Header>
         <Tabs defaultIndex={1}>
           <TabList className={styles.header}>

@@ -171,7 +171,7 @@
               display: flex;
               align-items: center;
               justify-content: space-between;
-              font-size: 18px;
+              font-size: 32px;
               color: black;
               gap: 20px;
               min-height: 26px;
@@ -179,14 +179,17 @@
               span {
                 border: 1px solid var(--mark-up);
                 font-weight: 700;
-                font-size: 12px;
+                font-size: 20px;
                 color: var(--mark-up);
                 padding: 5px 25px;
               }
             }
 
             p {
-              font-size: 14px;
+              display: flex;
+              align-items: center;
+              gap: 5px;
+              font-size: 20px;
               color: var(--mark-up);
 
               small {
@@ -195,7 +198,7 @@
               }
 
               span {
-                font-size: 12px;
+                font-size: 14px;
                 color: #8a8a8a;
               }
             }
@@ -227,7 +230,7 @@
             padding: 25px 0;
             display: flex;
             justify-content: center;
-            background-color: #f7f5f5;
+            background-color: rgba(230, 230, 230, 0.59);
 
             div {
               padding: 0 10px;
@@ -257,6 +260,7 @@
             background-color: black;
             padding: 0 15px;
             margin-top: 30px;
+            margin-inline: 15px;
 
             .bottomContent {
               display: flex;
@@ -331,21 +335,29 @@
           .productAccordion {
             display: flex;
             flex-direction: column;
-            font-size: 14px;
+            font-size: 50px;
             padding: 20px 15px;
             text-transform: uppercase;
-            margin-bottom: 70px;
+            margin-block: 50px;
             background-color: #f7f7f7;
             gap: 10px;
+
+            :global(.MuiAccordionSummary-content) {
+              font-size: 13px;
+              color: #707070;
+              font-weight: 700;
+            }
 
             p {
               display: flex;
               justify-content: space-between;
-              padding: 20px 0;
-              font-weight: 400;
+              padding: 10px 0;
+              font-weight: 300;
+              font-size: 13px;
+              text-transform: none;
 
               &:first-of-type {
-                padding-top: 0;
+                padding-top: 20px;
               }
 
               span {
