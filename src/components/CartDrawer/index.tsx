@@ -25,7 +25,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({ isOpen }) => {
   }, [isOpen]);
 
   return (
-    <Drawer open={isOpen} onClose={toggleCart} direction="right" className={styles.cartModal}>
+    <Drawer open={isOpen} onClose={toggleCart} direction="right" className={styles.cartModal} duration={0}>
       <section className={styles.cartContent}>
         <Header>
           <GrClose className={styles.closeModal} onClick={toggleCart} />
