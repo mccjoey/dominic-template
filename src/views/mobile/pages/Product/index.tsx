@@ -23,6 +23,7 @@ import { ProductModal } from "./ProductModal";
 import { useInView } from "react-intersection-observer";
 import { ProductReview } from "../../../../components/ProductReview";
 import { useMenuStore } from "../../../../store/stores";
+import { ProductClientPhotos } from "../../../../components/ProductClientPhotos";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
@@ -317,8 +318,8 @@ export const ProductMobile = () => {
                 </button>
               </div>
             </section>
+            <ProductClientPhotos />
             <ProductReview />
-
             <div className={styles.productRel} ref={ref}>
               <RelProducts />
             </div>

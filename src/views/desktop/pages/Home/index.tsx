@@ -4,6 +4,7 @@ import { PageBanner } from "../../../../components/PageBanner";
 import { NewestProducts } from "../../../../components/NewestProducts";
 import { ProductsCarousel } from "../../../../components/ProductsCarousel";
 import { CenteredCarousel } from "../../../../components/CenteredCarousel";
+import { Matches } from "../../../../components/Matches";
 
 const HomeDesktop: NextPage = () => {
   return (
@@ -13,6 +14,7 @@ const HomeDesktop: NextPage = () => {
         <NewestProducts />
         <CenteredCarousel />
         <ProductsCarousel />
+        <Matches />
         {/* <LivesCarousel /> */}
       </div>
     </main>

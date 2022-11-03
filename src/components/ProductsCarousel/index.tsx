@@ -3,17 +3,20 @@ import { ProductItem } from "./ProductItem";
 import Slider from "react-slick";
 import { SectionTitle } from "../SectionTitle";
 import useView from "../../hooks/useView";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export const ProductsCarousel = () => {
   const { innerWidth = 0 } = useView();
 
   const carouselSettings = {
-    arrows: false,
+    arrows: innerWidth <= 780 ? false : true,
     centerMode: false,
-    infinite:  false,
+    infinite: false,
     centerPadding: "50px",
-    slidesToShow: innerWidth >= 780 ? 5.5 : 2.5,
+    slidesToShow: innerWidth <= 780 ? 1.2 : 5,
     speed: 500,
+    prevArrow: <BsChevronLeft />,
+    nextArrow: <BsChevronRight />,
   };
 
   return (

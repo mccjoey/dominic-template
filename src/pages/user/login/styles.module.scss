@@ -1,6 +1,10 @@
 .loginPage {
   height: 100vh;
 
+  @media only screen and (min-width: 781px) {
+    height: 100%;
+  }
+
   .content {
     height: 100vh;
     display: flex;

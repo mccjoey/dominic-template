@@ -4,7 +4,19 @@
   flex-direction: column;
 
   @media only screen and (min-width: 781px) {
-    padding-left: var(--padding-inline-desk);
+    padding-inline: var(--padding-inline-desk);
+  }
+
+  .carousel {
+    > svg {
+      color: black !important;
+      width: 30px;
+      height: 30px;
+    }
+
+    :global(.slick-next){
+      right: -20px !important;
+    }
   }
 }
 

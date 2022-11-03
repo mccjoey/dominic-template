@@ -5,11 +5,16 @@ import { Navigation } from "swiper";
 import { FeedPlayer } from "./FeedPlayer";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { BsChevronLeft } from "react-icons/bs";
+import { Header } from "../../../../components/Header";
+import Image from "next/image";
+import { useMenuStore } from "../../../../store/stores";
 
 export const FeedDesktop = () => {
   const { back } = useRouter();
   const [sharePage, setSharePage] = useState<boolean>(false);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const { toggleCart } = useMenuStore();
 
   const videoLinks = [
     {
@@ -36,11 +41,25 @@ export const FeedDesktop = () => {
   return (
     <main className={styles.feedDesktop}>
       <div className={styles.content}>
+        <Header>
+          <BsChevronLeft onClick={() => back()} />
+          <small>
+            {currentIndex + 1} / {videoLinks.length}
+          </small>
+          <Image
+            width={32}
+            height={32}
+            src="/icons/cart_white.svg"
+            priority
+            alt="Carrinho"
+            onClick={toggleCart}
+          />
+        </Header>
         <Swiper
           navigation={true}
           modules={[Navigation]}
           className={styles.swipperSlider}
-          onSlideChange={(e) => setCurrentIndex(e.activeIndex)}          
+          onSlideChange={(e) => setCurrentIndex(e.activeIndex)}
         >
           {videoLinks?.map((video, index) => (
             <SwiperSlide key={video.id}>

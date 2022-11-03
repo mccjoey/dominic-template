@@ -12,11 +12,14 @@ import { useRouter } from "next/router";
 import { FooterMobile } from "../../components/Footer";
 import { FeedPlayer } from "./FeedPlayer";
 import useView from "../../../../hooks/useView";
+import { useMediaQuery } from "@mui/material";
+import { useMenuStore } from "../../../../store/stores";
 
 export const FeedMobile = () => {
   const { back } = useRouter();
   const [sharePage, setSharePage] = useState(false);
   const { innerWidth = 0 } = useView();
+  const { toggleCart } = useMenuStore();
 
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -80,6 +83,7 @@ export const FeedMobile = () => {
             src="/icons/cart_white.svg"
             priority
             alt="Carrinho"
+            onClick={toggleCart}
           />
         </Header>
         <section className={styles.sliderWrapper}>

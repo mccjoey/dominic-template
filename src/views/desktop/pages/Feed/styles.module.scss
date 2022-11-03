@@ -7,6 +7,35 @@
     position: relative;
     overflow: hidden;
 
+    header {
+      position: fixed;
+      top: 0;
+      color: white;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      height: 55px;
+      z-index: 2;
+
+      small {
+        font-size: 16px;
+        font-weight: 100;
+        letter-spacing: 2px;
+      }
+
+      svg {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      img {
+        cursor: pointer;
+      }
+    }
+
     .swipperSlider {
       max-width: 850px;
       width: 100%;
@@ -187,7 +216,7 @@
     }
 
     button {
-      border: 0;
+      border: 1px solid black;
       background-color: black;
       color: white;
       padding: 10px 0;
@@ -196,6 +225,11 @@
       font-family: inherit;
       pointer-events: all;
       z-index: 999;
+
+      &.details {
+        background-color: white;
+      color: black;
+      }
     }
   }
 }
@@ -221,6 +255,7 @@
   position: relative;
   vertical-align: middle;
 }
+
 .loader,
 .loader:before,
 .loader:after {
@@ -241,6 +276,7 @@
 .loader-2:after {
   content: "";
 }
+
 .loader-2:before {
   border: 1px solid #fff;
   top: -1px;

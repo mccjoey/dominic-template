@@ -55,6 +55,7 @@ export const ProductItem: React.FC<ProductItemProps> = ({
                 setOpen(false);
                 route("/produto");
               }}
+              className={styles.details}
             >
               Detalhes do Produto
             </button>

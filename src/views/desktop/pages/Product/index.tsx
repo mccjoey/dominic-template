@@ -11,6 +11,7 @@ import { useInView } from "react-intersection-observer";
 import useShowFooter from "../../../../hooks/useShowFooter";
 import useScrollHeight from "../../../../hooks/useScrollHeight";
 import { ProductReview } from "../../../../components/ProductReview";
+import { ProductClientPhotos } from "../../../../components/ProductClientPhotos";
 
 export const ProductDesktop = () => {
   const isScrollingUp = useShowFooter();
@@ -307,6 +308,7 @@ export const ProductDesktop = () => {
             </div>
           </aside>
         </section>
+        <ProductClientPhotos />
         <ProductReview />
         <section className={styles.productRel}>
           <RelProducts />

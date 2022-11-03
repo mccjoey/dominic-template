@@ -41,16 +41,15 @@ export const CenteredCarousel = () => {
 
       <div className={styles.carouselWrapper}>
         <Swiper
-          slidesPerView={innerWidth >= 780 ? 5 : 1.5}
-          spaceBetween={innerWidth >= 780 ? 30 : 5}
+          slidesPerView={innerWidth >= 780 ? 4 : 1.5}
+          spaceBetween={innerWidth >= 780 ? 0 : 5}
           pagination={false}
           onSlideChange={(e) => setCurrentIndex(e.realIndex)}
           modules={[Navigation, Pagination]}
           centeredSlides={true}
-          navigation
-          
           className={styles.swiper}
           initialSlide={1}
+          navigation
           loop
         >
           {veriaTvVideos?.map((video, index) => (

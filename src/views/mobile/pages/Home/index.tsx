@@ -9,6 +9,7 @@ import { ProductsCarousel } from "../../../../components/ProductsCarousel";
 import { HomeDrawer } from "./HomeDrawer";
 import styles from "./styles.module.scss";
 import { LivesCarousel } from "../../../../components/LivesCarousel";
+import { Matches } from "../../../../components/Matches";
 
 const HomeMobile: NextPage = () => {
   const [homeDrawer, setHomeDrawer] = useState<boolean>(false);
@@ -38,6 +39,7 @@ const HomeMobile: NextPage = () => {
           <NewestProducts />
           <CenteredCarousel />
           <ProductsCarousel />
+          <Matches />
           {/* <LivesCarousel /> */}
         </div>
       </main>
@@ -47,5 +49,3 @@ const HomeMobile: NextPage = () => {
 };
 
 export default HomeMobile;
-
-
