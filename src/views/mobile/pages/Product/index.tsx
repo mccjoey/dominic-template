@@ -24,10 +24,13 @@ import { useInView } from "react-intersection-observer";
 import { ProductReview } from "../../../../components/ProductReview";
 import { useMenuStore } from "../../../../store/stores";
 import { ProductClientPhotos } from "../../../../components/ProductClientPhotos";
+import Link from "next/link";
+import { Menu } from "../../components/Header/Menu";
 
 export const ProductMobile = () => {
   const [gridView, setGridView] = useState(2);
   const [height, setHeight] = useState(0);
+  const [isHeaderMenuOpen, setIsHeaderMenuOpen] = useState<boolean>(false);
   const [sizesDrawer, setSizesDrawer] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [isProductFavorite, setIsProductFavorite] = useState<boolean>(false);
@@ -94,6 +97,34 @@ export const ProductMobile = () => {
           >
             <div>
               <BsChevronLeft onClick={() => route.back()} />
+              <Image
+                width={32}
+                height={32}
+                src="/icons/menu.svg"
+                priority
+                alt="Menu"
+                onClick={() => setIsHeaderMenuOpen(true)}
+              />
+              <Link href="/">
+                <Image
+                  width={980}
+                  height={166.04}
+                  src="/images/logo_black.svg"
+                  priority
+                  alt="Logo"
+                  className={styles.logo}
+                />
+              </Link>
+
+              <Link href="/">
+                <Image
+                  width={32}
+                  height={32}
+                  src="/icons/home.svg"
+                  priority
+                  alt="Home"
+                />
+              </Link>
               <Image
                 width={32}
                 height={32}
@@ -326,6 +357,12 @@ export const ProductMobile = () => {
           </div>
         </div>
       </main>
+      <Menu
+        isOpen={isHeaderMenuOpen}
+        setIsOpen={setIsHeaderMenuOpen}
+        setIsFaqOpen={() => false}
+        setIsHeaderMenuOpen={() => false}
+      />
       <SelectSizeSheet open={sizesDrawer} setOpen={setSizesDrawer} />
       <ProductModal isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
     </>

@@ -6,17 +6,22 @@
   }
 
   .content {
+    > p {
+      display: none;
+    }
     h1 {
-      letter-spacing: 1.78px;
-      margin-bottom: 40px;
-      font-size: 28px;
-      text-transform: uppercase;
-      text-align: center;
+      padding: 0 15px;
+    }
+
+    @media only screen and (min-width: 781px) {
+      h1 {
+        padding: 0 ;
+      }
     }
 
     .matchesList {
       display: grid;
-      grid-template-columns: repeat(3, 320px);
+      grid-template-columns: repeat(6, 320px);
       overflow-x: scroll;
       gap: 20px;
       padding-bottom: 20px;

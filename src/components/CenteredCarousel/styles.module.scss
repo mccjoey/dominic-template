@@ -8,6 +8,11 @@
   > div:first-of-type {
     color: white;
     padding: 60px 15px 30px;
+
+    @media only screen and (min-width: 781px) {
+      font-size: 18px;
+      padding: 60px var(--padding-inline-desk) 30px;
+    }
   }
 
   .currentIndex {
@@ -38,7 +43,7 @@
   }
 
   :global(.swiper-button-prev) {
-    left: 37%;
+    left: 33%;
     top: 46%;
     width: 45px;
     height: 89px;
@@ -53,7 +58,7 @@
   }
 
   :global(.swiper-button-next) {
-    right: 37%;
+    right: 33%;
     top: 46%;
     width: 45px;
     height: 89px;

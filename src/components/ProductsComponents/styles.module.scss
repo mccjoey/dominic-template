@@ -1,11 +1,15 @@
 .filterProducts {
   padding: 50px 15px 15px;
-  padding-inline: var(--padding-inline-desk);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   border-bottom: 1px solid #e1e1e1;
+  background-color: white;
+
+  @media only screen and (min-width: 781px) {
+    padding-inline: var(--padding-inline-desk);
+  }
 
   h1 {
     font-size: 14px;
@@ -51,7 +55,7 @@
     .filterView {
       display: flex;
       gap: 5px;
-      
+
       img {
         cursor: pointer;
       }
@@ -340,5 +344,77 @@
       background-color: black;
       color: white;
     }
+  }
+}
+
+.stickyMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding-inline: 15px;
+  background-color: white;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  @media only screen and (min-width: 781px) {
+    display: none;
+  }
+
+  ul {
+    width: 100%;
+    overflow-x: scroll;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 15px;
+
+    li {
+      min-width: fit-content;
+      display: inline-block;
+      list-style: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      padding-bottom: 3px;
+
+      &.active {
+        font-weight: 700;
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+
+  &.stickyDown {
+    position: sticky;
+    top: 55px;
+    animation: slideDownSubHeader 0.55s ease forwards;
+  }
+
+  &.stickyUp {
+    position: sticky;
+    top: 0;
+    animation: slideDownSubHeaderUp 0.55s ease forwards;
+  }
+}
+
+@keyframes slideDownSubHeader {
+  0% {
+    top: 0;
+  }
+
+  100% {
+    top: 55px;
+  }
+}
+
+@keyframes slideDownSubHeaderUp {
+  0% {
+    top: 55px;
+  }
+
+  100% {
+    top: 0;
   }
 }

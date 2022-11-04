@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FilterProducts } from "../../components/ProductsComponents/FilterProducts";
 import { ProductsList } from "../../components/ProductsComponents/ProductsList";
 import useView from "../../hooks/useView";
+import { StickyMobile } from "../../components/ProductsComponents/StickyMobile";
 
 const Products: NextPage = () => {
   const [gridView, setGridView] = useState(2);
@@ -50,7 +51,7 @@ const Products: NextPage = () => {
             </div>
           )}
         </div>
-
+        <StickyMobile />
         <FilterProducts setGridView={setGridView} />
         <ProductsList gridView={gridView} />
       </div>

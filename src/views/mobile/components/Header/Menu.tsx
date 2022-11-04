@@ -6,6 +6,7 @@ import { BaseSyntheticEvent } from "react";
 import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import { useRouter } from "next/router";
+import { GrClose } from "react-icons/gr";
 
 interface MenuProps {
   isOpen: boolean;
@@ -20,12 +21,15 @@ export const Menu: React.FC<MenuProps> = ({
   setIsFaqOpen,
   setIsHeaderMenuOpen,
 }) => {
-  const { push: route } = useRouter();
+  const { push: route, pathname, asPath } = useRouter();
   const handleOpenSubmenu = (e: BaseSyntheticEvent) => {
     if (e.target.parentElement.dataset.hasubmenu) {
       e.target.parentElement.classList.toggle("open");
     }
   };
+
+  const regex = new RegExp("/produto");
+  const regex2 = new RegExp("/colecoes/feed");
 
   return (
     <Drawer
@@ -37,6 +41,13 @@ export const Menu: React.FC<MenuProps> = ({
       className={styles.menuDrawer}
     >
       <section className={styles.menuContent}>
+        {pathname !== "/produtos" && (regex.test(pathname) || regex2.test(pathname)) && (
+          <GrClose
+            className={styles.closeModalProduct}
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+
         <ul>
           <li data-hasubmenu="true">
             <small onClick={handleOpenSubmenu}>Novidades</small>

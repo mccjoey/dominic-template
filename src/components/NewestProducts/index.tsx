@@ -8,7 +8,7 @@ export const NewestProducts = () => {
     <section className={styles.newestProducts}>
       <SectionTitle category="Category Focus" sectionTitle="Novidades" />
       <div className={styles.productsList}>
-        {Array.from({ length: 8 }).map((product, index) => (
+        {Array.from({ length: 12 }).map((product, index) => (
           <ProductItem key={`HomeProduct-${index}`} />
         ))}
       </div>

@@ -23,6 +23,7 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
   return (
     <>
       <section className={styles.filterProducts}>
+       
         <h1>SHOP BY SIZE</h1>
         <div className={styles.sizeList}>
           <Link
@@ -82,14 +83,13 @@ export const FilterProducts: React.FC<FilterProductsProps> = ({
           </Link>
         </div>
         <div className={styles.filterMenu}>
-          <div className={styles.filter}  onClick={() => setIsFiltersOpen(true)}>
+          <div className={styles.filter} onClick={() => setIsFiltersOpen(true)}>
             <Image
               width={32}
               height={32}
               src="/icons/filter.svg"
               priority
               alt="Home"
-             
             />
             <small>Filtro</small>
           </div>
