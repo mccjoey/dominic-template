@@ -301,6 +301,7 @@
     position: absolute;
     bottom: 0;
     padding: 0 25px;
+    
     height: 64px;
     width: 100%;
 
@@ -321,6 +322,7 @@
   border-top: 1px solid #e7e6e2;
   flex: 1;
   padding: 25px;
+  padding-bottom: 75px;
   overflow-y: scroll;
 
   li {
